@@ -567,6 +567,88 @@ PARTNERS - Figma
   color: white;
   transform: translateY(-2px);
 }
+
+/* ====================
+  TESTIMONIALS - Figma
+  ================== */
+
+.testimonials {
+  display: flex;
+  background: #f1f4f9;
+  height: 80vh;
+  width: 100%;
+  padding: 0 160px;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonials__content {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  max-width: fit-content;
+}
+
+.testimonials__content-text {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 90px;
+  padding: 70px 90px;
+  background: #ffffff;
+  width: fit-content;
+  height: fit-content;
+  gap: 16px;
+  z-index: 50;
+}
+
+.testimonials__content-quote {
+  color: #292929;
+  font-family: var(--font-peachi);
+  font-size: 85.333px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 35px;
+}
+
+.testimonials__content-review {
+  color: #292929;
+  font-family: var(--font-peachi);
+  font-size: 34px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 129%; /* 43.86px */
+  max-width: 620px;
+}
+
+.testimonials__content-image {
+  position: relative;
+  right: 60px;
+  width: 916px;
+  height: 650px;
+}
+
+.testimonials__content-author {
+  display: flex;
+  flex-direction: row;
+  gap: 26px;
+  align-items: start;
+}
+
+.testimonials__content-author__border {
+  display: flex;
+  width: 2.66px;
+  height: 41.33px;
+  background: #e7542b;
+  border-radius: 3px;
+}
+.testimonials__content-author__text {
+  display: flex;
+  gap: 0;
+}
+
 /* =============================================================================
    Button Enhancements
    ============================================================================= */
