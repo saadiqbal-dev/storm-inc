@@ -575,7 +575,7 @@ PARTNERS - Figma
 .testimonials {
   display: flex;
   background: #f1f4f9;
-  height: 80vh;
+  height: 70vh;
   width: 100%;
   padding: 0 160px;
   align-items: center;
@@ -611,6 +611,8 @@ PARTNERS - Figma
   font-style: normal;
   font-weight: 300;
   line-height: 35px;
+  margin: 0;
+  padding: 0;
 }
 
 .testimonials__content-review {
@@ -621,6 +623,8 @@ PARTNERS - Figma
   font-weight: 300;
   line-height: 129%; /* 43.86px */
   max-width: 620px;
+  margin: 0;
+  padding: 0;
 }
 
 .testimonials__content-image {
@@ -647,6 +651,81 @@ PARTNERS - Figma
 .testimonials__content-author__text {
   display: flex;
   gap: 0;
+}
+
+.testimonials__content-ref {
+  padding: 0 20px;
+  border-left: 3px solid #e7542b;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.testimonials__content-ref__title {
+  padding: 0;
+  margin: 0;
+  color: #000;
+  font-family: var(--font-mona-sans);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 25px; /* 125% */
+}
+.testimonials__content-ref__desc {
+  padding: 0;
+  margin: 0;
+  color: #000;
+  font-family: var(--font-mona-sans);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+}
+
+/* ================
+  FOOTER - Figma
+  ===================  */
+
+.footer {
+  display: flex;
+  padding: 60px 160px 32px 160px;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  gap: 170px;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.footer__content-navigation {
+  display: flex;
+  width: 60%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ooter__content-navigation__contact-text {
+  color: #292929;
+  font-family: var(--font-mona-sans);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 39.9px; /* 199.5% */
+}
+
+.footer__content-navigation__contact-text__span {
+  color: #292929;
+  font-family: var(--font-mona-sans);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 39.9px;
 }
 
 /* =============================================================================
