@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storm Inc - Template Navigation | Frontend Project</title>
+    <meta name="description" content="Navigate through all available HTML templates and components for the Storm Inc frontend project">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Custom Styles -->
+    <style>
+        body { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            min-height: 100vh;
+        }
+        .card { 
+            transition: transform 0.2s ease, box-shadow 0.2s ease; 
+            border: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .card:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        .badge-custom {
+            background: linear-gradient(45deg, #28a745, #20c997);
+            color: white;
+            font-size: 0.75rem;
+        }
+        .header-gradient {
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .status-ready { color: #28a745; font-weight: 600; }
+        .status-template { color: #6f42c1; font-weight: 600; }
+        .status-component { color: #fd7e14; font-weight: 600; }
+        .icon { width: 48px; height: 48px; margin-bottom: 1rem; }
+        .project-stats { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <!-- Header -->
+        <div class="text-center mb-5">
+            <div class="header-gradient rounded-3 p-4 mb-4">
+                <h1 class="display-4 text-white mb-3">🚀 Storm Inc</h1>
+                <p class="lead text-white-50 mb-0">Frontend Template Navigation</p>
+            </div>
+            
+            <!-- Project Stats -->
+            <div class="project-stats rounded-3 p-3 mb-4">
+                <div class="row text-white">
+                    <div class="col-md-3 col-6">
+                        <div class="h4 mb-0">1</div>
+                        <small class="text-white-50">Templates</small>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="h4 mb-0">2</div>
+                        <small class="text-white-50">Components</small>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="h4 mb-0">100%</div>
+                        <small class="text-white-50">Responsive</small>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="h4 mb-0">AA</div>
+                        <small class="text-white-50">Accessible</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Cards -->
+        <div class="row g-4">
+            
+            <!-- Main Template -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="icon mx-auto bg-primary bg-gradient rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-layout-text-window text-white fs-4" style="font-size: 24px;">📄</i>
+                        </div>
+                        <h5 class="card-title">Base Template</h5>
+                        <p class="card-text text-muted">Complete HTML template with Bootstrap 5, semantic structure, and responsive design</p>
+                        <div class="mb-3">
+                            <span class="badge badge-custom">Ready</span>
+                            <span class="badge bg-light text-dark ms-1">Bootstrap 5</span>
+                        </div>
+                        <a href="src/pages/template-base.html" class="btn btn-primary" target="_blank">View Template</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEO Meta Component -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="icon mx-auto bg-success bg-gradient rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-search text-white fs-4" style="font-size: 24px;">🔍</i>
+                        </div>
+                        <h5 class="card-title">SEO Meta Tags</h5>
+                        <p class="card-text text-muted">Complete SEO meta tags template with Open Graph, Twitter Cards, and structured data</p>
+                        <div class="mb-3">
+                            <span class="badge badge-custom">Component</span>
+                            <span class="badge bg-light text-dark ms-1">SEO</span>
+                        </div>
+                        <a href="src/components/seo-meta.html" class="btn btn-success" target="_blank">View Component</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Accessibility Component -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="icon mx-auto bg-warning bg-gradient rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-universal-access text-white fs-4" style="font-size: 24px;">♿</i>
+                        </div>
+                        <h5 class="card-title">Accessibility</h5>
+                        <p class="card-text text-muted">A11y components, examples, and guidelines following WCAG 2.1 AA standards</p>
+                        <div class="mb-3">
+                            <span class="badge badge-custom">Component</span>
+                            <span class="badge bg-light text-dark ms-1">A11y</span>
+                        </div>
+                        <a href="src/components/accessibility.html" class="btn btn-warning" target="_blank">View Component</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSS Styles -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="icon mx-auto bg-info bg-gradient rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-palette text-white fs-4" style="font-size: 24px;">🎨</i>
+                        </div>
+                        <h5 class="card-title">Main Stylesheet</h5>
+                        <p class="card-text text-muted">BEM methodology CSS with custom properties, animations, and responsive design</p>
+                        <div class="mb-3">
+                            <span class="badge badge-custom">Styles</span>
+                            <span class="badge bg-light text-dark ms-1">BEM</span>
+                        </div>
+                        <a href="src/assets/css/main.css" class="btn btn-info" target="_blank">View CSS</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JavaScript -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="icon mx-auto bg-secondary bg-gradient rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-code-square text-white fs-4" style="font-size: 24px;">⚡</i>
+                        </div>
+                        <h5 class="card-title">JavaScript</h5>
+                        <p class="card-text text-muted">Modern JavaScript with jQuery, no global pollution, and unobtrusive interactions</p>
+                        <div class="mb-3">
+                            <span class="badge badge-custom">Scripts</span>
+                            <span class="badge bg-light text-dark ms-1">jQuery</span>
+                        </div>
+                        <a href="src/assets/js/main.js" class="btn btn-secondary" target="_blank">View JS</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Documentation -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100">
+                    <div class="card-body text-center p-4">
+                        <div class="icon mx-auto bg-dark bg-gradient rounded-circle d-flex align-items-center justify-content-center">
+                            <i class="bi bi-book text-white fs-4" style="font-size: 24px;">📚</i>
+                        </div>
+                        <h5 class="card-title">Documentation</h5>
+                        <p class="card-text text-muted">Complete project documentation with setup instructions and customization guide</p>
+                        <div class="mb-3">
+                            <span class="badge badge-custom">Docs</span>
+                            <span class="badge bg-light text-dark ms-1">Guide</span>
+                        </div>
+                        <a href="README.md" class="btn btn-dark" target="_blank">View Docs</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technical Specifications -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">🔧 Technical Specifications</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Frontend Stack</h6>
+                                <ul class="list-unstyled mb-3">
+                                    <li><strong>Bootstrap:</strong> 5.3.3 (CDN)</li>
+                                    <li><strong>jQuery:</strong> 3.7.1 (CDN)</li>
+                                    <li><strong>CSS:</strong> Modern CSS3 with custom properties</li>
+                                    <li><strong>JavaScript:</strong> ES6+ with namespace pattern</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Standards Compliance</h6>
+                                <ul class="list-unstyled mb-3">
+                                    <li><strong>Accessibility:</strong> WCAG 2.1 AA</li>
+                                    <li><strong>SEO:</strong> Google modern specifications</li>
+                                    <li><strong>Performance:</strong> Lighthouse ≥90 target</li>
+                                    <li><strong>Browser:</strong> Evergreen browser support</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="alert alert-info mb-0" role="alert">
+                            <h6 class="alert-heading">🚀 Ready for Laravel Integration</h6>
+                            This frontend is designed to work seamlessly with Laravel Blade templates. All assets are organized and ready for backend integration.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center mt-5 text-white-50">
+            <p class="mb-2">Built with modern web standards • Ready for production</p>
+            <small>Storm Inc Frontend Template • 2025</small>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

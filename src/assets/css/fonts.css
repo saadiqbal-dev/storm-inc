@@ -1,0 +1,23 @@
+/* Custom Fonts for Storm Inc */
+
+/* Peachi Font - For headings */
+@import url('https://fonts.googleapis.com/css2?family=Peach&display=swap');
+
+/* Mona Sans Font - For body text and UI elements */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Font Face Declarations */
+:root {
+  --font-peachi: 'Peach', serif;
+  --font-mona-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Peachi Font Class */
+.font-peachi {
+  font-family: var(--font-peachi);
+}
+
+/* Mona Sans Font Class */
+.font-mona-sans {
+  font-family: var(--font-mona-sans);
+}

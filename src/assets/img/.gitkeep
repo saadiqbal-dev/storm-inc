@@ -1,0 +1,33 @@
+# Placeholder file to keep the img directory in version control
+
+## Image Guidelines
+
+### Format Requirements
+- **Primary format**: WebP for modern browsers
+- **Fallback format**: JPG/PNG only if absolutely required
+- **Optimization**: All images should be compressed and optimized
+
+### Responsive Images
+Use the following naming convention:
+- `image-name-small.webp` - Mobile (up to 480px)
+- `image-name-medium.webp` - Tablet (481px - 767px)  
+- `image-name-large.webp` - Desktop (768px+)
+
+### Example Usage in HTML:
+```html
+<picture>
+  <source srcset="img/hero-large.webp" media="(min-width: 768px)">
+  <source srcset="img/hero-medium.webp" media="(min-width: 480px)">
+  <img src="img/hero-small.webp" alt="Description" class="img-fluid" loading="lazy">
+</picture>
+```
+
+### SEO Requirements
+- All images must have meaningful `alt` attributes
+- Use descriptive filenames (avoid generic names like "image1.webp")
+- Include width and height attributes when possible for CLS prevention
+
+### Performance
+- Use `loading="lazy"` for images below the fold
+- Use `loading="eager"` for above-the-fold images
+- Consider using `srcset` and `sizes` for responsive images

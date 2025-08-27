@@ -1,0 +1,413 @@
+/**
+ * Storm Inc - Main JavaScript
+ * Modern, unobtrusive JavaScript following best practices
+ */
+
+(function (window, document, $) {
+  "use strict";
+
+  // Main application namespace to avoid global pollution
+  const StormApp = {
+    // Configuration
+    config: {
+      breakpoints: {
+        xs: 0,
+        sm: 576,
+        md: 768,
+        lg: 992,
+        xl: 1200,
+        xxl: 1400,
+      },
+      animationDuration: 300,
+      debounceDelay: 250,
+    },
+
+    // Utility functions
+    utils: {
+      // Debounce function for performance
+      debounce: function (func, wait, immediate) {
+        let timeout;
+        return function executedFunction() {
+          const context = this;
+          const args = arguments;
+          const later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          };
+          const callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+        };
+      },
+
+      // Throttle function for scroll events
+      throttle: function (func, limit) {
+        let inThrottle;
+        return function () {
+          const args = arguments;
+          const context = this;
+          if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => (inThrottle = false), limit);
+          }
+        };
+      },
+
+      // Get current viewport width
+      getViewportWidth: function () {
+        return Math.max(
+          document.documentElement.clientWidth || 0,
+          window.innerWidth || 0
+        );
+      },
+
+      // Check if element is in viewport
+      isInViewport: function (element) {
+        const rect = element.getBoundingClientRect();
+        return (
+          rect.top >= 0 &&
+          rect.left >= 0 &&
+          rect.bottom <=
+            (window.innerHeight || document.documentElement.clientHeight) &&
+          rect.right <=
+            (window.innerWidth || document.documentElement.clientWidth)
+        );
+      },
+
+      // Smooth scroll to element
+      scrollToElement: function (target, offset = 0) {
+        const element =
+          typeof target === "string" ? document.querySelector(target) : target;
+        if (element) {
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      },
+    },
+
+    // Navigation functionality
+    navigation: {
+      init: function () {
+        this.setupSmoothScroll();
+        this.setupMobileMenuBehavior();
+        this.setupActiveStateTracking();
+      },
+
+      setupSmoothScroll: function () {
+        // Smooth scroll for anchor links
+        $(document).on("click", 'a[href^="#"]:not([href="#"])', function (e) {
+          const target = $(this.getAttribute("href"));
+          if (target.length) {
+            e.preventDefault();
+            const headerHeight = $(".header").outerHeight() || 0;
+            StormApp.utils.scrollToElement(target[0], headerHeight + 20);
+
+            // Update URL without jumping
+            if (history.pushState) {
+              history.pushState(null, null, this.getAttribute("href"));
+            }
+          }
+        });
+      },
+
+      setupMobileMenuBehavior: function () {
+        // Close mobile menu when clicking on nav links
+        $(".navbar-nav .nav-link").on("click", function () {
+          const navbarCollapse = $(".navbar-collapse");
+          if (navbarCollapse.hasClass("show")) {
+            $(".navbar-toggler").click();
+          }
+        });
+
+        // Close mobile menu when clicking outside
+        $(document).on("click", function (e) {
+          const navbar = $(".navbar-collapse");
+          const toggler = $(".navbar-toggler");
+
+          if (
+            navbar.hasClass("show") &&
+            !navbar.is(e.target) &&
+            navbar.has(e.target).length === 0 &&
+            !toggler.is(e.target)
+          ) {
+            toggler.click();
+          }
+        });
+      },
+
+      setupActiveStateTracking: function () {
+        // Update active nav item based on scroll position
+        const updateActiveNavItem = StormApp.utils.throttle(function () {
+          const scrollPosition = $(window).scrollTop() + 100;
+          const sections = $("section[id]");
+
+          sections.each(function () {
+            const section = $(this);
+            const sectionTop = section.offset().top;
+            const sectionHeight = section.outerHeight();
+            const sectionId = section.attr("id");
+
+            if (
+              scrollPosition >= sectionTop &&
+              scrollPosition < sectionTop + sectionHeight
+            ) {
+              $(".navbar-nav .nav-link").removeClass("active");
+              $(`.navbar-nav .nav-link[href="#${sectionId}"]`).addClass(
+                "active"
+              );
+            }
+          });
+        }, 100);
+
+        $(window).on("scroll", updateActiveNavItem);
+      },
+    },
+
+    // Form handling
+    forms: {
+      init: function () {
+        this.setupValidation();
+        this.setupSubmission();
+      },
+
+      setupValidation: function () {
+        // Real-time form validation
+        $("form").each(function () {
+          const form = this;
+
+          // Validate on submit
+          $(form).on("submit", function (e) {
+            if (!form.checkValidity()) {
+              e.preventDefault();
+              e.stopPropagation();
+            }
+            $(form).addClass("was-validated");
+          });
+
+          // Real-time validation for individual fields
+          $(form)
+            .find("input, textarea, select")
+            .on("blur", function () {
+              const field = $(this);
+              const isValid = this.checkValidity();
+
+              field.removeClass("is-valid is-invalid");
+              field.addClass(isValid ? "is-valid" : "is-invalid");
+            });
+        });
+      },
+
+      setupSubmission: function () {
+        // Handle form submissions with loading states
+        $('form[data-ajax="true"]').on("submit", function (e) {
+          e.preventDefault();
+
+          const form = $(this);
+          const submitButton = form.find('[type="submit"]');
+          const originalText = submitButton.text();
+
+          // Show loading state
+          submitButton.prop("disabled", true).html(`
+            <span class="loading loading--dark me-2"></span>
+            Submitting...
+          `);
+
+          // Simulate form submission (replace with actual AJAX call)
+          setTimeout(function () {
+            submitButton.prop("disabled", false).text(originalText);
+            // Handle success/error states here
+          }, 2000);
+        });
+      },
+    },
+
+    // Performance optimizations
+    performance: {
+      init: function () {
+        this.setupLazyLoading();
+        this.setupImageOptimization();
+      },
+
+      setupLazyLoading: function () {
+        // Native lazy loading fallback for older browsers
+        if ("loading" in HTMLImageElement.prototype) {
+          // Native lazy loading is supported
+          $("img[data-src]").each(function () {
+            $(this)
+              .attr("src", $(this).attr("data-src"))
+              .removeAttr("data-src");
+          });
+        } else {
+          // Fallback for older browsers
+          this.implementIntersectionObserver();
+        }
+      },
+
+      implementIntersectionObserver: function () {
+        if ("IntersectionObserver" in window) {
+          const imageObserver = new IntersectionObserver(function (
+            entries,
+            observer
+          ) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove("lazy");
+                imageObserver.unobserve(img);
+              }
+            });
+          });
+
+          $("img[data-src]").each(function () {
+            imageObserver.observe(this);
+          });
+        }
+      },
+
+      setupImageOptimization: function () {
+        // WebP support detection and fallback
+        const supportsWebP = (function () {
+          const canvas = document.createElement("canvas");
+          canvas.width = 1;
+          canvas.height = 1;
+          return (
+            canvas.toDataURL("image/webp").indexOf("data:image/webp") === 0
+          );
+        })();
+
+        if (!supportsWebP) {
+          $('picture source[type="image/webp"]').remove();
+        }
+      },
+    },
+
+    // Accessibility enhancements
+    accessibility: {
+      init: function () {
+        this.setupKeyboardNavigation();
+        this.setupFocusManagement();
+        this.setupARIAEnhancements();
+      },
+
+      setupKeyboardNavigation: function () {
+        // ESC key to close modals/dropdowns
+        $(document).on("keydown", function (e) {
+          if (e.key === "Escape") {
+            // Close any open Bootstrap components
+            $(".modal.show").modal("hide");
+            $(".dropdown-menu.show").dropdown("hide");
+            $(".navbar-collapse.show").collapse("hide");
+          }
+        });
+
+        // Tab trap for modals
+        $(document).on("shown.bs.modal", ".modal", function () {
+          const modal = $(this);
+          const focusableElements = modal.find(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+          );
+          const firstElement = focusableElements.first();
+          const lastElement = focusableElements.last();
+
+          firstElement.focus();
+
+          modal.on("keydown", function (e) {
+            if (e.key === "Tab") {
+              if (e.shiftKey) {
+                if (document.activeElement === firstElement[0]) {
+                  e.preventDefault();
+                  lastElement.focus();
+                }
+              } else {
+                if (document.activeElement === lastElement[0]) {
+                  e.preventDefault();
+                  firstElement.focus();
+                }
+              }
+            }
+          });
+        });
+      },
+
+      setupFocusManagement: function () {
+        // Skip link functionality
+        $(".skip-link").on("click", function (e) {
+          e.preventDefault();
+          const target = $($(this).attr("href"));
+          if (target.length) {
+            target.attr("tabindex", "-1").focus();
+          }
+        });
+
+        // Focus management for dynamic content
+        $(document).on("shown.bs.collapse", function (e) {
+          const firstFocusable = $(e.target)
+            .find(
+              'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+            )
+            .first();
+          if (firstFocusable.length) {
+            firstFocusable.focus();
+          }
+        });
+      },
+
+      setupARIAEnhancements: function () {
+        // Dynamic ARIA updates for loading states
+        $(document).on("submit", "form", function () {
+          const form = $(this);
+          form.attr("aria-busy", "true");
+
+          // Remove aria-busy after form processing
+          setTimeout(function () {
+            form.removeAttr("aria-busy");
+          }, 2000);
+        });
+
+        // ARIA live region for dynamic content updates
+        if (!$("#live-region").length) {
+          $("body").append(
+            '<div id="live-region" class="sr-only" aria-live="polite" aria-atomic="true"></div>'
+          );
+        }
+      },
+    },
+
+    // Initialize all modules
+    init: function () {
+      // Wait for DOM to be ready
+      $(document).ready(() => {
+        this.navigation.init();
+        this.forms.init();
+        this.performance.init();
+        this.accessibility.init();
+
+        // Trigger custom event for other scripts
+        $(document).trigger("stormapp:initialized");
+      });
+
+      // Handle window load
+      $(window).on("load", () => {
+        // Remove any loading classes
+        $("body").removeClass("loading");
+
+        // Trigger custom event
+        $(document).trigger("stormapp:loaded");
+      });
+    },
+  };
+
+  // Initialize the application
+  StormApp.init();
+
+  // Expose StormApp globally for extensibility
+  window.StormApp = StormApp;
+})(window, document, jQuery);
