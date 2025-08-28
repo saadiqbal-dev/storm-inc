@@ -660,16 +660,35 @@ PARTNERS - Figma
 }
 
 .partners__images {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  overflow: hidden;
   margin: 0 60px;
+  position: relative;
+  width: 100%;
+}
+
+.partners__slide-track {
+  display: flex;
+  align-items: center;
+  animation: slideLogos 25s linear infinite;
+  /* Width: (5 logos × 200px) + (5 gaps × 120px) = 1600px per set, × 4 sets = 6400px */
+  width: 6400px;
 }
 
 .partners__images-img {
   max-height: 140px;
   max-width: 200px;
+  flex-shrink: 0;
+  margin-right: 120px;
+  transition: filter 0.3s ease;
+}
+
+@keyframes slideLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1600px); /* Exactly one set width */
+  }
 }
 
 /* =======================
