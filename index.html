@@ -150,6 +150,27 @@
           </div>
         </div>
       </div>
+
+      <!-- Carousel Indicators -->
+      <div class="hero__indicators">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="77"
+          height="10"
+          viewBox="0 0 77 10"
+          fill="none"
+        >
+          <circle cx="5" cy="5" r="5" fill="white" fill-opacity="0.35" />
+          <circle
+            cx="38.5"
+            cy="5"
+            r="5"
+            fill="white"
+            class="hero__indicator--active"
+          />
+          <circle cx="72" cy="5" r="5" fill="white" fill-opacity="0.35" />
+        </svg>
+      </div>
     </section>
     <section class="company">
       <div class="company__content">
@@ -772,6 +793,9 @@
           this.track = document.querySelector(".hero__carousel-track");
           this.slides = document.querySelectorAll(".hero__slide");
           this.heroSection = document.getElementById("hero");
+          this.indicators = document.querySelectorAll(
+            ".hero__indicators circle"
+          );
           this.currentIndex = 0;
           this.slideWidth = 33.333; // Each slide is 33.333% of track width
           this.autoSlideInterval = 6000; // 6 seconds
@@ -789,12 +813,35 @@
           // Set initial position to show first slide
           this.track.style.transform = "translateX(0%)";
           this.track.style.transition = "transform 1s ease-in-out";
+          this.updateIndicators();
+        }
+
+        updateIndicators() {
+          // Remove active class from all indicators
+          this.indicators.forEach((indicator) => {
+            indicator.classList.remove("hero__indicator--active");
+            indicator.setAttribute("fill", "white");
+            indicator.setAttribute("fill-opacity", "0.35");
+          });
+
+          // Add active class to current indicator
+          if (this.indicators[this.currentIndex]) {
+            this.indicators[this.currentIndex].classList.add(
+              "hero__indicator--active"
+            );
+            this.indicators[this.currentIndex].setAttribute("fill", "white");
+            this.indicators[this.currentIndex].setAttribute(
+              "fill-opacity",
+              "1"
+            );
+          }
         }
 
         slideToNext() {
           this.currentIndex = (this.currentIndex + 1) % this.slides.length;
           const translateX = -this.currentIndex * this.slideWidth;
           this.track.style.transform = `translateX(${translateX}%)`;
+          this.updateIndicators();
 
           // Reset to first slide seamlessly after last slide
           if (this.currentIndex === 0) {

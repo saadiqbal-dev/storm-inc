@@ -216,15 +216,30 @@ body {
 }
 
 .hero__slide-bg--1 {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url('../img/hero-1.jpg');
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    url("../img/hero-1.jpg");
 }
 
 .hero__slide-bg--2 {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url('../img/hero-2.png');
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    url("../img/hero-2.png");
 }
 
 .hero__slide-bg--3 {
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), url('../img/hero-3.png');
+  background-image: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.2) 100%
+    ),
+    url("../img/hero-3.png");
 }
 
 .hero__content {
@@ -291,6 +306,19 @@ body {
   color: #ff5964;
   background-color: rgba(255, 255, 255, 0.1);
   transform: translateY(-2px);
+}
+
+.hero__indicators {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.hero__indicator--active {
+  fill: #ffffff !important;
+  fill-opacity: 1 !important;
 }
 
 /* =============================================================================
