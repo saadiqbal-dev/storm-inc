@@ -115,7 +115,7 @@
               <button class="hero__cta-button">Find out More</button>
             </div>
           </div>
-          
+
           <!-- Slide 2 -->
           <div class="hero__slide">
             <div class="hero__slide-bg hero__slide-bg--2"></div>
@@ -125,13 +125,14 @@
                   Auckland-Based Full-Service Digital Marketing.
                 </h1>
                 <p class="hero__subheading">
-                  Develop A 360° Digital Marketing Strategy - Rocket Fuel For Your Brand.
+                  Develop A 360° Digital Marketing Strategy - Rocket Fuel For
+                  Your Brand.
                 </p>
               </div>
               <button class="hero__cta-button">Find out More</button>
             </div>
           </div>
-          
+
           <!-- Slide 3 -->
           <div class="hero__slide">
             <div class="hero__slide-bg hero__slide-bg--3"></div>
@@ -763,120 +764,126 @@
         </p>
       </div>
     </section>
-    
+
     <!-- Hero Carousel & Parallax Script -->
     <script>
       class HeroCarousel {
         constructor() {
-          this.track = document.querySelector('.hero__carousel-track');
-          this.slides = document.querySelectorAll('.hero__slide');
-          this.heroSection = document.getElementById('hero');
+          this.track = document.querySelector(".hero__carousel-track");
+          this.slides = document.querySelectorAll(".hero__slide");
+          this.heroSection = document.getElementById("hero");
           this.currentIndex = 0;
           this.slideWidth = 33.333; // Each slide is 33.333% of track width
           this.autoSlideInterval = 6000; // 6 seconds
-          
+
           this.init();
         }
-        
+
         init() {
           this.setupCarousel();
           this.startAutoSlide();
           this.setupParallax();
         }
-        
+
         setupCarousel() {
           // Set initial position to show first slide
-          this.track.style.transform = 'translateX(0%)';
-          this.track.style.transition = 'transform 1s ease-in-out';
+          this.track.style.transform = "translateX(0%)";
+          this.track.style.transition = "transform 1s ease-in-out";
         }
-        
+
         slideToNext() {
           this.currentIndex = (this.currentIndex + 1) % this.slides.length;
           const translateX = -this.currentIndex * this.slideWidth;
           this.track.style.transform = `translateX(${translateX}%)`;
-          
+
           // Reset to first slide seamlessly after last slide
           if (this.currentIndex === 0) {
             setTimeout(() => {
-              this.track.style.transition = 'none';
-              this.track.style.transform = 'translateX(0%)';
+              this.track.style.transition = "none";
+              this.track.style.transform = "translateX(0%)";
               setTimeout(() => {
-                this.track.style.transition = 'transform 1s ease-in-out';
+                this.track.style.transition = "transform 1s ease-in-out";
               }, 50);
             }, 1000);
           }
         }
-        
+
         startAutoSlide() {
           setInterval(() => {
             this.slideToNext();
           }, this.autoSlideInterval);
         }
-        
+
         setupParallax() {
           let ticking = false;
-          
+
           const handleScroll = () => {
             const scrolled = window.pageYOffset;
             const heroHeight = this.heroSection.offsetHeight;
-            
+
             // Apply dual-layer parallax effect
             if (scrolled < heroHeight) {
               // Layer 1: Background images move at half speed (slower than scroll)
-              const imageParallaxSpeed = -scrolled * 0.5;
-              const heroBackgrounds = document.querySelectorAll('.hero__slide-bg');
-              heroBackgrounds.forEach(bg => {
+              const imageParallaxSpeed = -scrolled * 0;
+              const heroBackgrounds =
+                document.querySelectorAll(".hero__slide-bg");
+              heroBackgrounds.forEach((bg) => {
                 bg.style.transform = `translateY(${imageParallaxSpeed}px)`;
               });
-              
-              // Layer 2: Text content moves at 60% of image speed 
-              const textParallaxSpeed = -scrolled * 0.3;
-              const heroContents = document.querySelectorAll('.hero__content');
-              heroContents.forEach(content => {
+
+              // Layer 2: Text content moves at 60% of image speed
+              const textParallaxSpeed = -scrolled * 0.1;
+              const heroContents = document.querySelectorAll(".hero__content");
+              heroContents.forEach((content) => {
                 content.style.transform = `translateY(${textParallaxSpeed}px)`;
               });
-              
+
               // Create layered effect for next sections
-              const contentSections = document.querySelectorAll('.company, .industry, .services, .partners, .join, .testimonials, .footer');
-              contentSections.forEach(section => {
-                const layerOffset = -Math.min(scrolled * 0.3, heroHeight * 0.3);
+              const contentSections = document.querySelectorAll(
+                ".company, .industry, .services, .partners, .join, .testimonials, .footer"
+              );
+              contentSections.forEach((section) => {
+                const layerOffset = -Math.min(scrolled * 0, heroHeight * 0.3);
                 section.style.transform = `translateY(${layerOffset}px)`;
               });
             } else {
               // When past hero, hide backgrounds and text
-              const heroBackgrounds = document.querySelectorAll('.hero__slide-bg');
-              heroBackgrounds.forEach(bg => {
+              const heroBackgrounds =
+                document.querySelectorAll(".hero__slide-bg");
+              heroBackgrounds.forEach((bg) => {
                 bg.style.transform = `translateY(-${heroHeight * 0.5}px)`;
               });
-              
-              const heroContents = document.querySelectorAll('.hero__content');
-              heroContents.forEach(content => {
+
+              const heroContents = document.querySelectorAll(".hero__content");
+              heroContents.forEach((content) => {
                 content.style.transform = `translateY(-${heroHeight * 0.3}px)`;
               });
-              
-              const contentSections = document.querySelectorAll('.company, .industry, .services, .partners, .join, .testimonials, .footer');
-              contentSections.forEach(section => {
-                section.style.transform = 'translateY(0px)';
+
+              const contentSections = document.querySelectorAll(
+                ".company, .industry, .services, .partners, .join, .testimonials, .footer"
+              );
+              contentSections.forEach((section) => {
+                section.style.transform = "translateY(0px)";
               });
             }
-            
+
             ticking = false;
           };
-          
+
           const requestTick = () => {
             if (!ticking) {
               requestAnimationFrame(handleScroll);
               ticking = true;
             }
           };
-          
-          window.addEventListener('scroll', requestTick);
-          window.addEventListener('load', handleScroll);
+
+          window.addEventListener("scroll", requestTick);
+          window.addEventListener("load", handleScroll);
         }
       }
-      
+
       // Initialize carousel when DOM is loaded
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener("DOMContentLoaded", () => {
         new HeroCarousel();
       });
     </script>
