@@ -947,9 +947,35 @@
         }
       }
 
-      // Initialize carousel when DOM is loaded
+      // Header scroll effect
+      class HeaderScroll {
+        constructor() {
+          this.header = document.querySelector('.header');
+          this.scrollThreshold = 100; // Pixels to scroll before effect triggers
+          this.init();
+        }
+
+        init() {
+          window.addEventListener('scroll', () => this.handleScroll());
+          // Initial check in case page is already scrolled
+          this.handleScroll();
+        }
+
+        handleScroll() {
+          const scrolled = window.pageYOffset;
+          
+          if (scrolled > this.scrollThreshold) {
+            this.header.classList.add('header--scrolled');
+          } else {
+            this.header.classList.remove('header--scrolled');
+          }
+        }
+      }
+
+      // Initialize both components when DOM is loaded
       document.addEventListener("DOMContentLoaded", () => {
         new HeroCarousel();
+        new HeaderScroll();
       });
     </script>
   </body>

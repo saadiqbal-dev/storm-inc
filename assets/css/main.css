@@ -95,14 +95,25 @@ body {
    Header Component - Figma Design
    ============================================================================= */
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
-
   width: 100%;
   align-items: center;
   max-width: 1920px;
   z-index: 1000;
   background: transparent;
+  transition: all 0.3s ease;
+}
+
+.header--scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header--scrolled .header__container {
+  padding-bottom: 50px;
+  padding-top: 50px;
 }
 
 .header__container {
@@ -111,19 +122,28 @@ body {
   align-items: center;
   padding-left: 160px;
   padding-right: 160px;
+  padding-top: 50px;
 }
 
 .header__logo {
-  padding-top: 56px;
+  /* padding-top: 50px; */
 }
 
 .header__logo img {
   max-height: 50px;
   width: auto;
+  transition: filter 0.3s ease;
+}
+
+.header--scrolled .header__logo img {
+  filter: invert(1) brightness(0.2);
 }
 
 .header__nav {
-  padding-top: 49.33px;
+  /* padding-top: 50px; */
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
 .header__menu {
@@ -131,6 +151,7 @@ body {
   list-style: none;
   gap: 130px;
   align-items: center;
+  margin: 0;
 }
 
 .header__menu-item {
@@ -148,11 +169,21 @@ body {
   line-height: 30.667px; /* 127.778% */
   letter-spacing: 0.48px;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  margin: 0;
+  padding: 0;
 }
 
 .header__menu-link:hover {
   opacity: 0.8;
+}
+
+.header--scrolled .header__menu-link {
+  color: #333333;
+}
+
+.header--scrolled .header__dropdown-arrow path {
+  fill: #333333;
 }
 
 .header__dropdown-arrow {
