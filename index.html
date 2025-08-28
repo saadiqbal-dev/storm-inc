@@ -820,21 +820,39 @@
             const scrolled = window.pageYOffset;
             const heroHeight = this.heroSection.offsetHeight;
             
-            // Apply parallax effect to hero background
+            // Apply dual-layer parallax effect
             if (scrolled < heroHeight) {
-              // Move hero at half speed for parallax
-              const parallaxSpeed = scrolled * 0.5;
-              this.heroSection.style.transform = `translateY(${parallaxSpeed}px)`;
+              // Layer 1: Background images move at half speed (slower than scroll)
+              const imageParallaxSpeed = -scrolled * 0.5;
+              const heroBackgrounds = document.querySelectorAll('.hero__slide-bg');
+              heroBackgrounds.forEach(bg => {
+                bg.style.transform = `translateY(${imageParallaxSpeed}px)`;
+              });
               
-              // Create subtle layered effect - move content up slightly to overlap hero
+              // Layer 2: Text content moves at 60% of image speed 
+              const textParallaxSpeed = -scrolled * 0.3;
+              const heroContents = document.querySelectorAll('.hero__content');
+              heroContents.forEach(content => {
+                content.style.transform = `translateY(${textParallaxSpeed}px)`;
+              });
+              
+              // Create layered effect for next sections
               const contentSections = document.querySelectorAll('.company, .industry, .services, .partners, .join, .testimonials, .footer');
               contentSections.forEach(section => {
                 const layerOffset = -Math.min(scrolled * 0.3, heroHeight * 0.3);
                 section.style.transform = `translateY(${layerOffset}px)`;
               });
             } else {
-              // When past hero, hide it and reset content position
-              this.heroSection.style.transform = `translateY(-${heroHeight * 0.5}px)`;
+              // When past hero, hide backgrounds and text
+              const heroBackgrounds = document.querySelectorAll('.hero__slide-bg');
+              heroBackgrounds.forEach(bg => {
+                bg.style.transform = `translateY(-${heroHeight * 0.5}px)`;
+              });
+              
+              const heroContents = document.querySelectorAll('.hero__content');
+              heroContents.forEach(content => {
+                content.style.transform = `translateY(-${heroHeight * 0.3}px)`;
+              });
               
               const contentSections = document.querySelectorAll('.company, .industry, .services, .partners, .join, .testimonials, .footer');
               contentSections.forEach(section => {
