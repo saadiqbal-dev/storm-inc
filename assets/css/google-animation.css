@@ -1,0 +1,51 @@
+/* Google Animation Styles */
+
+/* Container for the Google animation */
+.google-animation-container {
+  position: relative;
+  width: 687px;
+  height: 355px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =Colors */
+:root {
+  --red: #EA4335;
+  --green: #34A853;
+  --blue: #4285F4;
+  --yellow: #FBBC05;
+}
+
+#GoogleLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; /* Base size - multiply by factor to scale */
+  height: auto;
+}
+
+#controls {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 310px;
+  transform: translate(-50%, 120px);
+  visibility: hidden; /* Hide controls for production */
+}
+
+.circle,
+#gLine,
+#gLineAnim {
+  opacity: 0;
+}
+
+/* 
+SCALING INSTRUCTIONS:
+To make the animation 10x bigger: change width to 8000px (800px * 10)
+To make the animation 10x smaller: change width to 80px (800px / 10)
+The height will scale automatically due to "height: auto"
+*/

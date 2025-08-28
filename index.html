@@ -914,6 +914,24 @@
               });
             }
 
+            // Company image parallax effect
+            const companySection = document.querySelector('.company');
+            const companyImage = document.querySelector('div.company__image img');
+            
+            if (companySection && companyImage) {
+              const rect = companySection.getBoundingClientRect();
+              const windowHeight = window.innerHeight;
+              
+              // Check if section is in viewport
+              if (rect.top < windowHeight && rect.bottom > 0) {
+                // Simple parallax calculation based on how much the section has scrolled into view
+                const scrollPercent = (windowHeight - rect.top) / (windowHeight + rect.height);
+                const parallaxOffset = (scrollPercent - 0.5) * -100; // More noticeable movement
+                
+                companyImage.style.transform = `translateY(${parallaxOffset}px)`;
+              }
+            }
+
             ticking = false;
           };
 
