@@ -97,17 +97,57 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-      <div class="hero__content">
-        <div>
-          <h1 class="hero__heading">
-            Next Level Digital Marketing Experiences
-          </h1>
-          <p class="hero__subheading">
-            Supercharge Your Business Lead Generation & Sales Performance
-          </p>
+    <section class="hero" id="hero">
+      <div class="hero__carousel-wrapper">
+        <div class="hero__carousel-track">
+          <!-- Slide 1 -->
+          <div class="hero__slide">
+            <div class="hero__slide-bg hero__slide-bg--1"></div>
+            <div class="hero__content">
+              <div class="hero__text">
+                <h1 class="hero__heading">
+                  Next Level Digital Marketing Experiences
+                </h1>
+                <p class="hero__subheading">
+                  Supercharge Your Business Lead Generation & Sales Performance
+                </p>
+              </div>
+              <button class="hero__cta-button">Find out More</button>
+            </div>
+          </div>
+          
+          <!-- Slide 2 -->
+          <div class="hero__slide">
+            <div class="hero__slide-bg hero__slide-bg--2"></div>
+            <div class="hero__content">
+              <div class="hero__text">
+                <h1 class="hero__heading">
+                  Auckland-Based Full-Service Digital Marketing.
+                </h1>
+                <p class="hero__subheading">
+                  Develop A 360° Digital Marketing Strategy - Rocket Fuel For Your Brand.
+                </p>
+              </div>
+              <button class="hero__cta-button">Find out More</button>
+            </div>
+          </div>
+          
+          <!-- Slide 3 -->
+          <div class="hero__slide">
+            <div class="hero__slide-bg hero__slide-bg--3"></div>
+            <div class="hero__content">
+              <div class="hero__text">
+                <h1 class="hero__heading">
+                  Ecommerce Lead Generation Specialists.
+                </h1>
+                <p class="hero__subheading">
+                  Supercharge Your Business Lead Generation & Sales Performance
+                </p>
+              </div>
+              <button class="hero__cta-button">Find out More</button>
+            </div>
+          </div>
         </div>
-        <button class="hero__cta-button">Find out More</button>
       </div>
     </section>
     <section class="company">
@@ -723,5 +763,104 @@
         </p>
       </div>
     </section>
+    
+    <!-- Hero Carousel & Parallax Script -->
+    <script>
+      class HeroCarousel {
+        constructor() {
+          this.track = document.querySelector('.hero__carousel-track');
+          this.slides = document.querySelectorAll('.hero__slide');
+          this.heroSection = document.getElementById('hero');
+          this.currentIndex = 0;
+          this.slideWidth = 33.333; // Each slide is 33.333% of track width
+          this.autoSlideInterval = 6000; // 6 seconds
+          
+          this.init();
+        }
+        
+        init() {
+          this.setupCarousel();
+          this.startAutoSlide();
+          this.setupParallax();
+        }
+        
+        setupCarousel() {
+          // Set initial position to show first slide
+          this.track.style.transform = 'translateX(0%)';
+          this.track.style.transition = 'transform 1s ease-in-out';
+        }
+        
+        slideToNext() {
+          this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+          const translateX = -this.currentIndex * this.slideWidth;
+          this.track.style.transform = `translateX(${translateX}%)`;
+          
+          // Reset to first slide seamlessly after last slide
+          if (this.currentIndex === 0) {
+            setTimeout(() => {
+              this.track.style.transition = 'none';
+              this.track.style.transform = 'translateX(0%)';
+              setTimeout(() => {
+                this.track.style.transition = 'transform 1s ease-in-out';
+              }, 50);
+            }, 1000);
+          }
+        }
+        
+        startAutoSlide() {
+          setInterval(() => {
+            this.slideToNext();
+          }, this.autoSlideInterval);
+        }
+        
+        setupParallax() {
+          let ticking = false;
+          
+          const handleScroll = () => {
+            const scrolled = window.pageYOffset;
+            const heroHeight = this.heroSection.offsetHeight;
+            
+            // Apply parallax effect to hero background
+            if (scrolled < heroHeight) {
+              // Move hero at half speed for parallax
+              const parallaxSpeed = scrolled * 0.5;
+              this.heroSection.style.transform = `translateY(${parallaxSpeed}px)`;
+              
+              // Create subtle layered effect - move content up slightly to overlap hero
+              const contentSections = document.querySelectorAll('.company, .industry, .services, .partners, .join, .testimonials, .footer');
+              contentSections.forEach(section => {
+                const layerOffset = -Math.min(scrolled * 0.3, heroHeight * 0.3);
+                section.style.transform = `translateY(${layerOffset}px)`;
+              });
+            } else {
+              // When past hero, hide it and reset content position
+              this.heroSection.style.transform = `translateY(-${heroHeight * 0.5}px)`;
+              
+              const contentSections = document.querySelectorAll('.company, .industry, .services, .partners, .join, .testimonials, .footer');
+              contentSections.forEach(section => {
+                section.style.transform = 'translateY(0px)';
+              });
+            }
+            
+            ticking = false;
+          };
+          
+          const requestTick = () => {
+            if (!ticking) {
+              requestAnimationFrame(handleScroll);
+              ticking = true;
+            }
+          };
+          
+          window.addEventListener('scroll', requestTick);
+          window.addEventListener('load', handleScroll);
+        }
+      }
+      
+      // Initialize carousel when DOM is loaded
+      document.addEventListener('DOMContentLoaded', () => {
+        new HeroCarousel();
+      });
+    </script>
   </body>
 </html>
