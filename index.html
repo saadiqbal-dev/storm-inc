@@ -967,6 +967,9 @@
         </svg>
       </div>
     </section>
+    <!-- Footer Spacer - Creates scroll space for curtain reveal effect -->
+    <div class="footer-spacer" id="footer-spacer"></div>
+    
     <section class="footer">
       <div class="footer__content">
         <div class="footer__content-logo">
@@ -1109,9 +1112,9 @@
                 content.style.transform = `translateY(${textParallaxSpeed}px)`;
               });
 
-              // Create layered effect for next sections
+              // Create layered effect for next sections (removed footer from parallax)
               const contentSections = document.querySelectorAll(
-                ".company, .industry, .services, .partners, .join, .testimonials, .footer"
+                ".company, .industry, .services, .partners, .join, .testimonials"
               );
               contentSections.forEach((section) => {
                 const layerOffset = -Math.min(scrolled * 0, heroHeight * 0.3);
@@ -1131,7 +1134,7 @@
               });
 
               const contentSections = document.querySelectorAll(
-                ".company, .industry, .services, .partners, .join, .testimonials, .footer"
+                ".company, .industry, .services, .partners, .join, .testimonials"
               );
               contentSections.forEach((section) => {
                 section.style.transform = "translateY(0px)";
@@ -1222,11 +1225,35 @@
         }
       }
 
+      // Footer Reveal Effect - Calculate and set spacer height
+      class FooterReveal {
+        constructor() {
+          this.footer = document.querySelector('.footer');
+          this.spacer = document.getElementById('footer-spacer');
+          this.init();
+        }
+
+        init() {
+          this.setSpacerHeight();
+          window.addEventListener('resize', () => this.setSpacerHeight());
+        }
+
+        setSpacerHeight() {
+          if (this.footer && this.spacer) {
+            // Get the actual height of the footer
+            const footerHeight = this.footer.offsetHeight;
+            // Set spacer height to match footer height
+            this.spacer.style.height = `${footerHeight}px`;
+          }
+        }
+      }
+
       // Initialize components when DOM is loaded
       document.addEventListener("DOMContentLoaded", () => {
         new HeroCarousel();
         new HeaderScroll();
         new TestimonialsCarousel();
+        new FooterReveal();
       });
     </script>
   </body>
