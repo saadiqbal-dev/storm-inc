@@ -26,7 +26,7 @@
         <nav class="header__nav">
           <ul class="header__menu">
             <li class="header__menu-item">
-              <a href="#" class="header__menu-link">
+              <a href="#" class="header__menu-link" data-dropdown="compatibilities-dropdown">
                 <span class="header__menu-text">
                   <span class="header__menu-text-main">Compatibilities</span>
                   <span class="header__menu-text-hover">Compatibilities</span>
@@ -61,7 +61,7 @@
               </svg>
             </li>
             <li class="header__menu-item">
-              <a href="#" class="header__menu-link">
+              <a href="#" class="header__menu-link" data-dropdown="work-dropdown">
                 <span class="header__menu-text">
                   <span class="header__menu-text-main">Work</span>
                   <span class="header__menu-text-hover">Work</span>
@@ -96,12 +96,39 @@
               </svg>
             </li>
             <li class="header__menu-item">
-              <a href="#" class="header__menu-link">
+              <a href="#" class="header__menu-link" data-dropdown="about-dropdown">
                 <span class="header__menu-text">
                   <span class="header__menu-text-main">About</span>
                   <span class="header__menu-text-hover">About</span>
                 </span>
               </a>
+              <svg
+                class="header__dropdown-arrow"
+                xmlns="http://www.w3.org/2000/svg"
+                width="14"
+                height="9"
+                viewBox="0 0 14 9"
+                fill="none"
+              >
+                <g clip-path="url(#clip0_803_1143_3)">
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12.802 0.666588L7.01176 6.81095L1.19714 0.666588L0.335938 1.58143L6.99955 8.6601L13.6693 1.58143L12.8081 0.666588H12.802Z"
+                    fill="white"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_803_1143_3">
+                    <rect
+                      width="13.3333"
+                      height="8"
+                      fill="white"
+                      transform="translate(0.335938 0.666634)"
+                    />
+                  </clipPath>
+                </defs>
+              </svg>
             </li>
             <li class="header__menu-item">
               <a href="#" class="header__menu-link">
@@ -113,6 +140,25 @@
             </li>
           </ul>
         </nav>
+      </div>
+      
+      <!-- Dropdown Menus -->
+      <div class="header__dropdown" id="compatibilities-dropdown">
+        <div class="header__dropdown-content">
+          <p>Compatibilities dropdown content goes here...</p>
+        </div>
+      </div>
+      
+      <div class="header__dropdown" id="work-dropdown">
+        <div class="header__dropdown-content">
+          <p>Work dropdown content goes here...</p>
+        </div>
+      </div>
+      
+      <div class="header__dropdown" id="about-dropdown">
+        <div class="header__dropdown-content">
+          <p>About dropdown content goes here...</p>
+        </div>
       </div>
     </header>
 
@@ -1268,12 +1314,77 @@
         }
       }
 
+      // Header Dropdown Management
+      class HeaderDropdown {
+        constructor() {
+          this.dropdownLinks = document.querySelectorAll('[data-dropdown]');
+          this.dropdowns = document.querySelectorAll('.header__dropdown');
+          this.activeDropdown = null;
+          this.activeMenuItem = null;
+          this.init();
+        }
+
+        init() {
+          // Add click event listeners to dropdown links
+          this.dropdownLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              const dropdownId = link.getAttribute('data-dropdown');
+              const menuItem = link.closest('.header__menu-item');
+              this.toggleDropdown(dropdownId, menuItem);
+            });
+          });
+
+          // Close dropdown when clicking outside
+          document.addEventListener('click', (e) => {
+            if (!e.target.closest('.header__menu-item') && !e.target.closest('.header__dropdown')) {
+              this.closeAllDropdowns();
+            }
+          });
+        }
+
+        toggleDropdown(dropdownId, menuItem) {
+          const dropdown = document.getElementById(dropdownId);
+          
+          if (this.activeDropdown === dropdown && this.activeMenuItem === menuItem) {
+            // Close if clicking same dropdown
+            this.closeAllDropdowns();
+          } else {
+            // Close any open dropdown first
+            this.closeAllDropdowns();
+            // Open new dropdown
+            this.openDropdown(dropdown, menuItem);
+          }
+        }
+
+        openDropdown(dropdown, menuItem) {
+          if (dropdown && menuItem) {
+            dropdown.classList.add('active');
+            menuItem.classList.add('active');
+            this.activeDropdown = dropdown;
+            this.activeMenuItem = menuItem;
+          }
+        }
+
+        closeAllDropdowns() {
+          this.dropdowns.forEach(dropdown => {
+            dropdown.classList.remove('active');
+          });
+          document.querySelectorAll('.header__menu-item').forEach(item => {
+            item.classList.remove('active');
+          });
+          this.activeDropdown = null;
+          this.activeMenuItem = null;
+        }
+      }
+
       // Initialize components when DOM is loaded
       document.addEventListener("DOMContentLoaded", () => {
         new HeroCarousel();
         new HeaderScroll();
         new TestimonialsCarousel();
         new FooterReveal();
+        new HeaderDropdown();
       });
     </script>
   </body>
