@@ -166,3 +166,37 @@
   fill: #ffffff !important;
   fill-opacity: 1 !important;
 }
+
+/* =============================================================================
+   Hero Responsive Styles
+   ============================================================================= */
+
+/* 1480px Breakpoint */
+@media (max-width: 1480px) {
+  .hero {
+    height: 100vh;
+  }
+
+  .hero__heading {
+    font-size: 48px;
+  }
+
+  .hero__subheading {
+    font-size: 22px;
+  }
+}
+
+/* 1280px Breakpoint */
+@media (max-width: 1280px) {
+  .hero {
+    height: 100vh;
+  }
+
+  .hero__heading {
+    font-size: 40px;
+  }
+
+  .hero__subheading {
+    font-size: 18px;
+  }
+}
