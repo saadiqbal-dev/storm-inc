@@ -245,10 +245,12 @@
   }
   .hero__heading {
     font-size: 42px;
+    line-height: 46px;
   }
 
   .hero__subheading {
     font-size: 20px;
+    line-height: 30px;
   }
 
   .hero__cta-button {
