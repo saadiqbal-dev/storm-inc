@@ -94,3 +94,29 @@
     font-size: 18px;
   }
 }
+
+@media (max-width: 1024px) {
+  .industry {
+    gap: 10px;
+    padding: 60px;
+    width: 100%;
+  }
+  .industry__animation {
+    overflow: hidden;
+  }
+
+  .industry__animation-video {
+    width: 548px;
+    height: 284px;
+    display: block;
+    transform: scale(1.1);
+  }
+
+  .industry__content {
+    width: 50%;
+  }
+
+  .industry__content-text {
+    font-size: 18px;
+  }
+}

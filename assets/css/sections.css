@@ -275,6 +275,18 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .joing__right-img {
+    position: absolute;
+    right: 0;
+    z-index: -1;
+  }
+
+  .join {
+    max-height: 70vh;
+  }
+}
+
 /* =============================================================================
    Testimonials Responsive Styles
    ============================================================================= */

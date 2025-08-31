@@ -55,3 +55,14 @@ PARTNERS - Figma
     transform: translateX(-1600px); /* Exactly one set width */
   }
 }
+
+@media (max-width: 1024px) {
+  .partners {
+    padding: 60px 0;
+    gap: 55px;
+  }
+  .partners__images-img {
+    max-height: 112px;
+    max-width: 160px;
+  }
+}

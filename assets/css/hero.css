@@ -229,3 +229,12 @@
     transform: translateY(-2px);
   }
 }
+
+@media (max-width: 1024px) {
+  .hero {
+    height: 80vh;
+  }
+  .hero__content {
+    gap: 20px;
+  }
+}
