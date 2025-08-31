@@ -142,6 +142,23 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* 1920px and larger - Fixed width */
+@media (min-width: 1920px) {
+  .header__dropdown {
+    max-width: 1640px;
+    min-width: 1640px;
+    width: 1640px;
+  }
+}
+
+/* Between 1481px and 1919px - Responsive width */
+@media (min-width: 1481px) and (max-width: 1919px) {
+  .header__dropdown {
+    max-width: calc(100vw - 200px);
+    width: calc(100vw - 200px);
+  }
+}
+
 .header__dropdown.active {
   opacity: 1;
   visibility: visible;
