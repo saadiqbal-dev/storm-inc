@@ -119,10 +119,24 @@
     margin: 0;
     padding: 0;
   }
+
+  .company__cta-button {
+    font-size: 18px;
+    padding: 0px 18px;
+    height: auto;
+  }
+
+  .company__cta-button:hover {
+    transform: translateY(-2px);
+  }
 }
 
 /* 1280px Breakpoint */
 @media (max-width: 1280px) {
+  .company {
+    padding: 60px;
+    gap: 40px;
+  }
   .company__content {
     width: 50%;
   }
@@ -133,10 +147,20 @@
   }
 
   .company__content-heading {
-    font-size: 22px;
+    font-size: 32px;
   }
 
   .company__content-description {
     font-size: 20px;
+  }
+
+  .company__cta-button {
+    font-size: 16px;
+    padding: 0px 18px;
+    height: auto;
+  }
+
+  .company__cta-button:hover {
+    transform: translateY(-2px);
   }
 }

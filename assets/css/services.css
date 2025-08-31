@@ -221,6 +221,22 @@
   .services__plus {
     bottom: 24px;
     right: 24px;
+    transform: scale(0.8);
+  }
+
+  /* Maintain scale on hover while rotating */
+  .services__item--expandable:hover .services__plus {
+    transform: scale(0.8) rotate(45deg);
+  }
+
+  .services__cta-button {
+    font-size: 18px;
+    padding: 0px 18px;
+    height: auto;
+  }
+
+  .services__cta-button:hover {
+    transform: translateY(-2px);
   }
 }
 
@@ -249,7 +265,8 @@
   }
 
   .services__item-description-text {
-    font-size: 18px;
+    font-size: 16px;
+    line-height: normal;
   }
 
   .services__icon {
@@ -259,5 +276,21 @@
   .services__plus {
     bottom: 18px;
     right: 18px;
+    transform: scale(0.7);
+  }
+
+  /* Maintain scale on hover while rotating */
+  .services__item--expandable:hover .services__plus {
+    transform: scale(0.7) rotate(45deg);
+  }
+
+  .services__cta-button {
+    font-size: 16px;
+    padding: 0px 18px;
+    height: auto;
+  }
+
+  .services__cta-button:hover {
+    transform: translateY(-2px);
   }
 }

@@ -230,50 +230,6 @@ picture {
   }
 }
 
-@media (max-width: 1200px) {
-  .header__container {
-    padding-left: 40px;
-    padding-right: 40px;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .header__logo {
-    padding-top: 20px;
-  }
-
-  .header__nav {
-    padding-top: 0;
-  }
-
-  .header__menu {
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .hero {
-    height: 100vh;
-    min-height: 600px;
-  }
-
-  .hero__heading {
-    font-size: 42px;
-    line-height: 1.2;
-  }
-
-  .hero__subheading {
-    font-size: 20px;
-    line-height: 1.4;
-  }
-
-  .hero__content {
-    gap: 40px;
-    padding-top: 100px;
-  }
-}
-
 @media (max-width: 768px) {
   .header__menu {
     font-size: 18px;

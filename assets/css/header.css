@@ -412,3 +412,42 @@
     width: calc(100vw - 200px);
   }
 }
+
+@media (max-width: 1024px) {
+  .header__container {
+    padding-left: 40px;
+    padding-right: 40px;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .header__logo {
+    scale: 0.6;
+    max-height: 35px;
+  }
+
+  .header__nav {
+    padding-top: 0;
+  }
+
+  .header__menu {
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .header--scrolled .header__container {
+    padding-top: 15px; /* Reduced from 50px */
+    padding-bottom: 15px; /* Reduced from 50px */
+  }
+
+  .header__menu-text-main,
+  .header__menu-text-hover {
+    font-size: 14px; /* Reduced from 24px */
+  }
+
+  .header__dropdown {
+    max-width: calc(100vw - 100px); /* Page width minus 100px from each side */
+    width: calc(100vw - 100px);
+  }
+}

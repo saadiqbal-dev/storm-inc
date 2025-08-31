@@ -668,8 +668,8 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  gap: 141.39px;
+  justify-content: space-between;
+
   position: relative;
   z-index: 5;
   background: #ffffff;
@@ -687,6 +687,8 @@ body {
   width: 685px;
   height: 355px;
   display: block;
+  padding: 0;
+  margin: 0;
   transform: scale(1.1);
 }
 

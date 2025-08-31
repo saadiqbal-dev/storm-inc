@@ -188,10 +188,24 @@
     padding: 0;
     margin: 0;
   }
+
+  .hero__cta-button {
+    font-size: 18px;
+    padding: 0px 18px;
+    height: auto;
+    width: auto;
+  }
+
+  .hero__cta-button:hover {
+    transform: translateY(-2px);
+  }
 }
 
 /* 1280px Breakpoint */
 @media (max-width: 1280px) {
+  .hero__content {
+    gap: 40px;
+  }
   .hero {
     height: 100vh;
   }
@@ -202,5 +216,16 @@
 
   .hero__subheading {
     font-size: 18px;
+  }
+
+  .hero__cta-button {
+    font-size: 16px;
+    padding: 0px 18px;
+    height: auto;
+    width: auto;
+  }
+
+  .hero__cta-button:hover {
+    transform: translateY(-2px);
   }
 }

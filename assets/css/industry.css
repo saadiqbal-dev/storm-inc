@@ -23,8 +23,6 @@
 }
 
 .industry__animation {
-  width: 685px;
-  height: 355px;
   overflow: hidden;
 }
 
@@ -80,6 +78,10 @@
 
 /* 1280px Breakpoint */
 @media (max-width: 1280px) {
+  .industry {
+    gap: 10px;
+    padding: 60px;
+  }
   .industry__animation {
     width: fit-content;
   }
@@ -89,6 +91,6 @@
   }
 
   .industry__content-text {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
