@@ -182,6 +182,8 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  border-left: 3px solid #e7542b;
+  padding-left: 20px;
 }
 
 .testimonials__content-ref__title {
