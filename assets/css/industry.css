@@ -1,0 +1,53 @@
+/* 
+  Storm Inc - Industry Section Styles
+  Industry Information and Animation
+*/
+
+/* =============================================================================
+   Industry Section - Figma Design
+   ============================================================================= */
+
+.industry {
+  padding: 108px 160px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 141.39px;
+  position: relative;
+  z-index: 5;
+  background: #ffffff;
+}
+
+.industry__animation {
+  width: 685px;
+  height: 355px;
+  overflow: hidden;
+}
+
+.industry__animation-video {
+  width: 685px;
+  height: 355px;
+  display: block;
+  transform: scale(1.1);
+}
+
+.industry__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  gap: 24px;
+  max-width: 684px;
+}
+
+.industry__content-text {
+  color: #555353;
+  font-family: var(--font-mona-sans);
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 37px; /* 142.308% */
+  padding: 0;
+  margin: 0;
+}

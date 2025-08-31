@@ -1,0 +1,57 @@
+/* 
+  Storm Inc - Partners Section Styles
+  Partners Logo Slider and Animation
+*/
+
+/* ================================
+PARTNERS - Figma
+==================================*/
+
+.partners {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 0;
+  background-color: #f1f4fa;
+  gap: 85px;
+  position: relative;
+  z-index: 5;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
+}
+
+.partners .services__title {
+  padding: 0 160px;
+}
+
+.partners__images {
+  overflow: hidden;
+  margin: 0;
+  position: relative;
+  width: 100%;
+}
+
+.partners__slide-track {
+  display: flex;
+  align-items: center;
+  animation: slideLogos 25s linear infinite;
+  /* Width: (5 logos × 200px) + (5 gaps × 120px) = 1600px per set, × 4 sets = 6400px */
+  width: 6400px;
+}
+
+.partners__images-img {
+  max-height: 140px;
+  max-width: 200px;
+  flex-shrink: 0;
+  margin-right: 120px;
+  transition: filter 0.3s ease;
+}
+
+@keyframes slideLogos {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-1600px); /* Exactly one set width */
+  }
+}

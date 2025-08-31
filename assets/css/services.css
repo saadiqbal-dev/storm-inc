@@ -1,0 +1,174 @@
+/* 
+  Storm Inc - Services Section Styles
+  Services Grid, Item Cards, and Interactions
+*/
+
+/* =================================================
+  SERVICES - Figma
+  ================================================== */
+
+.services {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 74px;
+  padding: 100px 160px;
+  position: relative;
+  z-index: 5;
+  background: #ffffff;
+}
+
+.services__title {
+  color: #555353;
+  text-align: center;
+  font-family: var(--font-peachi);
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 100% */
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 500px);
+  grid-template-rows: repeat(3, 373px);
+  gap: 52px;
+  justify-content: center;
+  max-width: 1604px;
+}
+
+.services__item {
+  position: relative;
+  flex-shrink: 0;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+/* Expandable services item styles */
+.services__item--expandable {
+  cursor: pointer;
+}
+
+.services__item-description {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 36px;
+  padding-bottom: 72px; /* Leave space for plus icon */
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: inherit;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+}
+
+.services__item-description-text {
+  color: #fff;
+  font-family: var(--font-mona-sans);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33px;
+  margin: 0;
+  padding-top: 0;
+}
+
+/* Hover effects */
+.services__item--expandable:hover .services__item-description {
+  transform: translateY(0);
+}
+
+/* Plus icon rotation to X - stays in same position */
+.services__item--expandable:hover .services__plus {
+  transform: rotate(45deg);
+}
+
+.services__item[data-bg="#3ECBB3"] {
+  background-color: #3ecbb3;
+}
+
+.services__item[data-bg="#58355E"] {
+  background-color: #58355e;
+}
+
+.services__item[data-bg="#FF5964"] {
+  background-color: #ff5964;
+}
+
+.services__item[data-bg="#F8AF5B"] {
+  background-color: #f8af5b;
+}
+
+.services__item[data-bg="#4CD4BC"] {
+  background-color: #4cd4bc;
+}
+
+.services__icon {
+  position: absolute;
+  top: calc(50% - 40px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.services__item-title {
+  color: #fff;
+  font-family: var(--font-mona-sans);
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 33px;
+  max-width: 320px;
+  margin: 0;
+  z-index: 2;
+  position: absolute;
+  bottom: 36px;
+  left: 36px;
+}
+
+.services__plus {
+  position: absolute;
+  bottom: 36px;
+  right: 36px;
+  z-index: 5;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+}
+
+.services__cta-button {
+  border-radius: 66.667px;
+  border: 1px solid #555353;
+  display: flex;
+  max-width: fit-content;
+  height: 54px;
+  padding: 13px 30px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  color: #555353;
+  text-align: center;
+  font-family: var(--font-mona-sans);
+  font-size: 21.333px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 42.667px; /* 200% */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.services__cta-button:hover {
+  background-color: #555353;
+  color: white;
+  transform: translateY(-2px);
+}
