@@ -369,6 +369,64 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .testimonials {
+    padding: 20px 60px;
+    height: 60vh;
+  }
+
+  .testimonials__content-text {
+    left: 30px;
+    padding: 30px 35px;
+  }
+
+  .testimonials__content-quote {
+    font-size: 45px;
+    line-height: 20px;
+  }
+
+  .testimonials__content-review {
+    font-size: 18px;
+    line-height: 24px;
+    max-width: 350px;
+  }
+
+  .testimonials__content-ref__title {
+    font-size: 14px;
+  }
+
+  .testimonials__content-ref__desc {
+    font-size: 14px;
+  }
+
+  .testimonials__content-image {
+    width: 480px;
+  }
+
+  .testimonials__indicators {
+    bottom: 25px;
+  }
+
+  .footer__content-navigation__contact-text {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .footer__content-navigation__contact-text__span {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .footer__content-navigation__social-link {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .footer__foot p {
+    font-size: 14px;
+  }
+}
+
 /* ================
   FOOTER - Figma
   ===================  */
@@ -520,5 +578,41 @@
   .footer__content-navigation__social-link {
     font-size: 16px;
     line-height: 28px;
+  }
+}
+
+/* 1280px and smaller breakpoints */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 30px 4% 20px 4%; /* Further reduced padding */
+    gap: 80px; /* Further reduced gap */
+  }
+
+  .footer__content-logo img {
+    transform: scale(0.6);
+    transform-origin: left center;
+  }
+
+  .footer__content-navigation {
+    width: 70%; /* Adjust width for tighter screens */
+  }
+
+  .footer__content-navigation__contact-text {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .footer__content-navigation__contact-text__span {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .footer__content-navigation__social-link {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  .footer__foot {
+    font-size: 14px;
   }
 }
