@@ -294,3 +294,12 @@
     transform: translateY(-2px);
   }
 }
+
+@media (max-width: 768px) {
+  .services__title {
+    text-align: start;
+  }
+  .services__grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

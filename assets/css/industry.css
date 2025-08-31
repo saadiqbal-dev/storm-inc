@@ -120,3 +120,14 @@
     font-size: 18px;
   }
 }
+
+@media (max-width: 768px) {
+  .industry {
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+
+  .industry__content {
+    width: 100%;
+  }
+}

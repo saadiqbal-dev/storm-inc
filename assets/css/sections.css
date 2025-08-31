@@ -514,6 +514,126 @@
 }
 
 /* =============================================================================
+   768px Mobile Responsive - Full Width Sections
+   ============================================================================= */
+
+@media (max-width: 768px) {
+  /* Join Section - Full Width */
+  .join {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .join__left {
+    width: 100%;
+    position: relative;
+    padding: 40px 20px;
+  }
+  
+  .join__right {
+    display: none;
+  }
+  
+  .join__content {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .join__left-heading {
+    font-size: 28px;
+    line-height: 36px;
+    max-width: 100%;
+  }
+  
+  /* Testimonials Section - Full Width */
+  .testimonials {
+    max-width: 100%;
+    width: 100%;
+    padding: 40px 20px;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .testimonials__content {
+    flex-direction: column;
+    position: relative;
+    max-width: 100%;
+  }
+  
+  .testimonials__content-text {
+    left: 0;
+    padding: 30px 20px;
+    width: 100%;
+  }
+  
+  .testimonials__content-quote {
+    font-size: 48px;
+    line-height: 20px;
+  }
+  
+  .testimonials__content-review {
+    font-size: 16px;
+    line-height: 24px;
+    max-width: 100%;
+  }
+  
+  .testimonials__content-image {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .testimonials__indicators {
+    bottom: 20px;
+  }
+  
+  /* Footer Section - Full Width */
+  .footer {
+    max-width: 100%;
+    width: 100%;
+    padding: 40px 20px 20px 20px;
+    gap: 40px;
+  }
+  
+  .footer__content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .footer__content-logo {
+    text-align: center;
+  }
+  
+  .footer__content-logo img {
+    transform: scale(0.8);
+  }
+  
+  .footer__content-navigation {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+  
+  .footer__content-navigation__contact {
+    width: 100%;
+  }
+  
+  .footer__content-navigation__socials {
+    width: 100%;
+  }
+  
+  .footer__foot {
+    text-align: center;
+  }
+  
+  .footer__foot p {
+    font-size: 12px;
+  }
+}
+
+/* =============================================================================
    Footer Responsive Styles
    ============================================================================= */
 

@@ -238,3 +238,23 @@
     gap: 20px;
   }
 }
+
+@media (max-width: 768px) {
+  .hero__content {
+    padding-top: 40px;
+  }
+  .hero__heading {
+    font-size: 42px;
+  }
+
+  .hero__subheading {
+    font-size: 20px;
+  }
+
+  .hero__cta-button {
+    font-size: 16px;
+    padding: 0px 20px;
+    height: auto;
+    width: auto;
+  }
+}
