@@ -118,7 +118,50 @@
       },
 
       setupMobileMenuBehavior: function () {
-        // Close mobile menu when clicking on nav links
+        // Custom mobile menu functionality for screens ≤768px
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu__nav-link');
+
+        if (mobileMenuToggle && mobileMenu) {
+          // Open mobile menu
+          mobileMenuToggle.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+          });
+
+          // Close mobile menu
+          const closeMobileMenu = function() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+          };
+
+          if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+          }
+
+          // Close menu when clicking on navigation links
+          mobileMenuLinks.forEach(function(link) {
+            link.addEventListener('click', closeMobileMenu);
+          });
+
+          // Close menu when clicking outside
+          mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+              closeMobileMenu();
+            }
+          });
+
+          // Close menu with ESC key
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+              closeMobileMenu();
+            }
+          });
+        }
+
+        // Legacy Bootstrap mobile menu behavior (for desktop menu)
         $(".navbar-nav .nav-link").on("click", function () {
           const navbarCollapse = $(".navbar-collapse");
           if (navbarCollapse.hasClass("show")) {
