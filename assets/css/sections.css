@@ -12,6 +12,9 @@
   position: relative;
   z-index: 5;
   background: #ffffff;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
 }
 
 .join__left {
@@ -99,7 +102,9 @@
   background: #f1f4f9;
   flex-direction: column;
   height: 100vh;
-  width: 100%;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
   padding: 40px 160px;
   align-items: center;
   justify-content: center;
@@ -237,13 +242,13 @@
   right: 0;
   z-index: 1;
   display: flex;
-  padding: 60px 160px 32px 160px;
+  padding: 60px 8.33% 32px 8.33%; /* Use percentage for flexible padding */
   flex-direction: column;
   width: 100%;
   justify-content: space-between;
   gap: 170px;
   background: #ffffff;
-  max-width: 1920px;
+  /* Remove fixed max-width */
   margin: 0 auto;
 }
 
@@ -288,4 +293,52 @@
   font-family: var(--font-mona-sans);
   font-size: 16px;
   margin: 0;
+}
+
+/* =============================================================================
+   Footer Responsive Styles
+   ============================================================================= */
+
+/* 1480px and smaller breakpoints */
+@media (max-width: 1480px) {
+  .footer {
+    padding: 40px 6% 24px 6%; /* Reduced padding */
+    gap: 120px; /* Reduced gap */
+  }
+
+  .footer__content-navigation {
+    width: 65%; /* Slightly increase width for better spacing */
+  }
+
+  .footer__content-navigation__contact-text {
+    font-size: 18px; /* Slightly smaller text */
+    line-height: 32px;
+  }
+
+  .footer__content-navigation__contact-text__span {
+    font-size: 18px;
+    line-height: 32px;
+  }
+}
+
+/* 1280px and smaller breakpoints */
+@media (max-width: 1280px) {
+  .footer {
+    padding: 30px 4% 20px 4%; /* Further reduced padding */
+    gap: 80px; /* Further reduced gap */
+  }
+
+  .footer__content-navigation {
+    width: 70%; /* Adjust width for tighter screens */
+  }
+
+  .footer__content-navigation__contact-text {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  .footer__content-navigation__contact-text__span {
+    font-size: 16px;
+    line-height: 28px;
+  }
 }
