@@ -573,10 +573,22 @@
   .mobile-menu__content {
     display: flex;
     flex-direction: column;
-    padding: 30px 40px;
+    padding: 20px 40px 40px 40px;
     height: calc(100vh - 60px);
-    justify-content: center;
+    height: calc(100svh - 60px); /* Use small viewport height for better mobile support */
+    min-height: calc(100vh - 60px);
+    justify-content: space-between;
     align-items: flex-start;
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+
+  /* Mobile menu navigation container */
+  .mobile-menu__nav-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    width: 100%;
   }
 
   /* Mobile menu items */
@@ -585,10 +597,11 @@
     margin: 0;
     padding: 0;
     text-align: left;
+    width: 100%;
   }
 
   .mobile-menu__nav-item {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
 
   .mobile-menu__nav-link {
@@ -597,15 +610,17 @@
     font-size: 36px;
     font-style: normal;
     font-weight: 400;
-    line-height: 65px;
+    line-height: 50px; /* Reduced from 65px for better mobile fit */
     text-decoration: none;
     text-align: left;
+    display: block;
   }
 
   /* Mobile menu contact info */
   .mobile-menu__contact {
-    margin-top: auto;
-    padding-top: 40px;
+    flex-shrink: 0;
+    width: 100%;
+    padding-top: 20px;
   }
 
   .mobile-menu__contact-text {
@@ -614,9 +629,42 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 36px;
+    line-height: 28px; /* Reduced from 36px for better mobile fit */
     letter-spacing: 0.36px;
     text-align: left;
     margin: 0;
+  }
+
+  /* Additional adjustments for very small screens */
+  @media (max-width: 480px) {
+    .mobile-menu__nav-link {
+      font-size: 32px;
+      line-height: 45px;
+    }
+    
+    .mobile-menu__contact-text {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    
+    .mobile-menu__content {
+      padding: 15px 30px 30px 30px;
+    }
+  }
+
+  /* Adjustments for very tall screens */
+  @media (max-height: 640px) {
+    .mobile-menu__nav-link {
+      font-size: 30px;
+      line-height: 42px;
+    }
+    
+    .mobile-menu__nav-item {
+      margin-bottom: 10px;
+    }
+    
+    .mobile-menu__contact {
+      padding-top: 15px;
+    }
   }
 }
