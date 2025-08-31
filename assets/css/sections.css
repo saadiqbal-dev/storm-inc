@@ -231,6 +231,88 @@
   fill-opacity: 1 !important;
 }
 
+/* =============================================================================
+   Testimonials Responsive Styles
+   ============================================================================= */
+
+/* 1480px Breakpoint */
+@media (max-width: 1480px) {
+  .testimonials {
+    padding: 30px 110px;
+  }
+
+  .testimonials__content-text {
+    left: 60px;
+    padding: 50px 60px;
+  }
+
+  .testimonials__content-quote {
+    font-size: 65px;
+    line-height: 28px;
+  }
+
+  .testimonials__content-review {
+    font-size: 22px;
+    line-height: 30px;
+    max-width: 480px;
+  }
+
+  .testimonials__content-ref__title {
+    font-size: 18px;
+  }
+
+  .testimonials__content-ref__desc {
+    font-size: 18px;
+  }
+
+  .testimonials__content-image {
+    width: 700px;
+  }
+
+  .testimonials__indicators {
+    bottom: 45px;
+  }
+}
+
+/* 1280px Breakpoint */
+@media (max-width: 1280px) {
+  .testimonials {
+    padding: 25px 80px;
+  }
+
+  .testimonials__content-text {
+    left: 40px;
+    padding: 40px 45px;
+  }
+
+  .testimonials__content-quote {
+    font-size: 55px;
+    line-height: 24px;
+  }
+
+  .testimonials__content-review {
+    font-size: 20px;
+    line-height: 28px;
+    max-width: 420px;
+  }
+
+  .testimonials__content-ref__title {
+    font-size: 16px;
+  }
+
+  .testimonials__content-ref__desc {
+    font-size: 16px;
+  }
+
+  .testimonials__content-image {
+    width: 580px;
+  }
+
+  .testimonials__indicators {
+    bottom: 35px;
+  }
+}
+
 /* ================
   FOOTER - Figma
   ===================  */

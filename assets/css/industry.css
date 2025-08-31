@@ -63,6 +63,7 @@
 @media (max-width: 1480px) {
   .industry__animation {
     width: 50%;
+    scale: 0.7;
   }
 
   .industry__content {

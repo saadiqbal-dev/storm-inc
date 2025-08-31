@@ -174,3 +174,84 @@
   color: white;
   transform: translateY(-2px);
 }
+
+/* =============================================================================
+   Services Responsive Styles
+   ============================================================================= */
+
+/* 1480px Breakpoint */
+@media (max-width: 1480px) {
+  .services__grid {
+    grid-template-columns: repeat(3, 360px);
+    grid-template-rows: repeat(3, 280px);
+    gap: 36px;
+    max-width: 1188px;
+  }
+
+  .services__item {
+    padding: 24px;
+  }
+
+  .services__item-description {
+    padding: 24px;
+    padding-bottom: 60px; /* Adjusted to account for reduced padding */
+  }
+
+  .services__item-title {
+    font-size: 22px;
+    bottom: 24px;
+    left: 24px;
+    max-width: 250px;
+  }
+
+  .services__item-description-text {
+    font-size: 16px;
+  }
+
+  .services__icon {
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  .services__plus {
+    bottom: 24px;
+    right: 24px;
+  }
+}
+
+/* 1280px Breakpoint */
+@media (max-width: 1280px) {
+  .services__grid {
+    grid-template-columns: repeat(3, 300px);
+    grid-template-rows: repeat(3, 240px);
+    gap: 28px;
+    max-width: 956px;
+  }
+
+  .services__item {
+    padding: 18px;
+  }
+
+  .services__item-description {
+    padding: 18px;
+    padding-bottom: 54px; /* Adjusted to account for reduced padding */
+  }
+
+  .services__item-title {
+    font-size: 20px;
+    bottom: 18px;
+    left: 18px;
+  }
+
+  .services__item-description-text {
+    font-size: 18px;
+  }
+
+  .services__icon {
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+
+  .services__plus {
+    bottom: 18px;
+    right: 18px;
+  }
+}
