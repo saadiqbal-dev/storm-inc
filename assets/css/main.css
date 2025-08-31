@@ -416,7 +416,9 @@ body {
    ============================================================================= */
 .hero {
   position: relative;
-  width: 100%;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(-50vw + 50%);
   height: 836px;
   flex-shrink: 0;
   overflow: hidden;
@@ -672,8 +674,16 @@ body {
   background: #ffffff;
 }
 .industry__animation {
-  width: 687px;
+  width: 685px;
   height: 355px;
+  overflow: hidden;
+}
+
+.industry__animation-video {
+  width: 685px;
+  height: 355px;
+  display: block;
+  transform: scale(1.1);
 }
 
 .industry__content {
