@@ -54,3 +54,37 @@
   padding: 0;
   margin: 0;
 }
+
+/* =============================================================================
+   Industry Responsive Styles
+   ============================================================================= */
+
+/* 1480px Breakpoint */
+@media (max-width: 1480px) {
+  .industry__animation {
+    width: 50%;
+  }
+
+  .industry__content {
+    width: 50%;
+  }
+
+  .industry__content-text {
+    font-size: 22px;
+  }
+}
+
+/* 1280px Breakpoint */
+@media (max-width: 1280px) {
+  .industry__animation {
+    width: 50%;
+  }
+
+  .industry__content {
+    width: 50%;
+  }
+
+  .industry__content-text {
+    font-size: 20px;
+  }
+}

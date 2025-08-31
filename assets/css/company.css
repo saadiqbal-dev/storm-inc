@@ -89,3 +89,47 @@
   object-fit: cover;
   will-change: transform;
 }
+
+/* =============================================================================
+   Company Responsive Styles
+   ============================================================================= */
+
+/* 1480px Breakpoint */
+@media (max-width: 1480px) {
+  .company__content {
+    width: 50%;
+  }
+
+  .company__image {
+    width: 50%;
+    height: 350px;
+  }
+
+  .company__content-heading {
+    font-size: 26px;
+  }
+
+  .company__content-description {
+    font-size: 22px;
+  }
+}
+
+/* 1280px Breakpoint */
+@media (max-width: 1280px) {
+  .company__content {
+    width: 50%;
+  }
+
+  .company__image {
+    width: 50%;
+    height: 350px;
+  }
+
+  .company__content-heading {
+    font-size: 22px;
+  }
+
+  .company__content-description {
+    font-size: 20px;
+  }
+}
