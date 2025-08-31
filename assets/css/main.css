@@ -275,18 +275,18 @@ body {
 /* =============================================================================
    Dropdown Capabilities Styles
    ============================================================================= */
-.dropdown-capabilities {
+/* .dropdown-capabilities {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 40px;
   width: 100%;
-}
+} */
 
 .dropdown-capabilities__left {
   flex: 1;
 }
-
+/* 
 .dropdown-capabilities__creative {
   display: flex;
   flex-direction: column;
@@ -294,7 +294,7 @@ body {
   height: 100%;
   gap: 70px;
   width: 100%;
-}
+} */
 
 .dropdown-capabilities__creative-work {
   display: flex;
