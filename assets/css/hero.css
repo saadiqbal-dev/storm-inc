@@ -245,6 +245,8 @@
     gap: 25px;
   }
   .hero__text {
+    display: flex;
+    flex-direction: column;
     gap: 25px;
   }
   .hero__heading {
