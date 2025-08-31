@@ -296,10 +296,89 @@
 }
 
 @media (max-width: 768px) {
+  .services {
+    padding: 60px 20px;
+    gap: 40px;
+    margin-left: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .services__title {
     text-align: start;
+    font-size: 30px;
+    line-height: 36px;
+    padding: 0 10px;
   }
+
   .services__grid {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 24px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .services__item {
+    width: 100%;
+    height: 300px;
+    padding: 24px;
+    min-height: 300px;
+  }
+
+  .services__item-description {
+    padding: 24px;
+    padding-bottom: 60px;
+  }
+
+  .services__item-title {
+    font-size: 19px;
+    bottom: 24px;
+    left: 24px;
+    right: 60px;
+    line-height: 32px;
+  }
+
+  .services__item-description-text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .services__icon {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+
+  .services__plus {
+    bottom: 20px;
+    right: 20px;
+    transform: scale(0.8);
+  }
+
+  .services__plus svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .services__item--expandable:hover .services__plus {
+    transform: scale(0.8) rotate(45deg);
+  }
+
+  /* CTA Button section */
+  .services__item--cta {
+    background: #ffffff !important;
+    border: 2px solid #292929;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  .services__cta-button {
+    font-size: 16px;
+    padding: 0px 20px;
+    height: auto;
+    white-space: nowrap;
   }
 }

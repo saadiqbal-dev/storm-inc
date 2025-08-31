@@ -11,71 +11,71 @@
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
-  
+
   .hero__container {
     max-width: 100% !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
-  
+
   /* Company Section - Full Width */
   .company {
     max-width: 100% !important;
     width: 100% !important;
     padding: 40px 20px !important;
   }
-  
+
   .company__container {
     max-width: 100% !important;
     padding: 0 !important;
   }
-  
+
   /* Industry Section - Full Width */
   .industry {
     max-width: 100% !important;
     width: 100% !important;
     padding: 40px 20px !important;
   }
-  
+
   .industry__container {
     max-width: 100% !important;
     padding: 0 !important;
   }
-  
+
   /* Services Section - Full Width */
   .services {
     max-width: 100% !important;
     width: 100% !important;
     padding: 40px 20px !important;
   }
-  
+
   .services__container {
     max-width: 100% !important;
     padding: 0 !important;
   }
-  
+
   .services__grid {
     grid-template-columns: 1fr !important;
     gap: 20px !important;
   }
-  
+
   /* Partners Section - Full Width */
   .partners {
     max-width: 100% !important;
     width: 100% !important;
-    padding: 40px 20px !important;
+    padding: 70px 50px !important;
   }
-  
+
   .partners__container {
     max-width: 100% !important;
     padding: 0 !important;
   }
-  
+
   .partners__grid {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 20px !important;
   }
-  
+
   /* Ensure all main containers take full width */
   .container,
   .container-fluid,
@@ -83,19 +83,19 @@
     max-width: 100% !important;
     width: 100% !important;
   }
-  
+
   /* Remove any fixed max-width from main sections */
   main > section,
   body > section {
     max-width: 100% !important;
     width: 100% !important;
   }
-  
+
   /* Ensure no horizontal scroll */
   body {
     overflow-x: hidden !important;
   }
-  
+
   /* Remove side margins from all sections */
   section {
     margin-left: 0 !important;

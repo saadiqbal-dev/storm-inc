@@ -522,114 +522,276 @@
   .join {
     max-width: 100%;
     width: 100%;
+    flex-direction: column;
+    height: 100svh;
+    max-height: 100svh;
   }
-  
+
   .join__left {
     width: 100%;
     position: relative;
-    padding: 40px 20px;
+    padding: 100px 40px;
+    height: 50svh;
   }
-  
+
   .join__right {
+    width: 100%;
+    margin-left: 0;
+    position: relative;
+    display: block;
+    height: 400px;
+    min-height: 400px;
+    background-image: url("../img/join-image.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .join__right img {
     display: none;
   }
-  
+
   .join__content {
     align-items: center;
     text-align: center;
   }
-  
+
   .join__left-heading {
     font-size: 28px;
     line-height: 36px;
     max-width: 100%;
   }
-  
+
   /* Testimonials Section - Full Width */
   .testimonials {
     max-width: 100%;
     width: 100%;
-    padding: 40px 20px;
-    height: auto;
+    padding: 0;
+    height: 100vh;
     min-height: 100vh;
-  }
-  
-  .testimonials__content {
-    flex-direction: column;
     position: relative;
-    max-width: 100%;
   }
-  
-  .testimonials__content-text {
-    left: 0;
-    padding: 30px 20px;
+
+  .testimonials__carousel-wrapper {
+    height: 100vh;
     width: 100%;
   }
-  
-  .testimonials__content-quote {
-    font-size: 48px;
-    line-height: 20px;
+
+  .testimonials__carousel-track {
+    height: 100vh;
   }
-  
+
+  .testimonials__slide {
+    height: 100vh;
+    position: relative;
+  }
+
+  .testimonials__content {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-width: 100%;
+  }
+
+  .testimonials__content-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+  }
+
+  .testimonials__content-image img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  }
+
+  .testimonials__content-text {
+    position: absolute;
+    top: 76px;
+    left: 20px;
+    right: 20px;
+    width: calc(100% - 40px);
+    padding: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+
+    z-index: 2;
+    padding: 30px 20px;
+  }
+
+  .testimonials__content-quote {
+    font-size: 36px;
+    line-height: 20px;
+    color: #292929;
+    font-family: var(--font-peachi);
+  }
+
   .testimonials__content-review {
     font-size: 16px;
     line-height: 24px;
     max-width: 100%;
+    color: #292929;
+    font-family: var(--font-peachi);
   }
-  
-  .testimonials__content-image {
-    width: 100%;
-    margin-top: 20px;
+
+  .testimonials__content-ref__title {
+    color: #292929;
   }
-  
+
+  .testimonials__content-ref__desc {
+    color: #555353;
+  }
+
   .testimonials__indicators {
-    bottom: 20px;
+    position: absolute;
+    bottom: 29px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 12px;
   }
   
-  /* Footer Section - Full Width */
+  .testimonials__indicators svg {
+    fill: white;
+    fill-opacity: 0.4;
+    transition: fill-opacity 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .testimonials__indicators svg.testimonials__indicator--active {
+    fill: white;
+    fill-opacity: 1;
+  }
+  
+  /* Alternative if using different indicator structure */
+  .testimonials__indicator {
+    fill: white;
+    fill-opacity: 0.4;
+    transition: fill-opacity 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .testimonials__indicator--active {
+    fill: white !important;
+    fill-opacity: 1 !important;
+  }
+
+  /* Footer Section - Mobile Layout */
   .footer {
     max-width: 100%;
     width: 100%;
-    padding: 40px 20px 20px 20px;
-    gap: 40px;
+    padding: 33px 20px;
+    gap: auto;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
   }
-  
+
   .footer__content {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 27px;
+    flex: 1;
+    justify-content: flex-start;
+    width: 100%;
   }
-  
-  .footer__content-logo {
-    text-align: center;
-  }
-  
-  .footer__content-logo img {
-    transform: scale(0.8);
-  }
-  
+
+  /* Hide original footer elements on mobile */
+  .footer__content-logo,
   .footer__content-navigation {
-    width: 100%;
+    display: none;
+  }
+
+  /* Mobile footer content */
+  .footer__mobile-content {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 27px;
+    width: 100%;
+  }
+
+  .footer__mobile-contact {
+    color: #292929;
+    font-family: "Mona Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
     text-align: center;
-    gap: 30px;
   }
-  
-  .footer__content-navigation__contact {
-    width: 100%;
+
+  .footer__mobile-address {
+    color: #292929;
+    font-family: "Mona Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
   }
-  
-  .footer__content-navigation__socials {
-    width: 100%;
+
+  .footer__mobile-socials {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
   }
-  
+
+  .footer__mobile-socials a {
+    color: #292929;
+    font-family: "Mona Sans";
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-decoration: none;
+  }
+
+  .footer__mobile-socials a:hover {
+    color: #ff5964;
+    text-decoration: underline;
+  }
+
+  /* Mobile footer bottom */
+  .footer__mobile-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: auto;
+  }
+
+  .footer__mobile-copyright {
+    color: #9C8E8E;
+    font-family: "Mona Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    text-align: center;
+    margin: 0;
+  }
+
+  .footer__mobile-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer__mobile-logo img {
+    max-height: 40px;
+    width: auto;
+  }
+
+  /* Hide original footer foot on mobile */
   .footer__foot {
-    text-align: center;
-  }
-  
-  .footer__foot p {
-    font-size: 12px;
+    display: none;
   }
 }
 

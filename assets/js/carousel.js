@@ -195,10 +195,59 @@ class HeaderScroll {
 class TestimonialsCarousel {
   constructor() {
     this.track = document.querySelector(".testimonials__carousel-track");
+    this.indicators = document.querySelectorAll(".testimonials__indicators circle, .testimonials__indicators .testimonials__indicator");
     this.currentSlide = 0;
     this.totalSlides = 2;
     
+    this.init();
+  }
+  
+  init() {
+    this.updateIndicators();
+    this.setupIndicatorClicks();
     this.startCarousel();
+  }
+  
+  setupIndicatorClicks() {
+    this.indicators.forEach((indicator, index) => {
+      indicator.addEventListener('click', () => {
+        this.goToSlide(index);
+      });
+      indicator.style.cursor = 'pointer';
+    });
+  }
+  
+  goToSlide(slideIndex) {
+    this.currentSlide = slideIndex;
+    const translateX = this.currentSlide * -50; // Move by 50% for each slide
+    this.track.style.transform = `translateX(${translateX}%)`;
+    this.updateIndicators();
+  }
+  
+  updateIndicators() {
+    this.indicators.forEach((indicator, index) => {
+      indicator.classList.remove('testimonials__indicator--active');
+      // Handle both SVG circle elements and regular elements
+      if (indicator.tagName === 'circle') {
+        indicator.setAttribute('fill', 'white');
+        indicator.setAttribute('fill-opacity', '0.4');
+      } else {
+        indicator.style.fill = 'white';
+        indicator.style.fillOpacity = '0.4';
+      }
+    });
+    
+    if (this.indicators[this.currentSlide]) {
+      this.indicators[this.currentSlide].classList.add('testimonials__indicator--active');
+      // Handle both SVG circle elements and regular elements
+      if (this.indicators[this.currentSlide].tagName === 'circle') {
+        this.indicators[this.currentSlide].setAttribute('fill', 'white');
+        this.indicators[this.currentSlide].setAttribute('fill-opacity', '1');
+      } else {
+        this.indicators[this.currentSlide].style.fill = 'white';
+        this.indicators[this.currentSlide].style.fillOpacity = '1';
+      }
+    }
   }
   
   startCarousel() {
@@ -211,6 +260,7 @@ class TestimonialsCarousel {
     this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
     const translateX = this.currentSlide * -50; // Move by 50% for each slide
     this.track.style.transform = `translateX(${translateX}%)`;
+    this.updateIndicators();
   }
 }
 
