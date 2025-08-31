@@ -1,15 +1,64 @@
 /* Custom Fonts for Storm Inc */
 
-/* Peachi Font - For headings */
-@import url('https://fonts.googleapis.com/css2?family=Peach&display=swap');
+/* Peachi Font - Local font files */
+@font-face {
+  font-family: 'Peachi';
+  src: url('../fonts/Peachi-Thin.woff2') format('woff2'),
+       url('../fonts/Peachi-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
 
-/* Mona Sans Font - For body text and UI elements */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@font-face {
+  font-family: 'Peachi';
+  src: url('../fonts/Peachi-Light.woff2') format('woff2'),
+       url('../fonts/Peachi-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peachi';
+  src: url('../fonts/Peachi-Regular.woff2') format('woff2'),
+       url('../fonts/Peachi-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peachi';
+  src: url('../fonts/Peachi-Medium.woff2') format('woff2'),
+       url('../fonts/Peachi-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peachi';
+  src: url('../fonts/Peachi-Bold.woff2') format('woff2'),
+       url('../fonts/Peachi-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peachi';
+  src: url('../fonts/Peachi-Black.woff2') format('woff2'),
+       url('../fonts/Peachi-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Font Face Declarations */
 :root {
-  --font-peachi: 'Peach', serif;
-  --font-mona-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-peachi: 'Peachi', serif;
+  --font-mona-sans: 'Mona Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Peachi Font Class */

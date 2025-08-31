@@ -179,10 +179,14 @@
 
   .hero__heading {
     font-size: 48px;
+    padding: 0;
+    margin: 0;
   }
 
   .hero__subheading {
     font-size: 22px;
+    padding: 0;
+    margin: 0;
   }
 }
 
