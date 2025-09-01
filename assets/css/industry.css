@@ -8,19 +8,20 @@
    ============================================================================= */
 
 .industry {
+  background: #ffffff;
+  position: relative;
+  z-index: 5;
+  width: 100%;
+}
+
+.industry__main {
   padding: 108px 160px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
-  /* gap: 141.39px; */
-  position: relative;
-  z-index: 5;
-
-  background: #ffffff;
-
+  /* justify-content: space-between; */
+  gap: 90px;
   max-width: 1920px;
-  /* margin-left: calc(-50vw + 50%); */
   margin: 0 auto;
 }
 
@@ -40,17 +41,17 @@
 .industry__animation {
   overflow: hidden;
   width: 100%;
-  max-width: 685px; /* Add this */
+  max-width: 692px;
   height: 355px;
 }
 
 .industry__animation-video {
   width: 100%;
-  max-width: 685px; /* Add this */
+  max-width: 692px;
   height: 355px;
   display: block;
   transform: scale(1.1);
-  object-fit: cover; /* Add this to maintain aspect ratio */
+  object-fit: cover;
 }
 
 .industry__content {
@@ -59,7 +60,7 @@
   justify-content: space-between;
   align-items: start;
   gap: 24px;
-  max-width: 684px;
+  max-width: 692px;
 }
 
 .industry__content-text {

@@ -15,7 +15,7 @@
   margin-left: calc(-50vw + 50%);
   align-items: center;
   justify-content: center;
-  gap: 74px;
+  gap: 94px;
   padding: 100px 160px;
   position: relative;
   z-index: 5;
@@ -161,7 +161,7 @@
   color: #555353;
   text-align: center;
   font-family: var(--font-mona-sans);
-  font-size: 21.333px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: 42.667px; /* 200% */

@@ -32,7 +32,7 @@
 .company__content {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 36px;
   max-width: 692px;
   align-items: flex-start;
   justify-content: flex-start;
@@ -70,7 +70,7 @@
   color: #555353;
   text-align: center;
   font-family: var(--font-mona-sans);
-  font-size: 21.333px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 500;
   line-height: 42.667px; /* 200% */
