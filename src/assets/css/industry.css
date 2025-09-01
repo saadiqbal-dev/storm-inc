@@ -145,4 +145,7 @@
   .industry__content {
     width: 100%;
   }
+  .industry__content-text {
+    font-size: 20px;
+  }
 }
