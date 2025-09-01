@@ -229,10 +229,12 @@
   }
   .company__content-heading {
     font-size: 30px;
+    line-height: 38px;
   }
 
   .company__content-description {
     font-size: 20px;
+    line-height: 28px;
   }
   .company__image {
     width: 100%;

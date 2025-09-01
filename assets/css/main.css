@@ -484,7 +484,7 @@ body {
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%
     ),
-    url("../img/hero-2.png");
+    url("../img/hero-2.webp");
 }
 
 .hero__slide-bg--3 {
@@ -493,7 +493,7 @@ body {
       rgba(0, 0, 0, 0.2) 0%,
       rgba(0, 0, 0, 0.2) 100%
     ),
-    url("../img/hero-3.png");
+    url("../img/hero-3.webp");
 }
 
 .hero__content {

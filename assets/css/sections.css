@@ -154,7 +154,6 @@
   background: #ffffff;
   width: fit-content;
   height: fit-content;
-  gap: 16px;
   z-index: 50;
 }
 
@@ -164,7 +163,7 @@
   font-size: 85.333px;
   font-style: normal;
   font-weight: 300;
-  line-height: 35px;
+  line-height: 0px;
   margin: 0;
   padding: 0;
 }
@@ -179,12 +178,13 @@
   max-width: 623px;
   margin: 0;
   padding: 0;
+  padding-bottom: 24px;
 }
 
 .testimonials__content-ref {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 12px;
   border-left: 3px solid #e7542b;
   padding-left: 20px;
   max-height: fit-content;
@@ -199,6 +199,8 @@
   line-height: normal;
   margin: 0;
   padding: 0;
+  text-box-edge: cap alphabetic;
+  text-box-trim: trim-both;
 }
 
 .testimonials__content-ref__desc {
@@ -210,6 +212,8 @@
   line-height: normal;
   margin: 0;
   padding: 0;
+  text-box-edge: cap alphabetic;
+  text-box-trim: trim-both;
 }
 
 .testimonials__content-image {
@@ -450,6 +454,12 @@
   margin: 0 auto;
 }
 
+.footer__content-logo {
+  width: 226.1px;
+  height: 94.036px;
+  flex-shrink: 0;
+}
+
 .footer__content {
   display: flex;
   justify-content: space-between;
@@ -485,7 +495,6 @@
 .footer__content-navigation__socials {
   display: flex;
   flex-direction: column;
-  gap: 8px;
 }
 
 .footer__content-navigation__social-link {
@@ -543,7 +552,7 @@
     display: block;
     height: 400px;
     min-height: 400px;
-    background-image: url("../img/join-image.png");
+    background-image: url("../img/join-image.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
