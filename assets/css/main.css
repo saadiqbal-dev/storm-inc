@@ -587,7 +587,8 @@ body {
   background: #f7fbfd;
   position: relative;
   z-index: 5;
-  max-width: 1920px;
+  /* max-width: 1920px; */
+  width: 100svw !important;
   margin: 0 auto;
 }
 

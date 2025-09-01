@@ -13,17 +13,21 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  gap: 141.39px;
+  /* gap: 141.39px; */
   position: relative;
   z-index: 5;
+
   background: #ffffff;
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(-50vw + 50%);
+
+  max-width: 1920px;
+  /* margin-left: calc(-50vw + 50%); */
+  margin: 0 auto;
 }
 
-.industry__animation {
+/* .industry__animation {
   overflow: hidden;
+  width: 685px;
+  height: 355px;
 }
 
 .industry__animation-video {
@@ -31,6 +35,22 @@
   height: 355px;
   display: block;
   transform: scale(1.1);
+} */
+
+.industry__animation {
+  overflow: hidden;
+  width: 100%;
+  max-width: 685px; /* Add this */
+  height: 355px;
+}
+
+.industry__animation-video {
+  width: 100%;
+  max-width: 685px; /* Add this */
+  height: 355px;
+  display: block;
+  transform: scale(1.1);
+  object-fit: cover; /* Add this to maintain aspect ratio */
 }
 
 .industry__content {
