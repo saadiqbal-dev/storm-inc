@@ -28,7 +28,28 @@ class HeroCarousel {
   setupCarousel() {
     // Set initial position to show first slide
     this.track.style.transform = "translateX(0%)";
-    this.track.style.transition = "transform 1s ease-in-out";
+    this.track.style.transition = "transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)";
+    
+    // Setup content wrapper for each slide
+    this.slides.forEach((slide, index) => {
+      const content = slide.querySelector('.hero__content');
+      if (content) {
+        // Create a wrapper for parallax effect if it doesn't exist
+        if (!content.parentElement.classList.contains('hero__content-wrapper')) {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'hero__content-wrapper';
+          content.parentElement.insertBefore(wrapper, content);
+          wrapper.appendChild(content);
+        }
+        
+        // All content is visible
+        content.style.opacity = "1";
+        content.style.transform = "translateX(0)";
+        content.style.transition = "none";
+        content.style.position = "relative";
+      }
+    });
+    
     this.updateIndicators();
   }
 
@@ -54,20 +75,82 @@ class HeroCarousel {
   }
 
   slideToNext() {
+    const previousIndex = this.currentIndex;
     this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+    
+    // First, start moving the images
     const translateX = -this.currentIndex * this.slideWidth;
+    this.track.style.transition = "transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)";
     this.track.style.transform = `translateX(${translateX}%)`;
+    
+    // Then, after 300ms delay, move the text faster to catch up
+    setTimeout(() => {
+      // Move text out of previous slide
+      const prevContent = this.slides[previousIndex].querySelector('.hero__content');
+      if (prevContent) {
+        prevContent.style.transition = "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease-out";
+        prevContent.style.transform = "translateX(-100%)";
+        prevContent.style.opacity = "0";
+      }
+      
+      // Move text in for current slide
+      const currentContent = this.slides[this.currentIndex].querySelector('.hero__content');
+      if (currentContent) {
+        // Position text off-screen to the right first
+        currentContent.style.transition = "none";
+        currentContent.style.transform = "translateX(100%)";
+        currentContent.style.opacity = "0";
+        
+        // Then animate it in faster than the image
+        setTimeout(() => {
+          currentContent.style.transition = "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.6s ease-in";
+          currentContent.style.transform = "translateX(0)";
+          currentContent.style.opacity = "1";
+        }, 50);
+      }
+      
+      // Handle all other slides to keep them in sync
+      this.slides.forEach((slide, index) => {
+        if (index !== previousIndex && index !== this.currentIndex) {
+          const content = slide.querySelector('.hero__content');
+          if (content) {
+            content.style.transition = "none";
+            content.style.transform = "translateX(100%)";
+            content.style.opacity = "0";
+          }
+        }
+      });
+    }, 300); // 300ms delay after image starts moving
+    
     this.updateIndicators();
 
     // Reset to first slide seamlessly after last slide
     if (this.currentIndex === 0) {
       setTimeout(() => {
+        // Reset without transition
         this.track.style.transition = "none";
         this.track.style.transform = "translateX(0%)";
+        
+        // Reset text positions
+        this.slides.forEach((slide, index) => {
+          const content = slide.querySelector('.hero__content');
+          if (content) {
+            content.style.transition = "none";
+            if (index === 0) {
+              content.style.transform = "translateX(0)";
+              content.style.opacity = "1";
+            } else {
+              content.style.transform = "translateX(100%)";
+              content.style.opacity = "0";
+            }
+          }
+        });
+        
+        // Re-enable transitions
         setTimeout(() => {
-          this.track.style.transition = "transform 1s ease-in-out";
+          this.track.style.transition = "transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)";
         }, 50);
-      }, 1000);
+      }, 1500);
     }
   }
 
