@@ -74,8 +74,8 @@
 }
 
 .join__cta-button:hover {
-  background-color: #555353;
-  color: white;
+  background-color: #ffffff;
+  color: #000000;
   transform: translateY(-2px);
 }
 
@@ -810,11 +810,11 @@
   .footer__content-navigation {
     display: flex;
   }
-  
+
   .footer__foot {
     display: block;
   }
-  
+
   /* Hide mobile footer elements on desktop */
   .footer__mobile-content,
   .footer__mobile-bottom {

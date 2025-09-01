@@ -69,9 +69,10 @@
 }
 
 .company__cta-button:hover {
-  background-color: #555353;
+  background-color: #ff5964;
   color: white;
   transform: translateY(-2px);
+  border: 1px solid #ff5964;
 }
 
 .company__image {
