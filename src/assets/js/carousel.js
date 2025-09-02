@@ -228,22 +228,26 @@ class HeroCarousel {
         // Removed section parallax to eliminate stuttering - sections remain in natural position
       }
 
-      // Company image parallax effect
+      // Company image parallax effect - image moves within container
       const companySection = document.querySelector(".company");
-      const companyImage = document.querySelector("div.company__image img");
+      const companyImageContainer = document.querySelector(".company__image");
+      const companyImage = document.querySelector(".company__image img");
 
-      if (companySection && companyImage) {
+      if (companySection && companyImageContainer && companyImage) {
         const rect = companySection.getBoundingClientRect();
         const windowHeight = window.innerHeight;
 
         // Check if section is in viewport
         if (rect.top < windowHeight && rect.bottom > 0) {
-          // Simple parallax calculation based on how much the section has scrolled into view
+          // Calculate parallax based on section's position in viewport
           const scrollPercent =
             (windowHeight - rect.top) / (windowHeight + rect.height);
-          const parallaxOffset = (scrollPercent - 0.5) * -300; // More noticeable movement
-
-          companyImage.style.transform = `translateY(${parallaxOffset}px)`;
+          
+          // Image moves within its container bounds (image is 120% height, so 20% extra space)
+          // Move from -10% to +10% of image height for smooth movement within container
+          const parallaxOffset = (scrollPercent - 0.5) * 20; // 20% range of movement
+          
+          companyImage.style.transform = `translateY(${parallaxOffset}%)`;
         }
       }
 
