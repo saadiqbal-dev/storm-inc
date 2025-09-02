@@ -1,0 +1,198 @@
+/* 
+  Storm Inc - Join Section
+  Join section and related responsive styles
+*/
+
+/* =======================
+  JOIN - Figma
+  =========================*/
+
+.join {
+  display: flex;
+  position: relative;
+  z-index: 5;
+  background: #ffffff;
+  width: 100%;
+  height: 70vh;
+  max-height: 693.33px;
+  /* max-width: 1920px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.join__left {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #292929;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  gap: 36px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.join__content {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: start;
+}
+
+.join__left-heading {
+  color: #f5f5f2;
+  font-family: var(--font-peachi);
+  font-size: 42px;
+  max-width: 452px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 52px; /* 123.81% */
+}
+
+.join__cta-button {
+  border-radius: 66.667px;
+  border: 1px solid #ffffff;
+  display: flex;
+  max-width: fit-content;
+  height: 54px;
+  padding: 13px 30px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  background: transparent;
+  color: #ffffff;
+  text-align: center;
+  font-family: var(--font-mona-sans);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 42.667px; /* 200% */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.join__cta-button:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: translateY(-2px);
+}
+
+.join__right {
+  width: 50%;
+  margin-left: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.join__right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right center; /* Always show the far right of the image */
+}
+
+/* =============================================================================
+   Join Responsive Styles
+   ============================================================================= */
+
+/* 1480px Breakpoint */
+@media (max-width: 1480px) {
+  .join__left-heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .join__cta-button {
+    font-size: 18px;
+    padding: 0px 18px;
+    height: auto;
+  }
+
+  .join__cta-button:hover {
+    transform: translateY(-2px);
+  }
+}
+
+/* 1280px Breakpoint */
+@media (max-width: 1280px) {
+  .join__left-heading {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .join__cta-button {
+    font-size: 16px;
+    padding: 0px 18px;
+    height: auto;
+  }
+
+  .join__cta-button:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .joing__right-img {
+    position: absolute;
+    right: 0;
+    z-index: -1;
+  }
+
+  .join {
+    max-height: 70vh;
+  }
+}
+
+/* =============================================================================
+   768px Mobile Responsive - Join Section
+   ============================================================================= */
+
+@media (max-width: 768px) {
+  /* Join Section - Full Width */
+  .join {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: column;
+    height: 70svh;
+    min-height: fit-content;
+  }
+
+  .join__left {
+    width: 100%;
+    position: relative;
+    padding: 100px 40px;
+    /* height: 50svh; */
+  }
+
+  .join__right {
+    width: 100%;
+    margin-left: 0;
+    position: relative;
+    display: block;
+    /* height: 400px; */
+    min-height: 400px;
+    background-image: url("../img/join-image.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .join__right img {
+    display: none;
+  }
+
+  .join__content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .join__left-heading {
+    font-size: 28px;
+    line-height: 36px;
+    max-width: 100%;
+  }
+}
