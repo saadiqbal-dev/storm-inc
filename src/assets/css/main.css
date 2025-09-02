@@ -853,16 +853,16 @@ Google Animation Classes
   left: 36px;
 } */
 
-.services__plus {
+/* .services__plus {
   position: absolute;
   bottom: 36px;
   right: 36px;
   z-index: 5;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center center;
-}
+} */
 
-.services__cta-button {
+/* .services__cta-button {
   border-radius: 66.667px;
   border: 1px solid #555353;
   display: flex;
@@ -880,15 +880,15 @@ Google Animation Classes
   font-style: normal;
   font-weight: 500;
   line-height: 42.667px; /* 200% */
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
+/* cursor: pointer;
+  transition: all 0.3s ease; */
+/* } */
 
-.services__cta-button:hover {
-  background-color: #555353;
+/* .services__cta-button:hover { */
+/* background-color: #555353;
   color: white;
   transform: translateY(-2px);
-}
+} */
 
 /* ================================
 PARTNERS - Figma
