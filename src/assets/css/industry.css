@@ -82,11 +82,14 @@
 
 /* 1480px Breakpoint */
 @media (max-width: 1480px) {
-  .industry {
-    padding: 60px 120px;
+  .industry__content {
+    max-width: 560px;
   }
   .industry__animation {
     width: fit-content;
+  }
+  .industry__main {
+    padding: 100px 145px 100px 160px;
   }
 
   .industry__content-text {
@@ -98,14 +101,18 @@
 @media (max-width: 1280px) {
   .industry {
     gap: 10px;
-    padding: 60px;
   }
   .industry__animation {
     width: fit-content;
   }
 
   .industry__content-text {
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .industry__content {
+    max-width: 460px;
   }
 }
 

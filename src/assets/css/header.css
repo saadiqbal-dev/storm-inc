@@ -365,18 +365,18 @@
   }
 
   .header--scrolled .header__container {
-    padding-top: 25px; /* Reduced from 50px */
-    padding-bottom: 25px; /* Reduced from 50px */
+    padding-top: 20px; /* Reduced from 50px */
+    padding-bottom: 20px; /* Reduced from 50px */
   }
 
   .header__logo img {
-    transform: scale(0.9); /* 0.9x the original size */
-    max-height: 45px; /* Adjusted for scaled size */
+    transform: scale(1); /* 0.9x the original size */
+    max-height: 30px; /* Adjusted for scaled size */
   }
 
   .header__menu-text-main,
   .header__menu-text-hover {
-    font-size: 18px; /* Reduced from 24px */
+    font-size: 16px; /* Reduced from 24px */
   }
 
   .header__dropdown {

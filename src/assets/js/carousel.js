@@ -244,8 +244,8 @@ class HeroCarousel {
             (windowHeight - rect.top) / (windowHeight + rect.height);
           
           // Image moves within its container bounds (image is 120% height, so 20% extra space)
-          // Move from -10% to +10% of image height for smooth movement within container
-          const parallaxOffset = (scrollPercent - 0.5) * 20; // 20% range of movement
+          // Move from -15% to +15% of image height for more noticeable movement within container
+          const parallaxOffset = (scrollPercent - 0.5) * 60; // 60% range of movement for faster, more noticeable effect
           
           companyImage.style.transform = `translateY(${parallaxOffset}%)`;
         }

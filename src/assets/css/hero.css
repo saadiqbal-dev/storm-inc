@@ -246,10 +246,11 @@
   }
 
   .hero__cta-button {
-    font-size: 16px;
-    padding: 0px 18px;
+    font-size: 14px;
+    line-height: 14px;
+    padding: 10px 20px;
     height: auto;
-    width: auto;
+    margin: 0;
   }
 
   .hero__cta-button:hover {
@@ -288,7 +289,9 @@
 
   .hero__cta-button {
     font-size: 16px;
-    padding: 0px 20px;
+    line-height: 32px;
+    font-weight: 500;
+    padding: 8px 20px;
     height: auto;
     width: auto;
   }
