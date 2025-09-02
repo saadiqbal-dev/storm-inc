@@ -556,7 +556,7 @@
     width: 100%;
     flex-direction: column;
     height: 70svh;
-    max-height: 100svh;
+    max-height: fit-content;
   }
 
   .join__left {
