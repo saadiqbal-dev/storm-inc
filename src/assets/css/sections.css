@@ -547,7 +547,7 @@
     max-width: 100%;
     width: 100%;
     flex-direction: column;
-    height: 100svh;
+    /* height: 100svh; */
     max-height: 100svh;
   }
 
