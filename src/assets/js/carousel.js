@@ -169,40 +169,61 @@ class HeroCarousel {
 
       // Apply dual-layer parallax effect
       if (scrolled < heroHeight) {
-        // Layer 1: Background images move at half speed (slower than scroll)
-        const imageParallaxSpeed = -scrolled * 0;
+        // Layer 1: Background images move at slower speed (creates depth)
+        const imageParallaxSpeed = -scrolled * 0.5;
         const heroBackgrounds =
           document.querySelectorAll(".hero__slide-bg");
         heroBackgrounds.forEach((bg) => {
-          bg.style.transform = `translateY(${imageParallaxSpeed}px)`;
+          // Only apply Y transform for scroll parallax, preserve any X transform from carousel
+          const currentTransform = bg.style.transform;
+          const scaleMatch = currentTransform.match(/scale\([^)]+\)/);
+          const scaleTransform = scaleMatch ? scaleMatch[0] : '';
+          bg.style.transform = `translateY(${imageParallaxSpeed}px) ${scaleTransform}`;
         });
 
-        // Layer 2: Text content moves at 60% of image speed
-        const textParallaxSpeed = -scrolled * 0.1;
+        // Layer 2: Text content moves at different speed - but preserve carousel animations
+        const textParallaxSpeed = -scrolled * 0.3;
         const heroContents = document.querySelectorAll(".hero__content");
         heroContents.forEach((content) => {
-          content.style.transform = `translateY(${textParallaxSpeed}px)`;
+          // Get existing horizontal transform from carousel animation
+          const currentTransform = content.style.transform;
+          const xMatch = currentTransform.match(/translateX\([^)]+\)/);
+          const scaleMatch = currentTransform.match(/scale\([^)]+\)/);
+          const xTransform = xMatch ? xMatch[0] : 'translateX(0)';
+          const scaleTransform = scaleMatch ? scaleMatch[0] : '';
+          
+          // Combine scroll parallax Y with carousel X and scale
+          content.style.transform = `${xTransform} translateY(${textParallaxSpeed}px) ${scaleTransform}`;
         });
 
-        // Create layered effect for next sections (removed footer from parallax)
+        // Create layered effect for next sections 
         const contentSections = document.querySelectorAll(
           ".company, .industry, .services, .partners, .join, .testimonials"
         );
         contentSections.forEach((section) => {
-          const layerOffset = -Math.min(scrolled * 0, heroHeight * 0.3);
+          const layerOffset = -Math.min(scrolled * 0.2, heroHeight * 0.3);
           section.style.transform = `translateY(${layerOffset}px)`;
         });
       } else {
-        // When past hero, hide backgrounds and text
+        // When past hero, continue parallax effect
         const heroBackgrounds =
           document.querySelectorAll(".hero__slide-bg");
         heroBackgrounds.forEach((bg) => {
-          bg.style.transform = `translateY(-${heroHeight * 0.5}px)`;
+          const currentTransform = bg.style.transform;
+          const scaleMatch = currentTransform.match(/scale\([^)]+\)/);
+          const scaleTransform = scaleMatch ? scaleMatch[0] : '';
+          bg.style.transform = `translateY(-${heroHeight * 0.6}px) ${scaleTransform}`;
         });
 
         const heroContents = document.querySelectorAll(".hero__content");
         heroContents.forEach((content) => {
-          content.style.transform = `translateY(-${heroHeight * 0.3}px)`;
+          const currentTransform = content.style.transform;
+          const xMatch = currentTransform.match(/translateX\([^)]+\)/);
+          const scaleMatch = currentTransform.match(/scale\([^)]+\)/);
+          const xTransform = xMatch ? xMatch[0] : 'translateX(0)';
+          const scaleTransform = scaleMatch ? scaleMatch[0] : '';
+          
+          content.style.transform = `${xTransform} translateY(-${heroHeight * 0.4}px) ${scaleTransform}`;
         });
 
         const contentSections = document.querySelectorAll(
