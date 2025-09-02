@@ -312,11 +312,11 @@ class TestimonialsCarousel {
       indicator.classList.remove('testimonials__indicator--active');
       // Handle both SVG circle elements and regular elements
       if (indicator.tagName === 'circle') {
-        indicator.setAttribute('fill', 'white');
-        indicator.setAttribute('fill-opacity', '0.4');
+        indicator.setAttribute('fill', '#D9D9D9');
+        indicator.setAttribute('fill-opacity', '1');
       } else {
-        indicator.style.fill = 'white';
-        indicator.style.fillOpacity = '0.4';
+        indicator.style.fill = '#D9D9D9';
+        indicator.style.fillOpacity = '1';
       }
     });
     
@@ -324,10 +324,10 @@ class TestimonialsCarousel {
       this.indicators[this.currentSlide].classList.add('testimonials__indicator--active');
       // Handle both SVG circle elements and regular elements
       if (this.indicators[this.currentSlide].tagName === 'circle') {
-        this.indicators[this.currentSlide].setAttribute('fill', 'white');
+        this.indicators[this.currentSlide].setAttribute('fill', '#999393');
         this.indicators[this.currentSlide].setAttribute('fill-opacity', '1');
       } else {
-        this.indicators[this.currentSlide].style.fill = 'white';
+        this.indicators[this.currentSlide].style.fill = '#999393';
         this.indicators[this.currentSlide].style.fillOpacity = '1';
       }
     }
