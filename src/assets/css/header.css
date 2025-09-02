@@ -499,6 +499,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    min-height: 90px;
     background: white;
     padding: 10px 30px 10px 40px;
     justify-content: space-between;
@@ -508,7 +509,7 @@
   }
 
   .mobile-header__logo img {
-    height: 45px;
+    height: 57px;
     width: auto;
   }
 
@@ -550,14 +551,14 @@
   /* Mobile menu header */
   .mobile-menu__header {
     display: flex;
-    padding: 10px 30px 10px 40px;
+    padding: 20px 30px 10px 40px;
     justify-content: space-between;
     align-items: center;
     background: #292929;
   }
 
   .mobile-menu__logo img {
-    height: 45px;
+    height: 57px;
     width: auto;
   }
 
