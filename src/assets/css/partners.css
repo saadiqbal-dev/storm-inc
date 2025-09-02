@@ -99,7 +99,7 @@ PARTNERS - Figma
     text-align: center;
     font-size: 30px;
     line-height: 36px;
-    padding: 0 20px;
+    /* padding: 0 20px; */
   }
 
   /* Keep horizontal scrolling container - full width edge to edge */

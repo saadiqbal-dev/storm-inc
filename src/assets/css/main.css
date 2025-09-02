@@ -838,7 +838,7 @@ Google Animation Classes
   z-index: 1;
 }
 
-.services__item-title {
+/* .services__item-title {
   color: #fff;
   font-family: var(--font-mona-sans);
   font-size: 26px;
@@ -851,7 +851,7 @@ Google Animation Classes
   position: absolute;
   bottom: 36px;
   left: 36px;
-}
+} */
 
 .services__plus {
   position: absolute;

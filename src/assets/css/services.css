@@ -338,10 +338,11 @@
 
   .services__item-title {
     font-size: 19px;
-    bottom: 24px;
+    bottom: 18px;
     left: 24px;
     right: 60px;
-    line-height: 32px;
+    line-height: 24px;
+    max-width: 216px;
   }
 
   .services__item-description-text {

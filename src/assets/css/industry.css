@@ -139,6 +139,7 @@
   .industry__main {
     display: flex;
     flex-direction: column-reverse;
+    padding: 0px;
   }
 
   .industry__animation {
@@ -151,5 +152,6 @@
   }
   .industry__content-text {
     font-size: 20px;
+    line-height: 28px;
   }
 }
