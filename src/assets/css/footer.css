@@ -88,9 +88,10 @@
 }
 
 .footer__foot p {
-  color: #666;
+  color: #9c8e8e;
   font-family: var(--font-mona-sans);
   font-size: 16px;
+  line-height: 39.9px;
   margin: 0;
 }
 

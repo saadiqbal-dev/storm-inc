@@ -13,7 +13,7 @@
   display: flex;
   background: #f1f4f9;
   flex-direction: column;
-  height: 100vh;
+  height: min(100vh, 1159px);
   width: 100%;
   /* max-width: 1920px; */
   margin-left: auto;
