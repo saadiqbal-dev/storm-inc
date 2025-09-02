@@ -22,6 +22,7 @@
 
 .company__main {
   max-width: 1920px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   z-index: 5;
@@ -79,10 +80,10 @@
 }
 
 .company__cta-button:hover {
-  background-color: #ff5964;
+  background-color: #555353;
   color: white;
   transform: translateY(-2px);
-  border: 1px solid #ff5964;
+  border: 1px solid #555353;
 }
 
 .company__image {

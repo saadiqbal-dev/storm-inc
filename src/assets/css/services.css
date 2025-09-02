@@ -129,12 +129,14 @@
   font-size: 26px;
   font-style: normal;
   font-weight: 500;
+  justify-content: flex-end;
   line-height: 33px;
+
   max-width: 320px;
   margin: 0;
   z-index: 2;
   position: absolute;
-  bottom: 36px;
+  bottom: 29px; /* Moved down by 8px from 36px to 28px */
   left: 36px;
 }
 
@@ -143,6 +145,7 @@
   bottom: 36px;
   right: 36px;
   z-index: 5;
+  line-height: 33px;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-origin: center center;
 }
@@ -170,11 +173,11 @@
 }
 
 .services__cta-button:hover {
-  background-color: #ff5964;
+  background-color: #555353;
   color: white;
   transform: translateY(-2px);
 
-  border: 1px solid #ff5964;
+  border: 1px solid #555353;
 }
 
 /* =============================================================================

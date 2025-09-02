@@ -52,8 +52,8 @@ PARTNERS - Figma
 }
 
 .partners__images-img {
-  max-height: 140px;
-  max-width: 200px;
+  max-height: auto;
+  max-width: 160px;
   flex-shrink: 0;
   margin-right: 150px;
   transition: filter 0.3s ease;

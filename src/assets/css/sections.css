@@ -13,7 +13,8 @@
   z-index: 5;
   background: #ffffff;
   width: 100%;
-  max-width: 1920px;
+  height: auto;
+  /* max-width: 1920px; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -26,7 +27,7 @@
   height: 100%;
   width: 50%;
   display: flex;
-  gap: 16px;
+  gap: 36px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -35,7 +36,7 @@
 .join__content {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 48px;
   align-items: start;
 }
 
@@ -83,7 +84,8 @@
   width: 50%;
   margin-left: 50%;
   height: auto;
-  min-height: 600px;
+
+  min-height: 693px;
 }
 
 .join__right img {
