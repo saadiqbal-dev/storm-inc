@@ -9,9 +9,7 @@ class HeroCarousel {
     this.track = document.querySelector(".hero__carousel-track");
     this.slides = document.querySelectorAll(".hero__slide");
     this.heroSection = document.getElementById("hero");
-    this.indicators = document.querySelectorAll(
-      ".hero__indicators circle"
-    );
+    this.indicators = document.querySelectorAll(".hero__indicators circle");
     this.currentIndex = 0;
     this.slideWidth = 33.333; // Each slide is 33.333% of track width
     this.autoSlideInterval = 6000; // 6 seconds
@@ -28,20 +26,23 @@ class HeroCarousel {
   setupCarousel() {
     // Set initial position to show first slide
     this.track.style.transform = "translateX(0%)";
-    this.track.style.transition = "transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)";
-    
+    this.track.style.transition =
+      "transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)";
+
     // Setup content wrapper for each slide
     this.slides.forEach((slide, index) => {
-      const content = slide.querySelector('.hero__content');
+      const content = slide.querySelector(".hero__content");
       if (content) {
         // Create a wrapper for parallax effect if it doesn't exist
-        if (!content.parentElement.classList.contains('hero__content-wrapper')) {
-          const wrapper = document.createElement('div');
-          wrapper.className = 'hero__content-wrapper';
+        if (
+          !content.parentElement.classList.contains("hero__content-wrapper")
+        ) {
+          const wrapper = document.createElement("div");
+          wrapper.className = "hero__content-wrapper";
           content.parentElement.insertBefore(wrapper, content);
           wrapper.appendChild(content);
         }
-        
+
         // All content is visible
         content.style.opacity = "1";
         content.style.transform = "translateX(0)";
@@ -49,7 +50,7 @@ class HeroCarousel {
         content.style.position = "relative";
       }
     });
-    
+
     this.updateIndicators();
   }
 
@@ -67,52 +68,54 @@ class HeroCarousel {
         "hero__indicator--active"
       );
       this.indicators[this.currentIndex].setAttribute("fill", "white");
-      this.indicators[this.currentIndex].setAttribute(
-        "fill-opacity",
-        "1"
-      );
+      this.indicators[this.currentIndex].setAttribute("fill-opacity", "1");
     }
   }
 
   slideToNext() {
     const previousIndex = this.currentIndex;
     this.currentIndex = (this.currentIndex + 1) % this.slides.length;
-    
+
     // First, start moving the images
     const translateX = -this.currentIndex * this.slideWidth;
-    this.track.style.transition = "transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)";
+    this.track.style.transition =
+      "transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)";
     this.track.style.transform = `translateX(${translateX}%)`;
-    
+
     // Then, after 300ms delay, move the text faster to catch up
     setTimeout(() => {
       // Move text out of previous slide
-      const prevContent = this.slides[previousIndex].querySelector('.hero__content');
+      const prevContent =
+        this.slides[previousIndex].querySelector(".hero__content");
       if (prevContent) {
-        prevContent.style.transition = "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease-out";
+        prevContent.style.transition =
+          "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease-out";
         prevContent.style.transform = "translateX(-100%)";
         prevContent.style.opacity = "0";
       }
-      
+
       // Move text in for current slide
-      const currentContent = this.slides[this.currentIndex].querySelector('.hero__content');
+      const currentContent =
+        this.slides[this.currentIndex].querySelector(".hero__content");
       if (currentContent) {
         // Position text off-screen to the right first
         currentContent.style.transition = "none";
         currentContent.style.transform = "translateX(100%)";
         currentContent.style.opacity = "0";
-        
+
         // Then animate it in faster than the image
         setTimeout(() => {
-          currentContent.style.transition = "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.6s ease-in";
+          currentContent.style.transition =
+            "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.6s ease-in";
           currentContent.style.transform = "translateX(0)";
           currentContent.style.opacity = "1";
         }, 50);
       }
-      
+
       // Handle all other slides to keep them in sync
       this.slides.forEach((slide, index) => {
         if (index !== previousIndex && index !== this.currentIndex) {
-          const content = slide.querySelector('.hero__content');
+          const content = slide.querySelector(".hero__content");
           if (content) {
             content.style.transition = "none";
             content.style.transform = "translateX(100%)";
@@ -121,7 +124,7 @@ class HeroCarousel {
         }
       });
     }, 300); // 300ms delay after image starts moving
-    
+
     this.updateIndicators();
 
     // Reset to first slide seamlessly after last slide
@@ -130,10 +133,10 @@ class HeroCarousel {
         // Reset without transition
         this.track.style.transition = "none";
         this.track.style.transform = "translateX(0%)";
-        
+
         // Reset text positions
         this.slides.forEach((slide, index) => {
-          const content = slide.querySelector('.hero__content');
+          const content = slide.querySelector(".hero__content");
           if (content) {
             content.style.transition = "none";
             if (index === 0) {
@@ -145,10 +148,11 @@ class HeroCarousel {
             }
           }
         });
-        
+
         // Re-enable transitions
         setTimeout(() => {
-          this.track.style.transition = "transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)";
+          this.track.style.transition =
+            "transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)";
         }, 50);
       }, 1500);
     }
@@ -171,13 +175,12 @@ class HeroCarousel {
       if (scrolled < heroHeight) {
         // Layer 1: Background images move at slower speed (creates depth)
         const imageParallaxSpeed = -scrolled * 0.5;
-        const heroBackgrounds =
-          document.querySelectorAll(".hero__slide-bg");
+        const heroBackgrounds = document.querySelectorAll(".hero__slide-bg");
         heroBackgrounds.forEach((bg) => {
           // Only apply Y transform for scroll parallax, preserve any X transform from carousel
           const currentTransform = bg.style.transform;
           const scaleMatch = currentTransform.match(/scale\([^)]+\)/);
-          const scaleTransform = scaleMatch ? scaleMatch[0] : '';
+          const scaleTransform = scaleMatch ? scaleMatch[0] : "";
           bg.style.transform = `translateY(${imageParallaxSpeed}px) ${scaleTransform}`;
         });
 
@@ -189,30 +192,24 @@ class HeroCarousel {
           const currentTransform = content.style.transform;
           const xMatch = currentTransform.match(/translateX\([^)]+\)/);
           const scaleMatch = currentTransform.match(/scale\([^)]+\)/);
-          const xTransform = xMatch ? xMatch[0] : 'translateX(0)';
-          const scaleTransform = scaleMatch ? scaleMatch[0] : '';
-          
+          const xTransform = xMatch ? xMatch[0] : "translateX(0)";
+          const scaleTransform = scaleMatch ? scaleMatch[0] : "";
+
           // Combine scroll parallax Y with carousel X and scale
           content.style.transform = `${xTransform} translateY(${textParallaxSpeed}px) ${scaleTransform}`;
         });
 
-        // Create layered effect for next sections 
-        const contentSections = document.querySelectorAll(
-          ".company, .industry, .services, .partners, .join, .testimonials"
-        );
-        contentSections.forEach((section) => {
-          const layerOffset = -Math.min(scrolled * 0.2, heroHeight * 0.3);
-          section.style.transform = `translateY(${layerOffset}px)`;
-        });
+        // Removed layered effect for sections to eliminate stuttering
       } else {
-        // When past hero, continue parallax effect
-        const heroBackgrounds =
-          document.querySelectorAll(".hero__slide-bg");
+        // When past hero, continue parallax effect but with smooth fade-out
+        const heroBackgrounds = document.querySelectorAll(".hero__slide-bg");
         heroBackgrounds.forEach((bg) => {
           const currentTransform = bg.style.transform;
           const scaleMatch = currentTransform.match(/scale\([^)]+\)/);
-          const scaleTransform = scaleMatch ? scaleMatch[0] : '';
-          bg.style.transform = `translateY(-${heroHeight * 0.6}px) ${scaleTransform}`;
+          const scaleTransform = scaleMatch ? scaleMatch[0] : "";
+          bg.style.transform = `translateY(-${
+            heroHeight * 0.6
+          }px) ${scaleTransform}`;
         });
 
         const heroContents = document.querySelectorAll(".hero__content");
@@ -220,25 +217,20 @@ class HeroCarousel {
           const currentTransform = content.style.transform;
           const xMatch = currentTransform.match(/translateX\([^)]+\)/);
           const scaleMatch = currentTransform.match(/scale\([^)]+\)/);
-          const xTransform = xMatch ? xMatch[0] : 'translateX(0)';
-          const scaleTransform = scaleMatch ? scaleMatch[0] : '';
-          
-          content.style.transform = `${xTransform} translateY(-${heroHeight * 0.4}px) ${scaleTransform}`;
+          const xTransform = xMatch ? xMatch[0] : "translateX(0)";
+          const scaleTransform = scaleMatch ? scaleMatch[0] : "";
+
+          content.style.transform = `${xTransform} translateY(-${
+            heroHeight * 0.4
+          }px) ${scaleTransform}`;
         });
 
-        const contentSections = document.querySelectorAll(
-          ".company, .industry, .services, .partners, .join, .testimonials"
-        );
-        contentSections.forEach((section) => {
-          section.style.transform = "translateY(0px)";
-        });
+        // Removed section parallax to eliminate stuttering - sections remain in natural position
       }
 
       // Company image parallax effect
       const companySection = document.querySelector(".company");
-      const companyImage = document.querySelector(
-        "div.company__image img"
-      );
+      const companyImage = document.querySelector("div.company__image img");
 
       if (companySection && companyImage) {
         const rect = companySection.getBoundingClientRect();
@@ -249,7 +241,7 @@ class HeroCarousel {
           // Simple parallax calculation based on how much the section has scrolled into view
           const scrollPercent =
             (windowHeight - rect.top) / (windowHeight + rect.height);
-          const parallaxOffset = (scrollPercent - 0.5) * -100; // More noticeable movement
+          const parallaxOffset = (scrollPercent - 0.5) * -300; // More noticeable movement
 
           companyImage.style.transform = `translateY(${parallaxOffset}px)`;
         }
@@ -299,67 +291,71 @@ class HeaderScroll {
 class TestimonialsCarousel {
   constructor() {
     this.track = document.querySelector(".testimonials__carousel-track");
-    this.indicators = document.querySelectorAll(".testimonials__indicators circle, .testimonials__indicators .testimonials__indicator");
+    this.indicators = document.querySelectorAll(
+      ".testimonials__indicators circle, .testimonials__indicators .testimonials__indicator"
+    );
     this.currentSlide = 0;
     this.totalSlides = 2;
-    
+
     this.init();
   }
-  
+
   init() {
     this.updateIndicators();
     this.setupIndicatorClicks();
     this.startCarousel();
   }
-  
+
   setupIndicatorClicks() {
     this.indicators.forEach((indicator, index) => {
-      indicator.addEventListener('click', () => {
+      indicator.addEventListener("click", () => {
         this.goToSlide(index);
       });
-      indicator.style.cursor = 'pointer';
+      indicator.style.cursor = "pointer";
     });
   }
-  
+
   goToSlide(slideIndex) {
     this.currentSlide = slideIndex;
     const translateX = this.currentSlide * -50; // Move by 50% for each slide
     this.track.style.transform = `translateX(${translateX}%)`;
     this.updateIndicators();
   }
-  
+
   updateIndicators() {
     this.indicators.forEach((indicator, index) => {
-      indicator.classList.remove('testimonials__indicator--active');
+      indicator.classList.remove("testimonials__indicator--active");
       // Handle both SVG circle elements and regular elements
-      if (indicator.tagName === 'circle') {
-        indicator.setAttribute('fill', '#D9D9D9');
-        indicator.setAttribute('fill-opacity', '1');
+      if (indicator.tagName === "circle") {
+        indicator.setAttribute("fill", "#D9D9D9");
+        indicator.setAttribute("fill-opacity", "1");
       } else {
-        indicator.style.fill = '#D9D9D9';
-        indicator.style.fillOpacity = '1';
+        indicator.style.fill = "#D9D9D9";
+        indicator.style.fillOpacity = "1";
       }
     });
-    
+
     if (this.indicators[this.currentSlide]) {
-      this.indicators[this.currentSlide].classList.add('testimonials__indicator--active');
+      this.indicators[this.currentSlide].classList.add(
+        "testimonials__indicator--active"
+      );
       // Handle both SVG circle elements and regular elements
-      if (this.indicators[this.currentSlide].tagName === 'circle') {
-        this.indicators[this.currentSlide].setAttribute('fill', '#999393');
-        this.indicators[this.currentSlide].setAttribute('fill-opacity', '1');
+      if (this.indicators[this.currentSlide].tagName === "circle") {
+        this.indicators[this.currentSlide].setAttribute("fill", "#999393");
+        this.indicators[this.currentSlide].setAttribute("fill-opacity", "1");
       } else {
-        this.indicators[this.currentSlide].style.fill = '#999393';
-        this.indicators[this.currentSlide].style.fillOpacity = '1';
+        this.indicators[this.currentSlide].style.fill = "#999393";
+        this.indicators[this.currentSlide].style.fillOpacity = "1";
       }
     }
   }
-  
+
   startCarousel() {
     setInterval(() => {
       this.nextSlide();
     }, 4000); // Change slide every 4 seconds
   }
-  
+
   nextSlide() {
     this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
     const translateX = this.currentSlide * -50; // Move by 50% for each slide
@@ -426,10 +422,7 @@ class HeaderDropdown {
   toggleDropdown(dropdownId, menuItem) {
     const dropdown = document.getElementById(dropdownId);
 
-    if (
-      this.activeDropdown === dropdown &&
-      this.activeMenuItem === menuItem
-    ) {
+    if (this.activeDropdown === dropdown && this.activeMenuItem === menuItem) {
       // Close if clicking same dropdown
       this.closeAllDropdowns();
     } else {
