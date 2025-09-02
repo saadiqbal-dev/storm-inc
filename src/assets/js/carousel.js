@@ -234,20 +234,27 @@ class HeroCarousel {
       const companyImage = document.querySelector(".company__image img");
 
       if (companySection && companyImageContainer && companyImage) {
-        const rect = companySection.getBoundingClientRect();
+        const containerRect = companyImageContainer.getBoundingClientRect();
         const windowHeight = window.innerHeight;
+        const windowCenter = windowHeight / 2;
 
-        // Check if section is in viewport
-        if (rect.top < windowHeight && rect.bottom > 0) {
-          // Calculate parallax based on section's position in viewport
-          const scrollPercent =
-            (windowHeight - rect.top) / (windowHeight + rect.height);
+        // Check if container is in viewport
+        if (containerRect.bottom > 0 && containerRect.top < windowHeight) {
+          // Calculate the container's center position relative to window center
+          const containerCenter = containerRect.top + (containerRect.height / 2);
+          const distanceFromCenter = containerCenter - windowCenter;
           
-          // Image moves within its container bounds (image is 120% height, so 20% extra space)
-          // Move from -15% to +15% of image height for more noticeable movement within container
-          const parallaxOffset = (scrollPercent - 0.5) * 60; // 60% range of movement for faster, more noticeable effect
+          // Normalize the distance to a -1 to 1 range based on window height
+          const normalizedPosition = distanceFromCenter / (windowHeight / 2);
           
+          // Image is 120% height, giving us 20% extra space to move
+          // Clamp the movement to stay within bounds
+          const maxMovement = 10; // 10% up or down (20% total range)
+          const parallaxOffset = Math.max(-maxMovement, Math.min(maxMovement, normalizedPosition * maxMovement));
+          
+          // Apply transform - negative values move image up, positive down
           companyImage.style.transform = `translateY(${parallaxOffset}%)`;
+          companyImage.style.transition = 'none'; // Remove transition for smooth parallax
         }
       }
 

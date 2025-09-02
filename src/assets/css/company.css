@@ -98,6 +98,10 @@
   height: 120%;
   object-fit: cover;
   will-change: transform;
+  position: absolute;
+  top: -10%; /* Center the extra 20% height */
+  left: 0;
+  transition: none; /* Disable transitions for smooth parallax */
 }
 
 /* =============================================================================
