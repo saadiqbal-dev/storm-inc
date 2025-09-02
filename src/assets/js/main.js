@@ -122,7 +122,8 @@
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
         const mobileMenuClose = document.getElementById('mobile-menu-close');
         const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu__nav-link');
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu__nav-link:not(.mobile-menu__nav-link--dropdown)');
+        const mobileDropdownButtons = document.querySelectorAll('.mobile-menu__nav-link--dropdown');
 
         if (mobileMenuToggle && mobileMenu) {
           // Open mobile menu
@@ -141,9 +142,38 @@
             mobileMenuClose.addEventListener('click', closeMobileMenu);
           }
 
-          // Close menu when clicking on navigation links
+          // Close menu when clicking on navigation links (not dropdown buttons)
           mobileMenuLinks.forEach(function(link) {
             link.addEventListener('click', closeMobileMenu);
+          });
+
+          // Handle dropdown toggles
+          mobileDropdownButtons.forEach(function(button) {
+            button.addEventListener('click', function(e) {
+              e.preventDefault();
+              
+              // Get the dropdown ID
+              const dropdownId = button.getAttribute('data-dropdown');
+              const dropdown = document.getElementById(dropdownId + '-dropdown');
+              
+              if (dropdown) {
+                // Toggle active states
+                button.classList.toggle('active');
+                dropdown.classList.toggle('active');
+                
+                // Close other dropdowns
+                mobileDropdownButtons.forEach(function(otherButton) {
+                  if (otherButton !== button) {
+                    otherButton.classList.remove('active');
+                    const otherDropdownId = otherButton.getAttribute('data-dropdown');
+                    const otherDropdown = document.getElementById(otherDropdownId + '-dropdown');
+                    if (otherDropdown) {
+                      otherDropdown.classList.remove('active');
+                    }
+                  }
+                });
+              }
+            });
           });
 
           // Close menu when clicking outside
