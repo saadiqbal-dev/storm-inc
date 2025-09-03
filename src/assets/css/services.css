@@ -369,7 +369,21 @@
     height: 20px;
   }
 
+  /* Disable hover effects on mobile - use click instead */
+  .services__item--expandable:hover .services__item-description {
+    transform: translateY(100%);
+  }
+  
   .services__item--expandable:hover .services__plus {
+    transform: scale(0.8);
+  }
+  
+  /* Active/expanded state for mobile click interaction */
+  .services__item--expandable.expanded .services__item-description {
+    transform: translateY(0);
+  }
+  
+  .services__item--expandable.expanded .services__plus {
     transform: scale(0.8) rotate(45deg);
   }
 

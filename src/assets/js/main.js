@@ -454,6 +454,77 @@
       },
     },
 
+    // Services grid mobile functionality
+    services: {
+      init: function () {
+        this.setupMobileClickToReveal();
+      },
+
+      setupMobileClickToReveal: function () {
+        // Only apply on mobile devices (≤768px)
+        if (StormApp.utils.getViewportWidth() <= 768) {
+          // Add click event to expandable service items
+          $('.services__item--expandable').on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const $this = $(this);
+            
+            // Toggle expanded class
+            $this.toggleClass('expanded');
+            
+            // Close other expanded items (optional - remove if you want multiple items open)
+            $('.services__item--expandable').not($this).removeClass('expanded');
+          });
+          
+          // Close expanded items when clicking outside the grid
+          $(document).on('click.servicesOutside', function(e) {
+            // Check if the click is outside any service item
+            if (!$(e.target).closest('.services__item--expandable').length) {
+              $('.services__item--expandable').removeClass('expanded');
+            }
+          });
+        }
+        
+        // Handle window resize to add/remove click handlers
+        let resizeTimer;
+        $(window).on('resize', function() {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(function() {
+            // Remove all click handlers first
+            $('.services__item--expandable').off('click');
+            $(document).off('click.servicesOutside');
+            
+            // Re-apply based on viewport width
+            if (StormApp.utils.getViewportWidth() <= 768) {
+              $('.services__item--expandable').on('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const $this = $(this);
+                
+                // Toggle expanded class
+                $this.toggleClass('expanded');
+                
+                // Close other expanded items
+                $('.services__item--expandable').not($this).removeClass('expanded');
+              });
+              
+              // Re-apply outside click handler
+              $(document).on('click.servicesOutside', function(e) {
+                if (!$(e.target).closest('.services__item--expandable').length) {
+                  $('.services__item--expandable').removeClass('expanded');
+                }
+              });
+            } else {
+              // Remove expanded class on desktop
+              $('.services__item--expandable').removeClass('expanded');
+            }
+          }, 250);
+        });
+      }
+    },
+
     // Initialize all modules
     init: function () {
       // Wait for DOM to be ready
@@ -462,6 +533,7 @@
         this.forms.init();
         this.performance.init();
         this.accessibility.init();
+        this.services.init();
 
         // Trigger custom event for other scripts
         $(document).trigger("stormapp:initialized");
