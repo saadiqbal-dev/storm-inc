@@ -41,20 +41,20 @@
 .company__content-heading {
   color: #555353;
   font-family: var(--font-peachi);
-  font-size: 40px;
+  font-size: 32px;
 
   font-style: normal;
   font-weight: 400;
-  line-height: 50px;
+  line-height: 38px;
 }
 
 .company__content-description {
   color: #555353;
   font-family: var(--font-mona-sans);
-  font-size: 26px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 400;
-  line-height: 37px;
+  line-height: 34px;
 }
 
 .company__cta-button {

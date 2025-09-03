@@ -25,8 +25,8 @@
 }
 
 .footer__content-logo {
-  width: 192.185px;  /* 85% of 226.1px */
-  height: 79.931px;   /* 85% of 94.036px */
+  width: 192.185px; /* 85% of 226.1px */
+  height: 79.931px; /* 85% of 94.036px */
   flex-shrink: 0;
 }
 
@@ -45,7 +45,8 @@
 
 .footer__content-navigation {
   display: flex;
-  width: 60%;
+  width: 100%;
+  max-width: 809px;
   align-items: center;
   justify-content: space-between;
 }

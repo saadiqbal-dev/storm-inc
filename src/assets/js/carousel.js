@@ -29,21 +29,21 @@ class HeroCarousel {
   setupInfiniteCarousel() {
     // Clone all slides and append them to create infinite effect
     this.originalSlidesCount = this.slides.length;
-    
+
     // Clone slides before and after for seamless infinite scroll
     this.slides.forEach((slide) => {
       const clonedSlide = slide.cloneNode(true);
-      clonedSlide.classList.add('cloned-slide');
+      clonedSlide.classList.add("cloned-slide");
       this.track.appendChild(clonedSlide);
     });
 
     // Update track width to accommodate cloned slides (6 slides total: 3 original + 3 cloned)
     const totalSlides = this.originalSlidesCount * 2;
     this.track.style.width = `${totalSlides * 100}%`;
-    
+
     // Update slide widths
     this.allSlides = document.querySelectorAll(".hero__slide");
-    this.allSlides.forEach(slide => {
+    this.allSlides.forEach((slide) => {
       slide.style.width = `${100 / totalSlides}%`;
     });
   }
@@ -107,7 +107,7 @@ class HeroCarousel {
 
     // Calculate the new slide width based on total slides
     const slideWidthNew = 100 / (this.originalSlidesCount * 2);
-    
+
     // Move to next slide
     const translateX = -this.absoluteIndex * slideWidthNew;
     this.track.style.transition =
@@ -119,13 +119,13 @@ class HeroCarousel {
       // Calculate actual slide indices considering clones
       const prevSlideIndex = previousIndex;
       const currentSlideIndex = this.currentIndex;
-      
+
       // Animate text for all slides (including clones)
       this.allSlides.forEach((slide, index) => {
         const content = slide.querySelector(".hero__content");
         if (content) {
           const originalIndex = index % this.originalSlidesCount;
-          
+
           if (originalIndex === prevSlideIndex) {
             // Previous slide text goes out
             content.style.transition =
@@ -137,7 +137,7 @@ class HeroCarousel {
             content.style.transition = "none";
             content.style.transform = "translateX(100%)";
             content.style.opacity = "0";
-            
+
             setTimeout(() => {
               content.style.transition =
                 "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.6s ease-in";
@@ -164,7 +164,7 @@ class HeroCarousel {
         this.absoluteIndex = this.currentIndex;
         const resetTranslateX = -this.absoluteIndex * slideWidthNew;
         this.track.style.transform = `translateX(${resetTranslateX}%)`;
-        
+
         // Re-enable transition after reset
         setTimeout(() => {
           this.track.style.transition =
@@ -206,8 +206,10 @@ class HeroCarousel {
         });
 
         // Layer 2: Text content moves at different speed - but preserve carousel animations
-        const textParallaxSpeed = -scrolled * 0.3;
-        const heroContents = document.querySelectorAll(".hero__slide:not(.cloned-slide) .hero__content");
+        const textParallaxSpeed = -scrolled * 0.6;
+        const heroContents = document.querySelectorAll(
+          ".hero__slide:not(.cloned-slide) .hero__content"
+        );
         heroContents.forEach((content) => {
           // Get existing horizontal transform from carousel animation
           const currentTransform = content.style.transform;
@@ -233,7 +235,9 @@ class HeroCarousel {
           }px) ${scaleTransform}`;
         });
 
-        const heroContents = document.querySelectorAll(".hero__slide:not(.cloned-slide) .hero__content");
+        const heroContents = document.querySelectorAll(
+          ".hero__slide:not(.cloned-slide) .hero__content"
+        );
         heroContents.forEach((content) => {
           const currentTransform = content.style.transform;
           const xMatch = currentTransform.match(/translateX\([^)]+\)/);
@@ -262,20 +266,23 @@ class HeroCarousel {
         // Check if container is in viewport
         if (containerRect.bottom > 0 && containerRect.top < windowHeight) {
           // Calculate the container's center position relative to window center
-          const containerCenter = containerRect.top + (containerRect.height / 2);
+          const containerCenter = containerRect.top + containerRect.height / 2;
           const distanceFromCenter = containerCenter - windowCenter;
-          
+
           // Normalize the distance to a -1 to 1 range based on window height
           const normalizedPosition = distanceFromCenter / (windowHeight / 2);
-          
+
           // Image is 120% height, giving us 20% extra space to move
           // Clamp the movement to stay within bounds
           const maxMovement = 10; // 10% up or down (20% total range)
-          const parallaxOffset = Math.max(-maxMovement, Math.min(maxMovement, normalizedPosition * maxMovement));
-          
+          const parallaxOffset = Math.max(
+            -maxMovement,
+            Math.min(maxMovement, normalizedPosition * maxMovement)
+          );
+
           // Apply transform - negative values move image up, positive down
           companyImage.style.transform = `translateY(${parallaxOffset}%)`;
-          companyImage.style.transition = 'none'; // Remove transition for smooth parallax
+          companyImage.style.transition = "none"; // Remove transition for smooth parallax
         }
       }
 

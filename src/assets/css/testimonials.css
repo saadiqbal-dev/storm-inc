@@ -18,7 +18,7 @@
   /* max-width: 1920px; */
   margin-left: auto;
   margin-right: auto;
-  padding: 40px 160px;
+  padding: 40px 70px;
   align-items: center;
   justify-content: center;
 }
@@ -69,7 +69,7 @@
   width: fit-content;
   height: fit-content;
   z-index: 50;
-  min-width: 800px;
+  min-width: 700px;
 }
 
 .testimonials__content-quote {
@@ -86,10 +86,10 @@
 .testimonials__content-review {
   color: #292929;
   font-family: var(--font-peachi);
-  font-size: 34px;
+  font-size: 28px;
   font-style: normal;
   font-weight: 300;
-  line-height: 36px;
+  line-height: 38px;
   max-width: 623px;
   margin: 0;
   padding: 0;
@@ -108,7 +108,7 @@
 .testimonials__content-ref__title {
   color: #292929;
   font-family: var(--font-mona-sans);
-  font-size: 20px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -121,7 +121,7 @@
 .testimonials__content-ref__desc {
   color: #555353;
   font-family: var(--font-mona-sans);
-  font-size: 20px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -138,6 +138,12 @@
 /* =============================================================================
    Testimonials Responsive Styles
    ============================================================================= */
+
+@media (max-width: 1620px) {
+  .testimonials__content-text {
+    padding: 30px 70px;
+  }
+}
 
 /* 1480px Breakpoint */
 @media (max-width: 1480px) {
