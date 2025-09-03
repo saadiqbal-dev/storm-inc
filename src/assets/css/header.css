@@ -756,6 +756,16 @@
     margin: 0;
   }
 
+  /* Fix phone number link color in mobile menu */
+  .mobile-menu__contact-text a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .mobile-menu__contact-text a:hover {
+    text-decoration: underline;
+  }
+
   .mobile-menu__divider {
     width: 100%;
     height: 1px;
