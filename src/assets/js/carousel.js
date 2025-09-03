@@ -11,16 +11,41 @@ class HeroCarousel {
     this.heroSection = document.getElementById("hero");
     this.indicators = document.querySelectorAll(".hero__indicators circle");
     this.currentIndex = 0;
+    this.absoluteIndex = 0; // Track absolute position for infinite scrolling
     this.slideWidth = 33.333; // Each slide is 33.333% of track width
     this.autoSlideInterval = 6000; // 6 seconds
+    this.isTransitioning = false;
 
     this.init();
   }
 
   init() {
+    this.setupInfiniteCarousel();
     this.setupCarousel();
     this.startAutoSlide();
     this.setupParallax();
+  }
+
+  setupInfiniteCarousel() {
+    // Clone all slides and append them to create infinite effect
+    this.originalSlidesCount = this.slides.length;
+    
+    // Clone slides before and after for seamless infinite scroll
+    this.slides.forEach((slide) => {
+      const clonedSlide = slide.cloneNode(true);
+      clonedSlide.classList.add('cloned-slide');
+      this.track.appendChild(clonedSlide);
+    });
+
+    // Update track width to accommodate cloned slides (6 slides total: 3 original + 3 cloned)
+    const totalSlides = this.originalSlidesCount * 2;
+    this.track.style.width = `${totalSlides * 100}%`;
+    
+    // Update slide widths
+    this.allSlides = document.querySelectorAll(".hero__slide");
+    this.allSlides.forEach(slide => {
+      slide.style.width = `${100 / totalSlides}%`;
+    });
   }
 
   setupCarousel() {
@@ -29,8 +54,8 @@ class HeroCarousel {
     this.track.style.transition =
       "transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)";
 
-    // Setup content wrapper for each slide
-    this.slides.forEach((slide, index) => {
+    // Setup content wrapper for each slide (including clones)
+    this.allSlides.forEach((slide, index) => {
       const content = slide.querySelector(".hero__content");
       if (content) {
         // Create a wrapper for parallax effect if it doesn't exist
@@ -73,88 +98,84 @@ class HeroCarousel {
   }
 
   slideToNext() {
-    const previousIndex = this.currentIndex;
-    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
+    if (this.isTransitioning) return;
+    this.isTransitioning = true;
 
-    // First, start moving the images
-    const translateX = -this.currentIndex * this.slideWidth;
+    const previousIndex = this.currentIndex;
+    this.absoluteIndex++;
+    this.currentIndex = this.absoluteIndex % this.originalSlidesCount;
+
+    // Calculate the new slide width based on total slides
+    const slideWidthNew = 100 / (this.originalSlidesCount * 2);
+    
+    // Move to next slide
+    const translateX = -this.absoluteIndex * slideWidthNew;
     this.track.style.transition =
       "transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)";
     this.track.style.transform = `translateX(${translateX}%)`;
 
-    // Then, after 300ms delay, move the text faster to catch up
+    // Handle text animations
     setTimeout(() => {
-      // Move text out of previous slide
-      const prevContent =
-        this.slides[previousIndex].querySelector(".hero__content");
-      if (prevContent) {
-        prevContent.style.transition =
-          "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease-out";
-        prevContent.style.transform = "translateX(-100%)";
-        prevContent.style.opacity = "0";
-      }
-
-      // Move text in for current slide
-      const currentContent =
-        this.slides[this.currentIndex].querySelector(".hero__content");
-      if (currentContent) {
-        // Position text off-screen to the right first
-        currentContent.style.transition = "none";
-        currentContent.style.transform = "translateX(100%)";
-        currentContent.style.opacity = "0";
-
-        // Then animate it in faster than the image
-        setTimeout(() => {
-          currentContent.style.transition =
-            "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.6s ease-in";
-          currentContent.style.transform = "translateX(0)";
-          currentContent.style.opacity = "1";
-        }, 50);
-      }
-
-      // Handle all other slides to keep them in sync
-      this.slides.forEach((slide, index) => {
-        if (index !== previousIndex && index !== this.currentIndex) {
-          const content = slide.querySelector(".hero__content");
-          if (content) {
+      // Calculate actual slide indices considering clones
+      const prevSlideIndex = previousIndex;
+      const currentSlideIndex = this.currentIndex;
+      
+      // Animate text for all slides (including clones)
+      this.allSlides.forEach((slide, index) => {
+        const content = slide.querySelector(".hero__content");
+        if (content) {
+          const originalIndex = index % this.originalSlidesCount;
+          
+          if (originalIndex === prevSlideIndex) {
+            // Previous slide text goes out
+            content.style.transition =
+              "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease-out";
+            content.style.transform = "translateX(-100%)";
+            content.style.opacity = "0";
+          } else if (originalIndex === currentSlideIndex) {
+            // Current slide text comes in
+            content.style.transition = "none";
+            content.style.transform = "translateX(100%)";
+            content.style.opacity = "0";
+            
+            setTimeout(() => {
+              content.style.transition =
+                "transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1), opacity 0.6s ease-in";
+              content.style.transform = "translateX(0)";
+              content.style.opacity = "1";
+            }, 50);
+          } else {
+            // Other slides stay hidden
             content.style.transition = "none";
             content.style.transform = "translateX(100%)";
             content.style.opacity = "0";
           }
         }
       });
-    }, 300); // 300ms delay after image starts moving
+    }, 300);
 
     this.updateIndicators();
 
-    // Reset to first slide seamlessly after last slide
-    if (this.currentIndex === 0) {
+    // Check if we've reached the cloned section
+    if (this.absoluteIndex >= this.originalSlidesCount) {
       setTimeout(() => {
-        // Reset without transition
+        // Reset to beginning without animation
         this.track.style.transition = "none";
-        this.track.style.transform = "translateX(0%)";
-
-        // Reset text positions
-        this.slides.forEach((slide, index) => {
-          const content = slide.querySelector(".hero__content");
-          if (content) {
-            content.style.transition = "none";
-            if (index === 0) {
-              content.style.transform = "translateX(0)";
-              content.style.opacity = "1";
-            } else {
-              content.style.transform = "translateX(100%)";
-              content.style.opacity = "0";
-            }
-          }
-        });
-
-        // Re-enable transitions
+        this.absoluteIndex = this.currentIndex;
+        const resetTranslateX = -this.absoluteIndex * slideWidthNew;
+        this.track.style.transform = `translateX(${resetTranslateX}%)`;
+        
+        // Re-enable transition after reset
         setTimeout(() => {
           this.track.style.transition =
             "transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1)";
+          this.isTransitioning = false;
         }, 50);
-      }, 1500);
+      }, 1300); // Wait for animation to complete
+    } else {
+      setTimeout(() => {
+        this.isTransitioning = false;
+      }, 1300);
     }
   }
 
@@ -186,7 +207,7 @@ class HeroCarousel {
 
         // Layer 2: Text content moves at different speed - but preserve carousel animations
         const textParallaxSpeed = -scrolled * 0.3;
-        const heroContents = document.querySelectorAll(".hero__content");
+        const heroContents = document.querySelectorAll(".hero__slide:not(.cloned-slide) .hero__content");
         heroContents.forEach((content) => {
           // Get existing horizontal transform from carousel animation
           const currentTransform = content.style.transform;
@@ -212,7 +233,7 @@ class HeroCarousel {
           }px) ${scaleTransform}`;
         });
 
-        const heroContents = document.querySelectorAll(".hero__content");
+        const heroContents = document.querySelectorAll(".hero__slide:not(.cloned-slide) .hero__content");
         heroContents.forEach((content) => {
           const currentTransform = content.style.transform;
           const xMatch = currentTransform.match(/translateX\([^)]+\)/);

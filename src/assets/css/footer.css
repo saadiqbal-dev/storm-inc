@@ -25,9 +25,15 @@
 }
 
 .footer__content-logo {
-  width: 226.1px;
-  height: 94.036px;
+  width: 192.185px;  /* 85% of 226.1px */
+  height: 79.931px;   /* 85% of 94.036px */
   flex-shrink: 0;
+}
+
+.footer__content-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .footer__content {
@@ -100,7 +106,7 @@
 .footer__foot p {
   color: #9c8e8e;
   font-family: var(--font-mona-sans);
-  font-size: 16px;
+  font-size: 14px;
   line-height: 39.9px;
   margin: 0;
 }
