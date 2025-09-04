@@ -757,12 +757,14 @@
   }
 
   /* Fix phone number link color in mobile menu */
-  .mobile-menu__contact-text a {
+  .mobile-menu__contact-text a,
+  .mobile-menu__contact-link {
     color: inherit;
     text-decoration: none;
   }
 
-  .mobile-menu__contact-text a:hover {
+  .mobile-menu__contact-text a:hover,
+  .mobile-menu__contact-link:hover {
     text-decoration: underline;
   }
 

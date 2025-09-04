@@ -119,56 +119,65 @@
 
       setupMobileMenuBehavior: function () {
         // Custom mobile menu functionality for screens ≤768px
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuLinks = document.querySelectorAll('.mobile-menu__nav-link:not(.mobile-menu__nav-link--dropdown)');
-        const mobileDropdownButtons = document.querySelectorAll('.mobile-menu__nav-link--dropdown');
+        const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
+        const mobileMenuClose = document.getElementById("mobile-menu-close");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const mobileMenuLinks = document.querySelectorAll(
+          ".mobile-menu__nav-link:not(.mobile-menu__nav-link--dropdown)"
+        );
+        const mobileDropdownButtons = document.querySelectorAll(
+          ".mobile-menu__nav-link--dropdown"
+        );
 
         if (mobileMenuToggle && mobileMenu) {
           // Open mobile menu
-          mobileMenuToggle.addEventListener('click', function() {
-            mobileMenu.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
+          mobileMenuToggle.addEventListener("click", function () {
+            mobileMenu.classList.add("active");
+            document.body.style.overflow = "hidden"; // Prevent scrolling
           });
 
           // Close mobile menu
-          const closeMobileMenu = function() {
-            mobileMenu.classList.remove('active');
-            document.body.style.overflow = ''; // Restore scrolling
+          const closeMobileMenu = function () {
+            mobileMenu.classList.remove("active");
+            document.body.style.overflow = ""; // Restore scrolling
           };
 
           if (mobileMenuClose) {
-            mobileMenuClose.addEventListener('click', closeMobileMenu);
+            mobileMenuClose.addEventListener("click", closeMobileMenu);
           }
 
           // Close menu when clicking on navigation links (not dropdown buttons)
-          mobileMenuLinks.forEach(function(link) {
-            link.addEventListener('click', closeMobileMenu);
+          mobileMenuLinks.forEach(function (link) {
+            link.addEventListener("click", closeMobileMenu);
           });
 
           // Handle dropdown toggles
-          mobileDropdownButtons.forEach(function(button) {
-            button.addEventListener('click', function(e) {
+          mobileDropdownButtons.forEach(function (button) {
+            button.addEventListener("click", function (e) {
               e.preventDefault();
-              
+
               // Get the dropdown ID
-              const dropdownId = button.getAttribute('data-dropdown');
-              const dropdown = document.getElementById(dropdownId + '-dropdown');
-              
+              const dropdownId = button.getAttribute("data-dropdown");
+              const dropdown = document.getElementById(
+                dropdownId + "-dropdown"
+              );
+
               if (dropdown) {
                 // Toggle active states
-                button.classList.toggle('active');
-                dropdown.classList.toggle('active');
-                
+                button.classList.toggle("active");
+                dropdown.classList.toggle("active");
+
                 // Close other dropdowns
-                mobileDropdownButtons.forEach(function(otherButton) {
+                mobileDropdownButtons.forEach(function (otherButton) {
                   if (otherButton !== button) {
-                    otherButton.classList.remove('active');
-                    const otherDropdownId = otherButton.getAttribute('data-dropdown');
-                    const otherDropdown = document.getElementById(otherDropdownId + '-dropdown');
+                    otherButton.classList.remove("active");
+                    const otherDropdownId =
+                      otherButton.getAttribute("data-dropdown");
+                    const otherDropdown = document.getElementById(
+                      otherDropdownId + "-dropdown"
+                    );
                     if (otherDropdown) {
-                      otherDropdown.classList.remove('active');
+                      otherDropdown.classList.remove("active");
                     }
                   }
                 });
@@ -177,15 +186,15 @@
           });
 
           // Close menu when clicking outside
-          mobileMenu.addEventListener('click', function(e) {
+          mobileMenu.addEventListener("click", function (e) {
             if (e.target === mobileMenu) {
               closeMobileMenu();
             }
           });
 
           // Close menu with ESC key
-          document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+          document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && mobileMenu.classList.contains("active")) {
               closeMobileMenu();
             }
           });
@@ -464,65 +473,158 @@
         // Only apply on mobile devices (≤768px)
         if (StormApp.utils.getViewportWidth() <= 768) {
           // Add click event to expandable service items
-          $('.services__item--expandable').on('click', function(e) {
+          $(".services__item--expandable").on("click", function (e) {
             e.preventDefault();
             e.stopPropagation();
-            
+
             const $this = $(this);
-            
+
             // Toggle expanded class
-            $this.toggleClass('expanded');
-            
+            $this.toggleClass("expanded");
+
             // Close other expanded items (optional - remove if you want multiple items open)
-            $('.services__item--expandable').not($this).removeClass('expanded');
+            $(".services__item--expandable").not($this).removeClass("expanded");
           });
-          
+
           // Close expanded items when clicking outside the grid
-          $(document).on('click.servicesOutside', function(e) {
+          $(document).on("click.servicesOutside", function (e) {
             // Check if the click is outside any service item
-            if (!$(e.target).closest('.services__item--expandable').length) {
-              $('.services__item--expandable').removeClass('expanded');
+            if (!$(e.target).closest(".services__item--expandable").length) {
+              $(".services__item--expandable").removeClass("expanded");
             }
           });
         }
-        
+
         // Handle window resize to add/remove click handlers
         let resizeTimer;
-        $(window).on('resize', function() {
+        $(window).on("resize", function () {
           clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(function() {
+          resizeTimer = setTimeout(function () {
             // Remove all click handlers first
-            $('.services__item--expandable').off('click');
-            $(document).off('click.servicesOutside');
-            
+            $(".services__item--expandable").off("click");
+            $(document).off("click.servicesOutside");
+
             // Re-apply based on viewport width
             if (StormApp.utils.getViewportWidth() <= 768) {
-              $('.services__item--expandable').on('click', function(e) {
+              $(".services__item--expandable").on("click", function (e) {
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 const $this = $(this);
-                
+
                 // Toggle expanded class
-                $this.toggleClass('expanded');
-                
+                $this.toggleClass("expanded");
+
                 // Close other expanded items
-                $('.services__item--expandable').not($this).removeClass('expanded');
+                $(".services__item--expandable")
+                  .not($this)
+                  .removeClass("expanded");
               });
-              
+
               // Re-apply outside click handler
-              $(document).on('click.servicesOutside', function(e) {
-                if (!$(e.target).closest('.services__item--expandable').length) {
-                  $('.services__item--expandable').removeClass('expanded');
+              $(document).on("click.servicesOutside", function (e) {
+                if (
+                  !$(e.target).closest(".services__item--expandable").length
+                ) {
+                  $(".services__item--expandable").removeClass("expanded");
                 }
               });
             } else {
               // Remove expanded class on desktop
-              $('.services__item--expandable').removeClass('expanded');
+              $(".services__item--expandable").removeClass("expanded");
             }
           }, 250);
         });
-      }
+      },
+    },
+
+    // Partners infinite scroll
+    partners: {
+      scrollPosition: 0,
+      scrollSpeed: 2, // Pixels per frame
+      animationId: null,
+
+      init: function () {
+        this.setupInfiniteScroll();
+      },
+
+      setupInfiniteScroll: function () {
+        const $track = $(".partners__slide-track");
+        if (!$track.length) return;
+
+        // Get original logos
+        const $logos = $track.find(".partners__images-img");
+        const logoCount = $logos.length / 4; // We have 4 sets, get single set count
+
+        // Keep only 2 sets of logos for smooth infinite scroll
+        $track.empty();
+
+        // Add two full sets
+        for (let j = 0; j < 2; j++) {
+          for (let i = 0; i < logoCount; i++) {
+            $track.append($logos.eq(i).clone());
+          }
+        }
+
+        // Start the animation
+        this.animateScroll($track);
+
+        // Pause on hover
+        $track.on("mouseenter", () => {
+          this.pauseScroll();
+        });
+
+        $track.on("mouseleave", () => {
+          this.resumeScroll($track);
+        });
+      },
+
+      animateScroll: function ($track) {
+        const animate = () => {
+          this.scrollPosition += this.scrollSpeed;
+
+          // Get the first logo
+          const $firstLogo = $track.find(".partners__images-img").first();
+          const logoWidth = $firstLogo.outerWidth(true);
+
+          // When the first logo is completely scrolled out of view, move it to the end
+          if (this.scrollPosition >= logoWidth) {
+            // Move the first logo to the end
+            $track.append($firstLogo);
+
+            // Adjust the scroll position by subtracting the width of the moved logo
+            this.scrollPosition -= logoWidth;
+
+            // Immediately update the transform to prevent jump
+            $track.css({
+              transform: `translate3d(-${this.scrollPosition}px, 0, 0)`,
+            });
+          }
+
+          // Apply smooth transform
+          $track.css({
+            transform: `translate3d(-${this.scrollPosition}px, 0, 0)`,
+          });
+
+          // Continue animation
+          this.animationId = requestAnimationFrame(animate);
+        };
+
+        this.animationId = requestAnimationFrame(animate);
+      },
+
+      pauseScroll: function () {
+        if (this.animationId) {
+          cancelAnimationFrame(this.animationId);
+          this.animationId = null;
+        }
+      },
+
+      resumeScroll: function ($track) {
+        if (!this.animationId) {
+          this.animateScroll($track);
+        }
+      },
     },
 
     // Initialize all modules
@@ -534,6 +636,7 @@
         this.performance.init();
         this.accessibility.init();
         this.services.init();
+        this.partners.init();
 
         // Trigger custom event for other scripts
         $(document).trigger("stormapp:initialized");

@@ -46,27 +46,21 @@ PARTNERS - Figma
 .partners__slide-track {
   display: flex;
   align-items: center;
-  animation: slideLogos 25s linear infinite;
-  /* Width: (5 logos × 200px) + (5 gaps × 120px) = 1600px per set, × 4 sets = 6400px */
-  width: 6400px;
+  /* Remove CSS animation - now controlled by JavaScript */
+  /* animation: slideLogos 25s linear infinite; */
+  width: max-content;
+  will-change: transform; /* Optimize for smooth animation */
 }
 
 .partners__images-img {
   max-height: auto;
-  max-width: 130px;
+  max-width: 100px;
   flex-shrink: 0;
   margin-right: 150px;
   transition: filter 0.3s ease;
 }
 
-@keyframes slideLogos {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-1600px); /* Exactly one set width */
-  }
-}
+/* Removed @keyframes slideLogos - now using JavaScript */
 
 @media (max-width: 1024px) {
   .partners {
@@ -111,13 +105,13 @@ PARTNERS - Figma
     min-height: 100px;
   }
 
-  /* Keep horizontal sliding animation */
+  /* Keep horizontal sliding - now controlled by JavaScript */
   .partners__slide-track {
     display: flex;
     flex-direction: row;
     align-items: center;
-    animation: slideLogos 20s linear infinite;
-    width: 6400px;
+    /* animation: slideLogos 20s linear infinite; - removed, using JS */
+    width: max-content;
   }
 
   /* Adjust logo sizes for mobile */
