@@ -73,10 +73,14 @@
 
 .header__menu-link {
   text-decoration: none;
-  display: inline-block;
+  /* display: inline-block; */
   position: relative;
   overflow: hidden;
   height: 31px; /* Match line height */
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 4px;
 }
 
 .header__menu-text {
