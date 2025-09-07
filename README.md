@@ -53,11 +53,12 @@ storm-inc/
 │   │   │   ├── industry.css        # Industry section styles
 │   │   │   ├── services.css        # Services section styles
 │   │   │   ├── partners.css        # Partners section styles
-│   │   │   ├── sections.css        # General section styles
+│   │   │   ├── join.css            # Join section styles
+│   │   │   ├── testimonials.css    # Testimonials carousel styles
+│   │   │   ├── footer.css          # Footer section styles
 │   │   │   ├── utilities.css       # Helper classes
 │   │   │   ├── responsive-768.css  # Mobile responsive overrides
-│   │   │   ├── google-animation.css # Google animation styles
-│   │   │   └── main.css            # Main compiled styles
+│   │   │   └── google-animation.css # Google animation styles
 │   │   ├── js/                     # JavaScript files
 │   │   │   ├── main.js             # Core application logic
 │   │   │   ├── carousel.js         # Carousel functionality
@@ -93,11 +94,12 @@ The CSS is organized into specialized modules for maintainability:
 6. **industry.css** - Industry expertise section
 7. **services.css** - Services cards and layouts
 8. **partners.css** - Partner logos and carousel
-9. **sections.css** - Common section patterns
-10. **utilities.css** - Helper classes (spacing, text, display)
-11. **responsive-768.css** - Mobile-specific overrides (≤768px)
-12. **google-animation.css** - Special animation effects
-13. **main.css** - Combined/compiled styles
+9. **join.css** - Join/CTA section with split layout
+10. **testimonials.css** - Customer testimonials carousel
+11. **footer.css** - Footer navigation and contact info
+12. **utilities.css** - Helper classes (spacing, text, display)
+13. **responsive-768.css** - Mobile-specific overrides (≤768px)
+14. **google-animation.css** - Special animation effects
 
 ### CSS Methodology
 

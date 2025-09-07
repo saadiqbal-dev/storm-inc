@@ -36,13 +36,19 @@ Since this is a static site without a build process:
 
 ```bash
 # Serve locally with Python
-python3 -m http.server 8000
+python3 -m http.server 8000 -d src
 
 # Or with PHP
-php -S localhost:8000
+php -S localhost:8000 -t src/
+
+# Or with Node.js http-server
+npx http-server src/ -p 8000
+
+# Update cache busting timestamps before deployment
+./update-cache.sh
 
 # Deploy to Vercel
-vercel
+vercel --prod
 
 # Check for issues (no linting configured)
 # Consider adding ESLint/Prettier for code quality
@@ -52,14 +58,15 @@ vercel
 
 The `vercel.json` is configured with:
 - Output directory: `src/`
-- Cache headers optimized to prevent CSS caching issues
+- Cache headers optimized to prevent CSS/JS caching issues (must-revalidate)
+- Image caching set to 1 year (immutable)
 - Clean URLs enabled
 - No build step required
 
 ## File Structure Notes
 
 - **src/index.html**: Main entry point with all sections inline
-- **src/assets/css/**: Modular CSS files organized by component
+- **src/assets/css/**: 17 modular CSS files organized by component
 - **src/assets/js/**: main.js (application logic), carousel.js, google-animation.js
 - **src/assets/img/**: Images should be in WebP format where possible
 - **src/assets/fonts/**: Custom Peachi font files (woff2)
@@ -77,3 +84,4 @@ The `vercel.json` is configured with:
 3. **Mobile menu** uses a full-screen overlay pattern with slide-in animation
 4. **Forms** include real-time validation and loading states (ready for AJAX)
 5. **Accessibility features** include skip links, ARIA labels, keyboard navigation support
+6. **Cache busting** uses PHP timestamps in development, update-cache.sh for deployment
