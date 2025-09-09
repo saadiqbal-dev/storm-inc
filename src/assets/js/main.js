@@ -552,8 +552,8 @@
         const $track = $(".partners__slide-track");
         if (!$track.length) return;
 
-        // Get original logos
-        const $logos = $track.find(".partners__images-img");
+        // Get original logos (supports both class names for compatibility)
+        const $logos = $track.find(".partners__images-img, .partners__images-img__template");
         const logoCount = $logos.length / 4; // We have 4 sets, get single set count
 
         // Keep only 2 sets of logos for smooth infinite scroll
@@ -583,8 +583,8 @@
         const animate = () => {
           this.scrollPosition += this.scrollSpeed;
 
-          // Get the first logo
-          const $firstLogo = $track.find(".partners__images-img").first();
+          // Get the first logo (supports both class names for compatibility)
+          const $firstLogo = $track.find(".partners__images-img, .partners__images-img__template").first();
           const logoWidth = $firstLogo.outerWidth(true);
 
           // When the first logo is completely scrolled out of view, move it to the end
