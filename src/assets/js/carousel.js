@@ -302,29 +302,7 @@ class HeroCarousel {
 }
 
 // Header scroll effect
-class HeaderScroll {
-  constructor() {
-    this.header = document.querySelector(".header");
-    this.scrollThreshold = 100; // Pixels to scroll before effect triggers
-    this.init();
-  }
-
-  init() {
-    window.addEventListener("scroll", () => this.handleScroll());
-    // Initial check in case page is already scrolled
-    this.handleScroll();
-  }
-
-  handleScroll() {
-    const scrolled = window.pageYOffset;
-
-    if (scrolled > this.scrollThreshold) {
-      this.header.classList.add("header--scrolled");
-    } else {
-      this.header.classList.remove("header--scrolled");
-    }
-  }
-}
+// Header scroll functionality has been moved to header.js
 
 // Testimonials Carousel Class
 class TestimonialsCarousel {
@@ -403,101 +381,12 @@ class TestimonialsCarousel {
   }
 }
 
-// Footer Reveal Effect - Calculate and set spacer height
-class FooterReveal {
-  constructor() {
-    this.footer = document.querySelector(".footer");
-    this.spacer = document.getElementById("footer-spacer");
-    this.init();
-  }
+// Footer reveal and header dropdown functionality have been moved to header.js
+// This allows these features to work on all pages without carousel dependency
 
-  init() {
-    this.setSpacerHeight();
-    window.addEventListener("resize", () => this.setSpacerHeight());
-  }
-
-  setSpacerHeight() {
-    if (this.footer && this.spacer) {
-      // Get the actual height of the footer
-      const footerHeight = this.footer.offsetHeight;
-      // Set spacer height to match footer height
-      this.spacer.style.height = `${footerHeight}px`;
-    }
-  }
-}
-
-// Header Dropdown Management
-class HeaderDropdown {
-  constructor() {
-    this.dropdownLinks = document.querySelectorAll("[data-dropdown]");
-    this.dropdowns = document.querySelectorAll(".header__dropdown");
-    this.activeDropdown = null;
-    this.activeMenuItem = null;
-    this.init();
-  }
-
-  init() {
-    // Add click event listeners to dropdown links
-    this.dropdownLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
-        e.preventDefault();
-        const dropdownId = link.getAttribute("data-dropdown");
-        const menuItem = link.closest(".header__menu-item");
-        this.toggleDropdown(dropdownId, menuItem);
-      });
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener("click", (e) => {
-      if (
-        !e.target.closest(".header__menu-item") &&
-        !e.target.closest(".header__dropdown")
-      ) {
-        this.closeAllDropdowns();
-      }
-    });
-  }
-
-  toggleDropdown(dropdownId, menuItem) {
-    const dropdown = document.getElementById(dropdownId);
-
-    if (this.activeDropdown === dropdown && this.activeMenuItem === menuItem) {
-      // Close if clicking same dropdown
-      this.closeAllDropdowns();
-    } else {
-      // Close any open dropdown first
-      this.closeAllDropdowns();
-      // Open new dropdown
-      this.openDropdown(dropdown, menuItem);
-    }
-  }
-
-  openDropdown(dropdown, menuItem) {
-    if (dropdown && menuItem) {
-      dropdown.classList.add("active");
-      menuItem.classList.add("active");
-      this.activeDropdown = dropdown;
-      this.activeMenuItem = menuItem;
-    }
-  }
-
-  closeAllDropdowns() {
-    this.dropdowns.forEach((dropdown) => {
-      dropdown.classList.remove("active");
-    });
-    document.querySelectorAll(".header__menu-item").forEach((item) => {
-      item.classList.remove("active");
-    });
-    this.activeDropdown = null;
-    this.activeMenuItem = null;
-  }
-}
-
-// Initialize components when DOM is loaded
+// Initialize carousel components when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   new HeroCarousel();
-  new HeaderScroll();
   new TestimonialsCarousel();
-  new FooterReveal();
-  new HeaderDropdown();
+  // Note: HeaderScroll, FooterReveal, and HeaderDropdown are now initialized in header.js
 });
