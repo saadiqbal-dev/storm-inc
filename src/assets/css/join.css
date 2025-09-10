@@ -101,6 +101,9 @@
 
 /* 1480px Breakpoint */
 @media (max-width: 1480px) {
+  .join {
+    height: 40vh;
+  }
   .join__left-heading {
     font-size: 32px;
     line-height: 40px;
