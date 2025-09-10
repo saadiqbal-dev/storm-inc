@@ -167,7 +167,8 @@
   .join__left {
     width: 100%;
     position: relative;
-    padding: 100px 40px;
+    padding: 0px 40px;
+    height: 410px;
     /* height: 50svh; */
   }
 
@@ -177,7 +178,8 @@
     position: relative;
     display: block;
     /* height: 400px; */
-    min-height: 400px;
+    min-height: 300px;
+    height: fit-content;
     background-image: url("../img/join-image.webp");
     background-size: cover;
     background-position: center;
