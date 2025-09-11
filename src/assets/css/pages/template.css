@@ -18,6 +18,7 @@
   height: auto;
   object-fit: cover;
   object-position: center;
+  background: #fff;
 }
 
 .hero__heading-template {
@@ -740,6 +741,11 @@
     font-size: 20px;
     text-align: start;
     line-height: 28px;
+  }
+
+  .content__template-content__text {
+    max-width: 100%;
+    align-items: start;
   }
 
   .content__template-content__image {
