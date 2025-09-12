@@ -160,7 +160,7 @@
     max-width: 100%;
     width: 100%;
     flex-direction: column;
-    height: 70svh;
+    /* height: 70svh; */
     min-height: fit-content;
   }
 

@@ -627,6 +627,98 @@
       },
     },
 
+    // Parallax scroll effect
+    parallax: {
+      elements: [],
+      isAnimating: false,
+      observer: null,
+
+      init: function () {
+        // Check for reduced motion preference
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          return;
+        }
+
+        // Find all parallax elements
+        const parallaxSections = document.querySelectorAll('[data-parallax]');
+        if (!parallaxSections.length) return;
+
+        // Setup each parallax element
+        parallaxSections.forEach(section => {
+          const bg = section.querySelector('[data-parallax-bg]');
+          if (bg) {
+            this.elements.push({
+              section: section,
+              bg: bg,
+              offset: 0
+            });
+          }
+        });
+
+        if (this.elements.length === 0) return;
+
+        // Setup IntersectionObserver
+        this.setupObserver();
+
+        // Initial position update
+        this.updatePositions();
+
+        // Setup scroll listener with requestAnimationFrame
+        this.setupScrollListener();
+      },
+
+      setupObserver: function () {
+        const options = {
+          rootMargin: '100px 0px 100px 0px' // Start effect slightly before element is visible
+        };
+
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const element = this.elements.find(el => el.section === entry.target);
+            if (element) {
+              element.isVisible = entry.isIntersecting;
+            }
+          });
+        }, options);
+
+        // Observe all sections
+        this.elements.forEach(element => {
+          this.observer.observe(element.section);
+        });
+      },
+
+      setupScrollListener: function () {
+        let ticking = false;
+
+        const requestTick = () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              this.updatePositions();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        };
+
+        // Use passive listener for better performance
+        window.addEventListener('scroll', requestTick, { passive: true });
+        window.addEventListener('resize', requestTick, { passive: true });
+      },
+
+      updatePositions: function () {
+        // No transform calculations needed - CSS background-attachment: fixed handles the effect on all devices
+        // This method kept for potential future enhancements
+      },
+
+      destroy: function () {
+        if (this.observer) {
+          this.observer.disconnect();
+        }
+        window.removeEventListener('scroll', this.updatePositions);
+        window.removeEventListener('resize', this.updatePositions);
+      }
+    },
+
     // Initialize all modules
     init: function () {
       // Wait for DOM to be ready
@@ -637,6 +729,7 @@
         this.accessibility.init();
         this.services.init();
         this.partners.init();
+        this.parallax.init();
 
         // Trigger custom event for other scripts
         $(document).trigger("stormapp:initialized");
