@@ -977,6 +977,10 @@
 }
 
 @media (max-width: 768px) {
+  .video--full-width {
+    height: 220px;
+  }
+  
   .hero-template {
     height: 322px;
     margin-top: 90px;
