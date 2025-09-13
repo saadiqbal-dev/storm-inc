@@ -165,6 +165,15 @@
   max-width: 695px;
   gap: 24px;
 }
+.content__template-content__text-full__extra {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  height: 100%;
+  max-width: 820px;
+  gap: 24px;
+}
 
 .content__template-content__text-left {
   display: flex;
@@ -213,6 +222,16 @@
   font-weight: 400;
   line-height: 37px; /* 142.308% */
   max-width: 685px;
+}
+
+.content__template-content__text__desc-full {
+  color: #555353;
+  font-family: var(--font-mona-sans);
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 37px; /* 142.308% */
+  width: 100%;
 }
 
 .short__width {
@@ -595,8 +614,41 @@
   border-radius: 3px;
 }
 
+.hidden {
+  display: hidden;
+}
+
 .w-460 {
   max-width: 460px;
+}
+
+.w-820 {
+  max-width: 820px;
+}
+
+.case-study-main {
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
+  width: 100%;
+  max-width: 1920px;
+  position: relative;
+  z-index: 50;
+  background: #fff;
+  margin: 0 auto;
+}
+
+.case-study-main__img {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.img-775 {
+  max-width: 775px;
+  max-height: 506px;
+  object-fit: cover;
 }
 
 @media (max-width: 1480px) {
@@ -631,6 +683,14 @@
   .content__template-content__text__desc {
     font-size: 20px;
     line-height: 28px;
+  }
+  .content__template-content__text__desc-full {
+    font-size: 20px;
+    line-height: 28px;
+    max-width: 650px;
+  }
+  .mt-3 {
+    margin-top: 0px !important;
   }
   .content__template-content__text {
     max-width: 550px;
@@ -701,6 +761,15 @@
     font-size: 18px;
     padding: 0px 18px;
     height: auto;
+  }
+
+  .case-study-main {
+    padding: 100px 70px;
+  }
+  .img-775 {
+    max-width: 543px;
+    max-height: 334px;
+    object-fit: cover;
   }
 }
 
@@ -844,6 +913,12 @@
   .case-studies__container-title {
     font-size: 28px;
     line-height: 36px;
+  }
+
+  .img-775 {
+    max-width: 388px;
+    max-height: 334px;
+    object-fit: cover;
   }
 }
 
@@ -1055,5 +1130,9 @@
     font-weight: 400;
     line-height: 28px; /* 140% */
     max-width: 100%;
+  }
+  .case-study-main__img {
+    flex-direction: column;
+    gap: 20px;
   }
 }
