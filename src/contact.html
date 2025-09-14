@@ -999,8 +999,8 @@
           </h2>
           <div>
             <h2 class="content__template-content__text__title">
-              If you've got a digital marketing or development project that
-              you are working on we'd love to hear from you.
+              If you've got a digital marketing or development project that you
+              are working on we'd love to hear from you.
             </h2>
             <p class="content__template-content__text__desc">
               We offer an initial obligation free consultation so if you are
@@ -1029,15 +1029,50 @@
         </div>
         <div class="content__template-content__image">
           <form class="contact-form">
-            <input type="text" placeholder="First Name" class="contact-input" required>
-            <input type="text" placeholder="Last Name" class="contact-input" required>
-            <input type="tel" placeholder="Phone" class="contact-input" required>
-            <input type="email" placeholder="Email" class="contact-input" required>
-            <input type="url" placeholder="Enter your website url" class="contact-input">
-            <textarea placeholder="Tell us how we can help" class="contact-textarea" required></textarea>
+            <input
+              type="text"
+              placeholder="First Name"
+              class="contact-input"
+              required
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              class="contact-input"
+              required
+            />
+            <input
+              type="tel"
+              placeholder="Phone"
+              class="contact-input"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              class="contact-input"
+              required
+            />
+            <input
+              type="url"
+              placeholder="Enter your website url"
+              class="contact-input"
+            />
+            <textarea
+              placeholder="Tell us how we can help"
+              class="contact-textarea"
+              required
+            ></textarea>
             <button type="submit" class="contact-submit">Submit</button>
           </form>
         </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <div class="map-container">
+        <div id="google-map"></div>
       </div>
     </section>
 
@@ -1158,8 +1193,15 @@
 
     <!-- JavaScript Files -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Google Maps API - Replace YOUR_API_KEY with actual Google Maps API key -->
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBG8BjFwOMXNYu-xwJQc4JxK2njsyxcbM8&callback=initMap"
+    ></script>
     <script src="assets/js/main.js?v=1756835970"></script>
     <script src="assets/js/header.js?v=1756835970"></script>
     <script src="assets/js/carousel.js?v=1756835970"></script>
+    <script src="assets/js/map.js?v=1756835970"></script>
   </body>
 </html>
