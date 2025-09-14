@@ -335,8 +335,7 @@
       implementIntersectionObserver: function () {
         if ("IntersectionObserver" in window) {
           const imageObserver = new IntersectionObserver(function (
-            entries,
-            observer
+            entries
           ) {
             entries.forEach(function (entry) {
               if (entry.isIntersecting) {
@@ -751,6 +750,85 @@
       }
     },
 
+    // Scroll animations
+    scrollAnimations: {
+      elements: [],
+      isAnimating: false,
+      observer: null,
+
+      init: function () {
+        // Check for reduced motion preference
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          return;
+        }
+
+        // Find all animatable elements
+        const animatableElements = document.querySelectorAll('[data-animate]');
+        if (!animatableElements.length) return;
+
+        // Setup each animatable element
+        animatableElements.forEach(element => {
+          this.elements.push({
+            element: element,
+            animation: element.dataset.animate || 'fadeInUp',
+            delay: parseInt(element.dataset.animateDelay) || 0,
+            duration: parseInt(element.dataset.animateDuration) || 800,
+            triggered: false
+          });
+        });
+
+        if (this.elements.length === 0) return;
+
+        // Setup IntersectionObserver
+        this.setupObserver();
+      },
+
+      setupObserver: function () {
+        const options = {
+          rootMargin: '50px 0px -50px 0px', // Start animation slightly before element is visible
+          threshold: 0.1
+        };
+
+        this.observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const elementData = this.elements.find(el => el.element === entry.target);
+            if (elementData && entry.isIntersecting && !elementData.triggered) {
+              this.triggerAnimation(elementData);
+              elementData.triggered = true;
+            }
+          });
+        }, options);
+
+        // Observe all elements
+        this.elements.forEach(elementData => {
+          // Add initial hidden state
+          elementData.element.classList.add('animate-hidden');
+          this.observer.observe(elementData.element);
+        });
+      },
+
+      triggerAnimation: function (elementData) {
+        const element = elementData.element;
+
+        // Add animation classes
+        setTimeout(() => {
+          element.classList.remove('animate-hidden');
+          element.classList.add('animate-visible', `animate-${elementData.animation}`);
+
+          // Set custom duration if provided
+          if (elementData.duration !== 800) {
+            element.style.animationDuration = elementData.duration + 'ms';
+          }
+        }, elementData.delay);
+      },
+
+      destroy: function () {
+        if (this.observer) {
+          this.observer.disconnect();
+        }
+      }
+    },
+
     // Initialize all modules
     init: function () {
       // Wait for DOM to be ready
@@ -763,6 +841,7 @@
         this.partners.init();
         this.blogFilters.init();
         this.parallax.init();
+        this.scrollAnimations.init();
 
         // Trigger custom event for other scripts
         $(document).trigger("stormapp:initialized");
