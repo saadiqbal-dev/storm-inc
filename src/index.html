@@ -9,6 +9,12 @@
       content="Storm Inc is an Auckland-based full-service digital marketing agency specializing in lead generation and sales performance."
     />
 
+    <!-- Preconnect to external domains for faster connections -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://code.jquery.com">
+
     <!-- Preload Peachi Fonts for better performance -->
     <link
       rel="preload"
@@ -43,13 +49,20 @@
     <link rel="stylesheet" href="assets/css/base.css?v=1756835970" />
     <link rel="stylesheet" href="assets/css/header.css?v=1756835970" />
     <link rel="stylesheet" href="assets/css/hero.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/company.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/industry.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/services.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/partners.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/join.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/testimonials.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/footer.css?v=1756835970" />
+    <link rel="preload" href="assets/css/company.css?v=1756835970" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/company.css?v=1756835970"></noscript>
+    <link rel="preload" href="assets/css/industry.css?v=1756835970" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/industry.css?v=1756835970"></noscript>
+    <link rel="preload" href="assets/css/services.css?v=1756835970" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/services.css?v=1756835970"></noscript>
+    <link rel="preload" href="assets/css/partners.css?v=1756835970" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/partners.css?v=1756835970"></noscript>
+    <link rel="preload" href="assets/css/join.css?v=1756835970" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/join.css?v=1756835970"></noscript>
+    <link rel="preload" href="assets/css/testimonials.css?v=1756835970" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/testimonials.css?v=1756835970"></noscript>
+    <link rel="preload" href="assets/css/footer.css?v=1756835970" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="assets/css/footer.css?v=1756835970"></noscript>
     <link rel="stylesheet" href="assets/css/utilities.css?v=1756835970" />
     <link rel="stylesheet" href="assets/css/responsive-768.css?v=1756835970" />
 
@@ -117,7 +130,7 @@
         <div class="mobile-menu__logo">
           <img src="assets/img/logo-white.svg" alt="Storm Inc" />
         </div>
-        <button class="mobile-menu__close" id="mobile-menu-close">
+        <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Close menu">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -151,7 +164,7 @@
         <div class="mobile-menu__nav-container">
           <nav>
             <ul class="mobile-menu__nav">
-              <div class="mobile-menu__divider"></div>
+              <li class="mobile-menu__divider" role="separator" aria-hidden="true"></li>
               <li class="mobile-menu__nav-item">
                 <button
                   class="mobile-menu__nav-link mobile-menu__nav-link--dropdown"
@@ -291,7 +304,7 @@
                   </div>
                 </div>
               </li>
-              <div class="mobile-menu__divider"></div>
+              <li class="mobile-menu__divider" role="separator" aria-hidden="true"></li>
               <li class="mobile-menu__nav-item">
                 <button
                   class="mobile-menu__nav-link mobile-menu__nav-link--dropdown"
@@ -397,7 +410,7 @@
                   </div>
                 </div>
               </li>
-              <div class="mobile-menu__divider"></div>
+              <li class="mobile-menu__divider" role="separator" aria-hidden="true"></li>
               <li class="mobile-menu__nav-item">
                 <button
                   class="mobile-menu__nav-link mobile-menu__nav-link--dropdown"
@@ -489,7 +502,7 @@
                   </div>
                 </div>
               </li>
-              <div class="mobile-menu__divider"></div>
+              <li class="mobile-menu__divider" role="separator" aria-hidden="true"></li>
               <li class="mobile-menu__nav-item">
                 <a href="#" class="mobile-menu__nav-link">Contact</a>
               </li>
