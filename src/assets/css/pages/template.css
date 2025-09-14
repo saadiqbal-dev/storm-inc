@@ -256,9 +256,9 @@
   display: flex;
   max-width: 775px;
   height: auto;
-  max-height: 477px;
+  min-height: 600px;
   width: 100vw;
-  overflow: hidden;
+  overflow: visible;
   object-fit: cover;
   border-radius: 3px;
 }
@@ -814,6 +814,91 @@
   flex-direction: column;
   gap: 24px;
   margin-top: 35px;
+}
+
+/* Contact Form Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  width: 100%;
+  max-width: 769.333px;
+}
+
+.contact-input {
+  border-radius: 66.667px;
+  border: 1.333px solid #555353;
+  padding: 15px 30px;
+  background: transparent;
+  outline: none;
+  font-family: "Mona Sans";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 37.333px;
+  color: #555353;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-input::placeholder {
+  color: #555353;
+  font-family: "Mona Sans";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 37.333px;
+}
+
+.contact-textarea {
+  width: 100%;
+  max-width: 769.333px;
+  height: 369.333px;
+  flex-shrink: 0;
+  border-radius: 40px;
+  border: 1.333px solid #555353;
+  padding: 30px;
+  background: transparent;
+  outline: none;
+  font-family: "Mona Sans";
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 37.333px;
+  color: #555353;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.contact-textarea::placeholder {
+  color: #555353;
+  font-family: "Mona Sans";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 37.333px;
+}
+
+.contact-submit {
+  border-radius: 66.667px;
+  background: #FF5964;
+  width: 245.333px;
+  height: 53.333px;
+  flex-shrink: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+  font-family: "Mona Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 42.667px;
+  transition: all 0.3s ease;
+}
+
+.contact-submit:hover {
+  background: #e5505a;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 1480px) {
@@ -1401,5 +1486,37 @@
 
   .work-portfolio__item {
     height: 300px;
+  }
+
+  /* Contact Form Mobile Styles */
+  .contact-form {
+    max-width: 100%;
+  }
+
+  .contact-input {
+    font-size: 20px;
+    padding: 12px 20px;
+  }
+
+  .contact-input::placeholder {
+    font-size: 20px;
+  }
+
+  .contact-textarea {
+    width: 100%;
+    height: 200px;
+    font-size: 20px;
+    padding: 20px;
+  }
+
+  .contact-textarea::placeholder {
+    font-size: 20px;
+  }
+
+  .contact-submit {
+    width: 200px;
+    height: 48px;
+    font-size: 18px;
+    line-height: 24px;
   }
 }
