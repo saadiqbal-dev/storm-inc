@@ -876,6 +876,17 @@
   margin: 0;
 }
 
+/* Remove underline from blog article links */
+a .blog-article,
+a.blog-article-link {
+  text-decoration: none;
+}
+
+a .blog-article:hover,
+a.blog-article-link:hover {
+  text-decoration: none;
+}
+
 .img-775 {
   max-width: 775px;
   max-height: 477px;
