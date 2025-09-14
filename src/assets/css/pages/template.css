@@ -942,6 +942,16 @@
   display: none !important;
 }
 
+/* Mobile Form Section - Hidden on Desktop */
+.mobile-form-section {
+  display: none;
+}
+
+.mobile-form-container {
+  padding: 60px 20px;
+  background: #ffffff;
+}
+
 @media (max-width: 1480px) {
   .hero__heading-template {
     font-size: 48px;
@@ -1295,6 +1305,7 @@
   .hero-template {
     height: 322px;
     margin-top: 90px;
+    margin-bottom: 0;
 
     img {
       height: 322px;
@@ -1309,7 +1320,7 @@
   }
 
   .p-t-100 {
-    padding: 60px 20px 20px 20px;
+    padding: 0px 20px 20px 20px;
   }
 
   .p-b-50 {
@@ -1550,12 +1561,22 @@
   }
 
   .contact-input {
-    font-size: 20px;
+    color: #555353;
+    font-family: "Mona Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
     padding: 12px 20px;
   }
 
   .contact-input::placeholder {
-    font-size: 20px;
+    color: #555353;
+    font-family: "Mona Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
   }
 
   .contact-textarea {
@@ -1563,12 +1584,22 @@
     min-height: 150px;
     max-height: 300px;
     height: auto;
-    font-size: 20px;
+    color: #555353;
+    font-family: "Mona Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
     padding: 20px;
   }
 
   .contact-textarea::placeholder {
-    font-size: 20px;
+    color: #555353;
+    font-family: "Mona Sans";
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
   }
 
   .contact-submit {
@@ -1588,5 +1619,51 @@
     height: 40vh;
     min-height: 300px;
     max-height: 400px;
+  }
+
+  /* Mobile Form Section Ordering */
+  .desktop-form {
+    display: none;
+  }
+
+  .mobile-form-section {
+    display: block;
+    order: 3;
+  }
+
+  /* Reorder sections for mobile */
+  .content__template__left {
+    order: 1;
+  }
+
+  .map-section {
+    order: 2;
+  }
+
+  .join {
+    order: 4;
+  }
+
+  /* Mobile section ordering - sections are already in correct order in HTML */
+  /* Just ensure proper z-index stacking */
+  .map-section {
+    z-index: 2;
+    position: relative;
+  }
+
+  .mobile-form-section {
+    z-index: 2;
+    background: #ffffff;
+    position: relative;
+  }
+
+  .join {
+    z-index: 2;
+    position: relative;
+  }
+
+  .content__template__left {
+    z-index: 2;
+    position: relative;
   }
 }
