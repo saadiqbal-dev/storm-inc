@@ -1929,4 +1929,29 @@
     z-index: 2;
     position: relative;
   }
+
+  .contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: start;
+    justify-content: space-between;
+  }
+
+  .contact-title {
+    color: #ff5964;
+    font-family: var(--font-mona-sans);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 140% */
+  }
+  .contact-description {
+    color: #555353;
+    font-family: var(--font-mona-sans);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+  }
 }
