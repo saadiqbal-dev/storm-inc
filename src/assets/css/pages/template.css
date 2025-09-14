@@ -784,12 +784,6 @@
   border: 0;
 }
 
-.contact-container {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: space-between;
-}
 
 .contact-title {
   color: #555353;
