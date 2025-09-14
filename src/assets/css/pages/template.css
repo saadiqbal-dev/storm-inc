@@ -784,6 +784,38 @@
   border: 0;
 }
 
+.contact-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.contact-title {
+  color: #555353;
+  font-family: var(--font-mona-sans);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 37.333px; /* 186.667% */
+}
+
+.contact-description {
+  color: #555353;
+  font-family: var(--font-mona-sans);
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 37.333px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 35px;
+}
+
 @media (max-width: 1480px) {
   .hero__heading-template {
     font-size: 48px;
@@ -908,25 +940,25 @@
   .video-wrapper.img-775 {
     height: 334px;
   }
-  
+
   .case-study-card {
     width: 420px;
     height: 256px;
   }
-  
+
   .case-study-card__title {
     font-size: 28px;
     line-height: 38px;
   }
-  
+
   .video--full-width {
     height: 600px;
   }
-  
+
   .work-portfolio {
     padding: 60px 120px;
   }
-  
+
   .work-portfolio__grid {
     grid-template-columns: repeat(3, 360px);
     grid-template-rows: repeat(5, 280px);
@@ -1007,7 +1039,7 @@
   .case-studies__image {
     max-width: 520px;
   }
-  
+
   .work-portfolio__grid {
     grid-template-columns: repeat(3, 300px);
     grid-template-rows: repeat(5, 240px);
@@ -1094,22 +1126,22 @@
     max-width: 388px;
     height: 238px;
   }
-  
+
   .case-study-card {
     width: 340px;
     height: 207px;
   }
-  
+
   .case-study-card__title {
     font-size: 24px;
     line-height: 32px;
     padding: 15px;
   }
-  
+
   .video--full-width {
     height: 400px;
   }
-  
+
   .work-portfolio__grid {
     grid-template-columns: repeat(2, 388px);
     grid-template-rows: auto;
@@ -1121,7 +1153,7 @@
   .video--full-width {
     height: 220px;
   }
-  
+
   .hero-template {
     height: 322px;
     margin-top: 90px;
@@ -1334,31 +1366,31 @@
     flex-direction: column;
     gap: 20px;
   }
-  
+
   .case-studies-cards {
     flex-direction: column;
     gap: 20px;
     padding: 0 20px;
   }
-  
+
   .case-study-card {
     width: 100%;
     max-width: 400px;
     height: 244px;
   }
-  
+
   .case-study-card__title {
     font-size: 26px;
     line-height: 35px;
   }
-  
+
   .work-portfolio {
     padding: 60px 20px;
     margin-left: 0;
     width: 100%;
     max-width: 100%;
   }
-  
+
   .work-portfolio__grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
@@ -1366,7 +1398,7 @@
     width: 100%;
     padding: 0;
   }
-  
+
   .work-portfolio__item {
     height: 300px;
   }
