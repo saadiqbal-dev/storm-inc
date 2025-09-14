@@ -188,7 +188,7 @@ function initMap() {
     zoomControl: false,
     scrollwheel: false,
     disableDoubleClickZoom: true,
-    draggable: false,
+    draggable: true,
     keyboardShortcuts: false,
     disableDefaultUI: true,
   });

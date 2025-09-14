@@ -627,6 +627,38 @@
       },
     },
 
+    // Blog Filter Badges
+    blogFilters: {
+      init: function () {
+        this.setupFilterBadges();
+      },
+
+      setupFilterBadges: function () {
+        const $badges = $('.blog-filter-badge');
+        if (!$badges.length) return;
+
+        $badges.on('click', function (e) {
+          e.preventDefault();
+          
+          // Remove active class from all badges
+          $badges.removeClass('blog-filter-badge--active');
+          
+          // Add active class to clicked badge
+          $(this).addClass('blog-filter-badge--active');
+          
+          // Get filter value
+          const filter = $(this).data('filter');
+          
+          // Filter blog posts (placeholder for future implementation)
+          // This is where you would filter the actual blog posts
+          console.log('Filter selected:', filter);
+          
+          // Trigger custom event for other scripts
+          $(document).trigger('blogfilter:changed', [filter]);
+        });
+      }
+    },
+
     // Parallax scroll effect
     parallax: {
       elements: [],
@@ -729,6 +761,7 @@
         this.accessibility.init();
         this.services.init();
         this.partners.init();
+        this.blogFilters.init();
         this.parallax.init();
 
         // Trigger custom event for other scripts
