@@ -256,8 +256,8 @@
   display: flex;
   max-width: 775px;
   height: auto;
-  min-height: 500px;
-  max-height: 80vh;
+  /* min-height: 500px; */
+  max-height: 477px;
   width: 100vw;
   overflow: visible;
   object-fit: cover;
