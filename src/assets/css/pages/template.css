@@ -1100,6 +1100,37 @@
   background: #ffffff;
 }
 
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0 auto;
+  max-width: 1920px;
+  width: 100%;
+  padding: 100px 20px;
+  position: relative;
+  z-index: 50;
+  background: #fff;
+}
+
+.blog-content__container {
+  width: 100%;
+  max-width: 912px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 0 auto;
+}
+
+.blog-content__heading {
+  color: #292929;
+  font-family: var(--font-peachi);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 43px; /* 134.375% */
+}
+
 @media (max-width: 1480px) {
   .hero__heading-template {
     font-size: 48px;

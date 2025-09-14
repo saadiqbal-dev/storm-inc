@@ -12,21 +12,21 @@
     <!-- Preload Peachi Fonts for better performance -->
     <link
       rel="preload"
-      href="assets/fonts/Peachi-Regular.woff2"
+      href="../assets/fonts/Peachi-Regular.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href="assets/fonts/Peachi-Light.woff2"
+      href="../assets/fonts/Peachi-Light.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
     <link
       rel="preload"
-      href="assets/fonts/Peachi-Medium.woff2"
+      href="../assets/fonts/Peachi-Medium.woff2"
       as="font"
       type="font/woff2"
       crossorigin
@@ -38,21 +38,27 @@
       rel="stylesheet"
     />
     <!-- Custom Fonts -->
-    <link rel="stylesheet" href="assets/css/fonts.css?v=1756835970" />
+    <link rel="stylesheet" href="../assets/css/fonts.css?v=1756835970" />
     <!-- Modular Styles -->
-    <link rel="stylesheet" href="assets/css/base.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/header.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/hero.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/company.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/industry.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/services.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/partners.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/join.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/testimonials.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/footer.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/utilities.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/responsive-768.css?v=1756835970" />
-    <link rel="stylesheet" href="assets/css/pages/template.css?v=1756835970" />
+    <link rel="stylesheet" href="../assets/css/base.css?v=1756835970" />
+    <link rel="stylesheet" href="../assets/css/header.css?v=1756835970" />
+    <link rel="stylesheet" href="../assets/css/hero.css?v=1756835970" />
+    <link rel="stylesheet" href="../assets/css/company.css?v=1756835970" />
+    <link rel="stylesheet" href="../assets/css/industry.css?v=1756835970" />
+    <link rel="stylesheet" href="../assets/css/services.css?v=1756835970" />
+    <link rel="stylesheet" href="../assets/css/partners.css?v=1756835970" />
+    <link rel="stylesheet" href="../assets/css/join.css?v=1756835970" />
+    <link rel="stylesheet" href="../assets/css/testimonials.css?v=1756835970" />
+    <link rel="stylesheet" href="../assets/css/footer.css?v=1756835970" />
+    <link rel="stylesheet" href="../assets/css/utilities.css?v=1756835970" />
+    <link
+      rel="stylesheet"
+      href="../assets/css/responsive-768.css?v=1756835970"
+    />
+    <link
+      rel="stylesheet"
+      href="../assets/css/pages/template.css?v=1756835970"
+    />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -66,7 +72,7 @@
     <div class="mobile-header">
       <div class="mobile-header__logo">
         <a href="index.html">
-          <img src="assets/img/logo-black.svg" alt="Storm Inc" />
+          <img src="../assets/img/logo-black.svg" alt="Storm Inc" />
         </a>
       </div>
       <button
@@ -116,7 +122,7 @@
     <div class="mobile-menu" id="mobile-menu">
       <div class="mobile-menu__header">
         <div class="mobile-menu__logo">
-          <img src="assets/img/logo-white.svg" alt="Storm Inc" />
+          <img src="../assets/img/logo-white.svg" alt="Storm Inc" />
         </div>
         <button class="mobile-menu__close" id="mobile-menu-close">
           <svg
@@ -522,7 +528,7 @@
       <div class="header__container">
         <div class="header__logo">
           <a href="index.html">
-            <img src="assets/img/logo.svg" alt="Storm Inc" />
+            <img src="../assets/img/logo.svg" alt="Storm Inc" />
           </a>
         </div>
 
@@ -991,279 +997,133 @@
     </section>
 
     <!-- Blog Section -->
-    <section class="blog-section">
-      <div class="blog-section__container">
-        <!-- Filter Badges -->
-        <div class="blog-filters">
-          <button
-            class="blog-filter-badge blog-filter-badge--active"
-            data-filter="all"
-          >
-            All
-          </button>
-          <button class="blog-filter-badge" data-filter="ai-ml">
-            Artificial Intelligence (AI) & Machine Learning (ML)
-          </button>
-          <button class="blog-filter-badge" data-filter="conversion">
-            Conversion Optimization
-          </button>
-          <button class="blog-filter-badge" data-filter="industry">
-            Industry Updates
-          </button>
-          <button class="blog-filter-badge" data-filter="automation">
-            Marketing Automation & CRM
-          </button>
-          <button class="blog-filter-badge" data-filter="reputation">
-            Online Reputation Management
-          </button>
-          <button class="blog-filter-badge" data-filter="products">
-            Products Overview
-          </button>
-          <button class="blog-filter-badge" data-filter="sem">
-            Search Engine Marketing
-          </button>
-          <button class="blog-filter-badge" data-filter="social">
-            Social Media Marketing
-          </button>
-          <button class="blog-filter-badge" data-filter="news">
-            Storm News
-          </button>
-          <button class="blog-filter-badge" data-filter="analytics">
-            Tracking & Analytics
-          </button>
-          <button class="blog-filter-badge" data-filter="web-dev">
-            Web Design & Development
-          </button>
-        </div>
 
-        <!-- Blog Posts Grid -->
-        <div class="blog-posts">
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B1.png"
-              alt="Google Review Gating"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jul 09, 2025</time>
-              <h3 class="blog-article__title">
-                Google Review Gating - Silver Bullet or Poisoned Chalice?
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B2.png"
-              alt="Future of AI"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jul 08, 2025</time>
-              <h3 class="blog-article__title">
-                Keynote Address on the Future of AI
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B3.png"
-              alt="NZ Digital Ad Revenue"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jul 07, 2025</time>
-              <h3 class="blog-article__title">
-                NZ Digital Ad Revenue Report for FY 2023 Released
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B4.png"
-              alt="ChatGPT Google Analytics"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jul 06, 2025</time>
-              <h3 class="blog-article__title">
-                ChatGPT Gets It Wrong 52% Of The Time On Google Analytics 4
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B5.png"
-              alt="GA4 Preparation"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jul 05, 2025</time>
-              <h3 class="blog-article__title">
-                GA4: We're 130 Days Away & The Time to Get Ready Is Now!
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B6.png"
-              alt="NZ Digital Ad Revenue Report"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jul 04, 2025</time>
-              <h3 class="blog-article__title">
-                NZ Digital Ad Revenue Report for FY 2023 Released
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B1.png"
-              alt="Google Review Gating"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jul 03, 2025</time>
-              <h3 class="blog-article__title">
-                Google Review Gating - Silver Bullet or Poisoned Chalice?
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B2.png"
-              alt="Future of AI"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jul 02, 2025</time>
-              <h3 class="blog-article__title">
-                Keynote Address on the Future of AI
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B3.png"
-              alt="NZ Digital Ad Revenue"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jul 01, 2025</time>
-              <h3 class="blog-article__title">
-                NZ Digital Ad Revenue Report for FY 2023 Released
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B4.png"
-              alt="ChatGPT Google Analytics"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jun 30, 2025</time>
-              <h3 class="blog-article__title">
-                ChatGPT Gets It Wrong 52% Of The Time On Google Analytics 4
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B5.png"
-              alt="GA4 Preparation"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jun 29, 2025</time>
-              <h3 class="blog-article__title">
-                GA4: We're 130 Days Away & The Time to Get Ready Is Now!
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B6.png"
-              alt="NZ Digital Ad Revenue Report"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jun 28, 2025</time>
-              <h3 class="blog-article__title">
-                NZ Digital Ad Revenue Report for FY 2023 Released
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B1.png"
-              alt="Google Review Gating"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jun 27, 2025</time>
-              <h3 class="blog-article__title">
-                Google Review Gating - Silver Bullet or Poisoned Chalice?
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B2.png"
-              alt="Future of AI"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jun 26, 2025</time>
-              <h3 class="blog-article__title">
-                Keynote Address on the Future of AI
-              </h3>
-            </div>
-          </article>
-
-          <article class="blog-article">
-            <img
-              src="assets/img/blogs/B3.png"
-              alt="NZ Digital Ad Revenue"
-              class="blog-article__image"
-            />
-            <div class="blog-article__content">
-              <time class="blog-article__date">Jun 25, 2025</time>
-              <h3 class="blog-article__title">
-                NZ Digital Ad Revenue Report for FY 2023 Released
-              </h3>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-    <section class="join">
-      <div class="join__left">
-        <div class="join__content">
-          <h2 class="join__left-heading">
-            Join us for a Free Digital Strategy Session
-          </h2>
-          <button class="join__cta-button">Book Now</button>
-        </div>
-      </div>
-      <div class="join__right">
+    <section class="blog-content">
+      <div class="blog-content__container">
+        <img src="../assets/img/blogs/B1.png" />
+        <h2 class="blog-content__heading">
+          Businesses Live and Die By Their Google Reviews. Find Out How To Avoid
+          Breaching Google's Deceptive Content & Behaviour Policy and Paying The
+          Very High Price for Cheating.
+        </h2>
+        <p class="case-studies__container-desc">
+          I think at this point its safe to say most business owners are sharply
+          aware of the importance of online reputation and the pivotal role that
+          Google Business Profiles Reviews play in presenting their business in
+          a very positive light and winning new customers. Many local business
+          operators simply live and die on the strength of their online reviews
+          with recent research showing that 55% of NZ shoppers read reviews
+          before making a purchase.
+        </p>
+        <img src="../assets/img/blogs/reviews-data.png" />
+        <p class="case-studies__container-desc">
+          A steady stream 5-star Google reviews, which results in a very
+          positive overall Google review score is a massive boost to your
+          business credibility, it demonstrates social proof to prospective
+          customers at a pivotal point in the customer journey and will
+          ultimately result in you winning significantly more sales and
+          customers. Consequently even just a small sprinkling of poor reviews,
+          or even a lot of ambivalent 3-star reviews can serve as a 'red flag'
+          to prospective customers and they will just hit the back button and
+          find another provide. The worst part is you'll never even know that
+          you missed out on the sale.
+        </p>
+        <p class="case-studies__container-desc">
+          It is against this backdrop that many business are introduced to an
+          almost 'too good to be true' solution known in the industry as 'review
+          gating'. The companies offering these solutions won't call it review
+          gating and will likely refer to it as a 'great tool improving the
+          quality of your reviews' (much in the in the same way that Ponzi
+          schemes are presented as 'amazing investment opportunities'). The
+          problem is that review gating is prohibited by Google, the penalties
+          for violating the policy can be very harsh and Google's tools for
+          detecting these policy violations have taken a very big step foreward
+          with the introduction of AI and will continue to improve into the
+          future greatly increasing the risk for anyone using these deceptive
+          tactics.
+        </p>
+        <h2 class="blog-content__heading">So What Is Reviewing Gating?</h2>
+        <p class="case-studies__container-desc">
+          There are a few type of review gating but the one that we are seeing
+          being increasing sold to local businesses (electricians, dentists,
+          HVAC installers etc) is a fairly simplistic software tool, where the
+          business sends out a request for a Google or Meta review to their
+          customers, normally following the delivery of a product or service and
+          usually by email or text - This part of the process is totally fine in
+          and of itself.
+        </p>
+        <p class="case-studies__container-desc">
+          When the customer receives the review request, instead of being
+          directed to Google or Meta to provide the review directly, the user is
+          directed to a third-party webpage and prompted to indicate if their
+          experience has been good or bad, normally by means of clicking on
+          either a happy face or sad face or rating their experience on a
+          numeric scale. Once the user has indicated their level of
+          satisfaction, they will be presented with two or more options based on
+          their previous response. Typically if the user have indicated that
+          they are happy they will be promptly directed to submit their review
+          to Google or Meta. If however they have indicated that they are not
+          happy. they are then directed to some other action e.g please enter
+          your negative review on our webpage (where is will never see the light
+          of day) or in some otherway obstructed or distracted from leaving a
+          negative review on Google by introducing some other process e.g please
+          fill in our feedback form to help us improve.
+        </p>
+        <img src="../assets/img/blogs/google-rating.png" />
+        <p class="case-studies__container-desc">
+          The business proposition here is really pretty clear and very
+          attractive - request Google reviews from your customers and use a
+          piece of software to send the happy one straight to Google to give you
+          and review and 'catch and kill' all the negative ones or otherwise
+          obstruct the user by putting obstacles in there way, knowing full well
+          that they are busy and will move on to other things without actually
+          leaving their review. Its certainly a very easy and attractive
+          solution (even though it is likely hiding the root problem that you
+          should actually be addressing) but unfortunately it is a violation of
+          Google (and many other platforms) policy and can result in all your
+          reviews getting removed and even harsher actions.
+        </p>
+        <p class="case-studies__container-desc">
+          You can see Googles Policy on this, listed under Deceptive content and
+          behaviour on their website which says that they do not allow merchants
+          to Discourage or prohibit negative reviews, or selectively solicit
+          positive reviews from customers. I have included a screengrab below
+          showing the precise wording to save you the click.
+        </p>
         <img
-          class="joing__right-img"
-          src="./assets/img/studio-time-lapse.webp"
+          src="../assets/img/blogs/Google-Deceptive-Content-and-Behavour-Policy 1.png"
         />
+        <p class="case-studies__container-desc">
+          I have heard from businesses that have been offered these type of
+          services that the solution providers offering these tools claim that
+          for reason X or Y that this policy doesn't apply to their service and
+          that they have a letter or other official communication from Google
+          explaining that they are exempt, but when asked to share this
+          documentation they go silent, never to be heard form again.
+        </p>
+        <h2 class="blog-content__heading">
+          Don't Get Caught With No Togs On When The Tides Goes Out.
+        </h2>
+        <p class="case-studies__container-desc">
+          I have been working in digital marketing space long enough to recall
+          many examples of when Google updated their algorithm and overnight
+          100,000s of business websites that had been 'sailing to close to the
+          wind', but getting away with it, simply got wiped off the face of the
+          search engine.
+        </p>
+        <p class="case-studies__container-desc">
+          In many of these instances (The Google 'Penguin' update springs to
+          mind) the website owners were using a third-party services and were
+          unaware of the risk they were taking, but ended up paying a very high
+          price for their ignorance (online visibility and reputations trashed)
+          and the companies that had sold them the 'services' simply upped and
+          vanished.
+        </p>
+        <p class="case-studies__container-desc">
+          This is has all happened before and will inevitably happen again and
+          when the tide does go out, we'll once again discover who's been
+          swimming naked to borrow a phrase from Warren Buffett.
+        </p>
       </div>
     </section>
 
@@ -1274,7 +1134,7 @@
       <div class="footer__content">
         <div class="footer__content-logo">
           <a href="index.html">
-            <img src="assets/img/logo-black.svg" />
+            <img src="../assets/img/logo-black.svg" />
           </a>
         </div>
         <div class="footer__content-navigation">
@@ -1359,7 +1219,7 @@
 
         <div class="footer__mobile-logo">
           <a href="index.html">
-            <img src="assets/img/logo-black.svg" alt="Storm IMC Logo" />
+            <img src="../assets/img/logo-black.svg" alt="Storm IMC Logo" />
           </a>
         </div>
       </div>
@@ -1367,8 +1227,8 @@
 
     <!-- JavaScript Files -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="assets/js/main.js?v=1756835970"></script>
-    <script src="assets/js/header.js?v=1756835970"></script>
-    <script src="assets/js/carousel.js?v=1756835970"></script>
+    <script src="../assets/js/main.js?v=1756835970"></script>
+    <script src="../assets/js/header.js?v=1756835970"></script>
+    <script src="../assets/js/carousel.js?v=1756835970"></script>
   </body>
 </html>
