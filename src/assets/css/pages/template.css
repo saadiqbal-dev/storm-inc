@@ -1631,10 +1631,15 @@
   .content__template-content__image {
     width: 100%;
     max-width: 400px;
-    min-height: 400px;
     max-height: 60vh;
     height: auto;
     flex-shrink: 0;
+
+    min-height: 100%;
+
+    img {
+      object-fit: contain;
+    }
   }
 
   .backed-by {
