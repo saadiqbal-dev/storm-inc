@@ -670,6 +670,11 @@
           return;
         }
 
+        // Disable parallax on mobile devices (768px and below)
+        if (StormApp.utils.getViewportWidth() <= 768) {
+          return;
+        }
+
         // Find all parallax elements
         const parallaxSections = document.querySelectorAll('[data-parallax]');
         if (!parallaxSections.length) return;
@@ -696,6 +701,9 @@
 
         // Setup scroll listener with requestAnimationFrame
         this.setupScrollListener();
+
+        // Setup resize handler to disable parallax on mobile
+        this.setupResizeHandler();
       },
 
       setupObserver: function () {
@@ -736,9 +744,56 @@
         window.addEventListener('resize', requestTick, { passive: true });
       },
 
+      setupResizeHandler: function () {
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => {
+            // If viewport becomes mobile-sized, disable parallax
+            if (StormApp.utils.getViewportWidth() <= 768) {
+              this.elements.forEach(element => {
+                if (element.bg) {
+                  element.bg.style.transform = '';
+                }
+              });
+            }
+          }, 250);
+        });
+      },
+
       updatePositions: function () {
-        // No transform calculations needed - CSS background-attachment: fixed handles the effect on all devices
-        // This method kept for potential future enhancements
+        // Skip parallax on mobile devices
+        if (StormApp.utils.getViewportWidth() <= 768) {
+          return;
+        }
+
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const windowHeight = window.innerHeight;
+
+        this.elements.forEach(element => {
+          if (!element.isVisible) return;
+
+          // Background image parallax transform
+          const rect = element.section.getBoundingClientRect();
+          const elementTop = rect.top + scrollTop;
+          const elementHeight = rect.height;
+
+          // Calculate progress through viewport (0 to 1)
+          // When element is entering from bottom: progress = 0
+          // When element is exiting from top: progress = 1
+          const progress = Math.max(0, Math.min(1,
+            (scrollTop + windowHeight - elementTop) / (windowHeight + elementHeight)
+          ));
+
+          // Transform range: move background up by 50px as the element scrolls through viewport
+          const maxTransform = 50;
+          const translateY = -(progress * maxTransform);
+
+          // Apply transform to background image with hardware acceleration
+          if (element.bg) {
+            element.bg.style.transform = `translate3d(0, ${translateY}px, 0)`;
+          }
+        });
       },
 
       destroy: function () {
