@@ -1142,6 +1142,10 @@ a.blog-article-link:hover {
   line-height: 43px; /* 134.375% */
 }
 
+.content__template-content__image img {
+  object-fit: cover;
+}
+
 @media (max-width: 1480px) {
   .hero__heading-template {
     font-size: 48px;
