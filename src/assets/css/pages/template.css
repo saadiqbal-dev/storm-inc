@@ -512,7 +512,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   background: #cbfff6;
-  max-width: 1920px;
+  /* max-width: 1920px; */
   margin: 0 auto;
   width: 100vw;
   height: auto;
