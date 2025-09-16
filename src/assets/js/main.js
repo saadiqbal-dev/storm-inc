@@ -796,7 +796,7 @@
           );
 
           // Transform range: move background up by 50px as the element scrolls through viewport
-          const maxTransform = 50;
+          const maxTransform = 80;
           const translateY = -(progress * maxTransform);
 
           // Apply transform to background image with hardware acceleration
