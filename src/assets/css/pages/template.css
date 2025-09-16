@@ -19,6 +19,8 @@
   object-fit: cover;
   object-position: center;
   background: #fff;
+  position: relative;
+  z-index: 5;
 }
 
 .hero__heading-template {
@@ -27,7 +29,7 @@
   color: #fff;
   text-align: center;
   font-family: var(--font-peachi);
-  font-size: 56px;
+  font-size: 50px;
   font-style: normal;
   font-weight: 300;
   line-height: 53.333px; /* 95.238% */
@@ -144,6 +146,7 @@
   position: relative;
   z-index: 500;
   flex-direction: row-reverse;
+  gap: 40px;
 }
 
 .content__template-content {
@@ -154,6 +157,7 @@
   margin: 0 auto;
   position: relative;
   z-index: 500;
+  gap: 40px;
 }
 
 .content__template-content__text {
@@ -217,20 +221,20 @@
 .content__template-content__text__desc {
   color: #555353;
   font-family: var(--font-mona-sans);
-  font-size: 26px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 400;
-  line-height: 37px; /* 142.308% */
+  line-height: 34px; /* 142.308% */
   max-width: 685px;
 }
 
 .content__template-content__text__desc-full {
   color: #555353;
   font-family: var(--font-mona-sans);
-  font-size: 26px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 400;
-  line-height: 37px; /* 142.308% */
+  line-height: 34px; /* 142.308% */
   width: 100%;
 }
 
@@ -574,10 +578,10 @@
 .case-studies__container-desc {
   color: #555353;
   font-family: var(--font-mona-sans);
-  font-size: 26px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 400;
-  line-height: 37px; /* 142.308% */
+  line-height: 34px; /* 142.308% */
 }
 
 .case-studies__cta-button {
@@ -835,11 +839,8 @@
   flex-direction: column;
   background: #ffffff;
   cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.blog-article:hover {
-  transform: translateY(-5px);
+  overflow: hidden;
+  border-radius: 3px;
 }
 
 .blog-article__image {
@@ -848,6 +849,12 @@
   flex-shrink: 0;
   border-radius: 3px;
   object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: scale(1);
+}
+
+.blog-article:hover .blog-article__image {
+  transform: scale(1.08);
 }
 
 .blog-article__content {
@@ -942,10 +949,10 @@ a.blog-article-link:hover {
 .contact-description {
   color: #555353;
   font-family: var(--font-mona-sans);
-  font-size: 26px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 400;
-  line-height: 37.333px;
+  line-height: 34px;
 }
 
 .contact-info {
@@ -972,9 +979,9 @@ a.blog-article-link:hover {
   background: transparent;
   outline: none;
   font-family: "Mona Sans";
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 400;
-  line-height: 37.333px;
+  line-height: 34px;
   color: #555353;
   width: 100%;
   box-sizing: border-box;
@@ -983,10 +990,10 @@ a.blog-article-link:hover {
 .contact-input::placeholder {
   color: #555353;
   font-family: "Mona Sans";
-  font-size: 26px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 400;
-  line-height: 37.333px;
+  line-height: 34px;
 }
 
 .contact-textarea {
@@ -1002,9 +1009,9 @@ a.blog-article-link:hover {
   background: transparent;
   outline: none;
   font-family: "Mona Sans";
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 400;
-  line-height: 37.333px;
+  line-height: 34px;
   color: #555353;
   resize: vertical;
   box-sizing: border-box;
@@ -1013,10 +1020,10 @@ a.blog-article-link:hover {
 .contact-textarea::placeholder {
   color: #555353;
   font-family: "Mona Sans";
-  font-size: 26px;
+  font-size: 22px;
   font-style: normal;
   font-weight: 400;
-  line-height: 37.333px;
+  line-height: 34px;
 }
 
 .contact-submit {

@@ -121,7 +121,8 @@
 /* 1480px and smaller breakpoints */
 @media (max-width: 1480px) {
   .footer {
-    padding: 40px 6% 24px 6%; /* Reduced padding */
+    /* padding: 40px 6% 24px 6%; Reduced padding */
+    padding: 24px 120px;
     gap: 120px; /* Reduced gap */
   }
 
