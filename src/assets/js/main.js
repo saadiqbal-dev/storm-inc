@@ -334,9 +334,7 @@
 
       implementIntersectionObserver: function () {
         if ("IntersectionObserver" in window) {
-          const imageObserver = new IntersectionObserver(function (
-            entries
-          ) {
+          const imageObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
               if (entry.isIntersecting) {
                 const img = entry.target;
@@ -540,7 +538,7 @@
     // Partners infinite scroll
     partners: {
       scrollPosition: 0,
-      scrollSpeed: 2, // Pixels per frame
+      scrollSpeed: 1.3, // Pixels per frame
       animationId: null,
 
       init: function () {
@@ -552,7 +550,9 @@
         if (!$track.length) return;
 
         // Get original logos (supports both class names for compatibility)
-        const $logos = $track.find(".partners__images-img, .partners__images-img__template");
+        const $logos = $track.find(
+          ".partners__images-img, .partners__images-img__template"
+        );
         const logoCount = $logos.length / 4; // We have 4 sets, get single set count
 
         // Keep only 2 sets of logos for smooth infinite scroll
@@ -583,7 +583,9 @@
           this.scrollPosition += this.scrollSpeed;
 
           // Get the first logo (supports both class names for compatibility)
-          const $firstLogo = $track.find(".partners__images-img, .partners__images-img__template").first();
+          const $firstLogo = $track
+            .find(".partners__images-img, .partners__images-img__template")
+            .first();
           const logoWidth = $firstLogo.outerWidth(true);
 
           // When the first logo is completely scrolled out of view, move it to the end
@@ -633,29 +635,29 @@
       },
 
       setupFilterBadges: function () {
-        const $badges = $('.blog-filter-badge');
+        const $badges = $(".blog-filter-badge");
         if (!$badges.length) return;
 
-        $badges.on('click', function (e) {
+        $badges.on("click", function (e) {
           e.preventDefault();
-          
+
           // Remove active class from all badges
-          $badges.removeClass('blog-filter-badge--active');
-          
+          $badges.removeClass("blog-filter-badge--active");
+
           // Add active class to clicked badge
-          $(this).addClass('blog-filter-badge--active');
-          
+          $(this).addClass("blog-filter-badge--active");
+
           // Get filter value
-          const filter = $(this).data('filter');
-          
+          const filter = $(this).data("filter");
+
           // Filter blog posts (placeholder for future implementation)
           // This is where you would filter the actual blog posts
-          console.log('Filter selected:', filter);
-          
+          console.log("Filter selected:", filter);
+
           // Trigger custom event for other scripts
-          $(document).trigger('blogfilter:changed', [filter]);
+          $(document).trigger("blogfilter:changed", [filter]);
         });
-      }
+      },
     },
 
     // Parallax scroll effect
@@ -666,7 +668,7 @@
 
       init: function () {
         // Check for reduced motion preference
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
           return;
         }
 
@@ -676,17 +678,17 @@
         }
 
         // Find all parallax elements
-        const parallaxSections = document.querySelectorAll('[data-parallax]');
+        const parallaxSections = document.querySelectorAll("[data-parallax]");
         if (!parallaxSections.length) return;
 
         // Setup each parallax element
-        parallaxSections.forEach(section => {
-          const bg = section.querySelector('[data-parallax-bg]');
+        parallaxSections.forEach((section) => {
+          const bg = section.querySelector("[data-parallax-bg]");
           if (bg) {
             this.elements.push({
               section: section,
               bg: bg,
-              offset: 0
+              offset: 0,
             });
           }
         });
@@ -708,12 +710,14 @@
 
       setupObserver: function () {
         const options = {
-          rootMargin: '100px 0px 100px 0px' // Start effect slightly before element is visible
+          rootMargin: "100px 0px 100px 0px", // Start effect slightly before element is visible
         };
 
         this.observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            const element = this.elements.find(el => el.section === entry.target);
+          entries.forEach((entry) => {
+            const element = this.elements.find(
+              (el) => el.section === entry.target
+            );
             if (element) {
               element.isVisible = entry.isIntersecting;
             }
@@ -721,7 +725,7 @@
         }, options);
 
         // Observe all sections
-        this.elements.forEach(element => {
+        this.elements.forEach((element) => {
           this.observer.observe(element.section);
         });
       },
@@ -740,20 +744,20 @@
         };
 
         // Use passive listener for better performance
-        window.addEventListener('scroll', requestTick, { passive: true });
-        window.addEventListener('resize', requestTick, { passive: true });
+        window.addEventListener("scroll", requestTick, { passive: true });
+        window.addEventListener("resize", requestTick, { passive: true });
       },
 
       setupResizeHandler: function () {
         let resizeTimer;
-        window.addEventListener('resize', () => {
+        window.addEventListener("resize", () => {
           clearTimeout(resizeTimer);
           resizeTimer = setTimeout(() => {
             // If viewport becomes mobile-sized, disable parallax
             if (StormApp.utils.getViewportWidth() <= 768) {
-              this.elements.forEach(element => {
+              this.elements.forEach((element) => {
                 if (element.bg) {
-                  element.bg.style.transform = '';
+                  element.bg.style.transform = "";
                 }
               });
             }
@@ -767,10 +771,11 @@
           return;
         }
 
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollTop =
+          window.pageYOffset || document.documentElement.scrollTop;
         const windowHeight = window.innerHeight;
 
-        this.elements.forEach(element => {
+        this.elements.forEach((element) => {
           if (!element.isVisible) return;
 
           // Background image parallax transform
@@ -781,9 +786,14 @@
           // Calculate progress through viewport (0 to 1)
           // When element is entering from bottom: progress = 0
           // When element is exiting from top: progress = 1
-          const progress = Math.max(0, Math.min(1,
-            (scrollTop + windowHeight - elementTop) / (windowHeight + elementHeight)
-          ));
+          const progress = Math.max(
+            0,
+            Math.min(
+              1,
+              (scrollTop + windowHeight - elementTop) /
+                (windowHeight + elementHeight)
+            )
+          );
 
           // Transform range: move background up by 50px as the element scrolls through viewport
           const maxTransform = 50;
@@ -800,9 +810,9 @@
         if (this.observer) {
           this.observer.disconnect();
         }
-        window.removeEventListener('scroll', this.updatePositions);
-        window.removeEventListener('resize', this.updatePositions);
-      }
+        window.removeEventListener("scroll", this.updatePositions);
+        window.removeEventListener("resize", this.updatePositions);
+      },
     },
 
     // Scroll animations
@@ -813,22 +823,22 @@
 
       init: function () {
         // Check for reduced motion preference
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
           return;
         }
 
         // Find all animatable elements
-        const animatableElements = document.querySelectorAll('[data-animate]');
+        const animatableElements = document.querySelectorAll("[data-animate]");
         if (!animatableElements.length) return;
 
         // Setup each animatable element
-        animatableElements.forEach(element => {
+        animatableElements.forEach((element) => {
           this.elements.push({
             element: element,
-            animation: element.dataset.animate || 'fadeInUp',
+            animation: element.dataset.animate || "fadeInUp",
             delay: parseInt(element.dataset.animateDelay) || 0,
             duration: parseInt(element.dataset.animateDuration) || 800,
-            triggered: false
+            triggered: false,
           });
         });
 
@@ -840,13 +850,15 @@
 
       setupObserver: function () {
         const options = {
-          rootMargin: '50px 0px -50px 0px', // Start animation slightly before element is visible
-          threshold: 0.1
+          rootMargin: "50px 0px -50px 0px", // Start animation slightly before element is visible
+          threshold: 0.1,
         };
 
         this.observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            const elementData = this.elements.find(el => el.element === entry.target);
+          entries.forEach((entry) => {
+            const elementData = this.elements.find(
+              (el) => el.element === entry.target
+            );
             if (elementData && entry.isIntersecting && !elementData.triggered) {
               this.triggerAnimation(elementData);
               elementData.triggered = true;
@@ -855,9 +867,9 @@
         }, options);
 
         // Observe all elements
-        this.elements.forEach(elementData => {
+        this.elements.forEach((elementData) => {
           // Add initial hidden state
-          elementData.element.classList.add('animate-hidden');
+          elementData.element.classList.add("animate-hidden");
           this.observer.observe(elementData.element);
         });
       },
@@ -867,12 +879,15 @@
 
         // Add animation classes
         setTimeout(() => {
-          element.classList.remove('animate-hidden');
-          element.classList.add('animate-visible', `animate-${elementData.animation}`);
+          element.classList.remove("animate-hidden");
+          element.classList.add(
+            "animate-visible",
+            `animate-${elementData.animation}`
+          );
 
           // Set custom duration if provided
           if (elementData.duration !== 800) {
-            element.style.animationDuration = elementData.duration + 'ms';
+            element.style.animationDuration = elementData.duration + "ms";
           }
         }, elementData.delay);
       },
@@ -881,7 +896,7 @@
         if (this.observer) {
           this.observer.disconnect();
         }
-      }
+      },
     },
 
     // Initialize all modules

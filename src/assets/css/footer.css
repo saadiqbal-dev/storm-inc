@@ -72,6 +72,18 @@
   text-decoration: underline;
 }
 
+/* Address link - no underline, no color change */
+.footer__address-link {
+  color: inherit !important;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.footer__address-link:hover {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
 .footer__content-navigation__contact-text__span {
   color: #292929;
   font-family: var(--font-mona-sans);

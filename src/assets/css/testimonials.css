@@ -199,6 +199,7 @@
   .testimonials__content-text {
     left: 40px;
     padding: 40px 45px;
+    min-width: 480px;
   }
 
   .testimonials__content-quote {
@@ -232,13 +233,13 @@
 @media (max-width: 1024px) {
   .testimonials {
     padding: 20px 60px;
-    height: 60vh;
+    height: 75vh;
   }
 
   .testimonials__content-text {
     left: 30px;
     padding: 30px 35px;
-    min-width: 450px;
+    min-width: 400px;
   }
 
   .testimonials__content-quote {
