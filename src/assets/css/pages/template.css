@@ -648,6 +648,7 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  gap: 40px;
 }
 
 /* Case Study Cards - Discover More Section */
@@ -906,14 +907,16 @@ a.blog-article-link:hover {
 }
 
 .case-study-main__img--full-width {
-  max-width: 1600px;
-  width: 100%;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(-50vw + 50%);
 }
 
 .video--full-width {
   width: 100%;
   height: 900px;
   max-height: 56.25vw;
+  border: 0;
 }
 
 .video-wrapper {
@@ -923,18 +926,19 @@ a.blog-article-link:hover {
 }
 
 .video-wrapper.img-775 {
-  width: 100%;
+  width: 775px;
   height: 477px;
+  position: relative;
 }
 
 .video-wrapper iframe {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 115%;
-  transform: translate(-50%, -50%);
+  height: 100%;
   border: 0;
+  object-fit: cover;
 }
 
 .contact-title {
@@ -1293,6 +1297,7 @@ a.blog-article-link:hover {
   }
 
   .video-wrapper.img-775 {
+    width: 543px;
     height: 334px;
   }
 
@@ -1533,7 +1538,7 @@ a.blog-article-link:hover {
   }
 
   .video-wrapper.img-775 {
-    max-width: 388px;
+    width: 388px;
     height: 238px;
   }
 
@@ -1582,6 +1587,12 @@ a.blog-article-link:hover {
 @media (max-width: 768px) {
   .video--full-width {
     height: 220px;
+  }
+
+  .video-wrapper.img-775 {
+    width: 100%;
+    max-width: 400px;
+    height: 244px;
   }
 
   .hero-template {
