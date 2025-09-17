@@ -318,7 +318,7 @@
 
   .footer__mobile-address {
     color: #292929;
-    font-family: "Mona Sans";
+    font-family: var(--font-mona-sans);
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;

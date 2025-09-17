@@ -754,7 +754,7 @@
 
   .mobile-menu__contact-text {
     color: #fff;
-    font-family: "Mona Sans";
+    font-family: var(--font-mona-sans);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;

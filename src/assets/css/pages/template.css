@@ -996,7 +996,7 @@ a.blog-article-link:hover {
   padding: 15px 30px;
   background: transparent;
   outline: none;
-  font-family: "Mona Sans";
+  font-family: var(--font-mona-sans);
   font-size: 22px;
   font-weight: 400;
   line-height: 34px;
@@ -1007,7 +1007,7 @@ a.blog-article-link:hover {
 
 .contact-input::placeholder {
   color: #555353;
-  font-family: "Mona Sans";
+  font-family: var(--font-mona-sans);
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
@@ -1026,7 +1026,7 @@ a.blog-article-link:hover {
   padding: 30px;
   background: transparent;
   outline: none;
-  font-family: "Mona Sans";
+  font-family: var(--font-mona-sans);
   font-size: 22px;
   font-weight: 400;
   line-height: 34px;
@@ -1037,7 +1037,7 @@ a.blog-article-link:hover {
 
 .contact-textarea::placeholder {
   color: #555353;
-  font-family: "Mona Sans";
+  font-family: var(--font-mona-sans);
   font-size: 22px;
   font-style: normal;
   font-weight: 400;
@@ -1055,7 +1055,7 @@ a.blog-article-link:hover {
   cursor: pointer;
   color: white;
   text-align: center;
-  font-family: "Mona Sans";
+  font-family: var(--font-mona-sans);
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -1915,7 +1915,7 @@ a.blog-article-link:hover {
 
   .contact-input {
     color: #555353;
-    font-family: "Mona Sans";
+    font-family: var(--font-mona-sans);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -1925,7 +1925,7 @@ a.blog-article-link:hover {
 
   .contact-input::placeholder {
     color: #555353;
-    font-family: "Mona Sans";
+    font-family: var(--font-mona-sans);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -1938,7 +1938,7 @@ a.blog-article-link:hover {
     max-height: 300px;
     height: auto;
     color: #555353;
-    font-family: "Mona Sans";
+    font-family: var(--font-mona-sans);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -1948,7 +1948,7 @@ a.blog-article-link:hover {
 
   .contact-textarea::placeholder {
     color: #555353;
-    font-family: "Mona Sans";
+    font-family: var(--font-mona-sans);
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
