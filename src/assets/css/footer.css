@@ -391,6 +391,12 @@
   }
 }
 
+@media (max-height: 700px) {
+  .footer__mobile-bottom {
+    gap: 50px;
+  }
+}
+
 /* Show desktop footer elements on larger screens */
 @media (min-width: 769px) {
   .footer__content-logo,
