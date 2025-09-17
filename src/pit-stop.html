@@ -1021,12 +1021,15 @@
         data-animate="fadeInUp"
         data-animate-delay="300"
       >
-        <div class="video-wrapper img-775">
-          <iframe
+        <div class="video-wrapper">
+          <!-- <iframe
             src="https://player.vimeo.com/video/1063117640?h=f24732584c&autoplay=1&loop=1&muted=1&background=1&autopause=0"
             frameborder="0"
             allow="autoplay; fullscreen; picture-in-picture"
-          ></iframe>
+          ></iframe> -->
+          <video autoplay muted loop>
+            <source src="../src/assets/videos/PitStop logo 820x535px.mp4" />
+          </video>
         </div>
         <img
           class="img-775"
@@ -1112,14 +1115,36 @@
         </div>
       </div>
       <div class="case-study-main__img">
-        <img
-          class="img-775"
+        <!-- <img
+          class="content__template-content__image"
           src="./assets/img/case-studies/pit-stop/worker.png"
         />
         <img
-          class="img-775"
+          class="content__template-content__image"
           src="./assets/img/case-studies/pit-stop/pit-stop-2.png"
-        />
+        /> -->
+        <div class="content__template-content">
+          <div
+            class="content__template-content__image"
+            data-animate="fadeInUp"
+            data-animate-delay="200"
+          >
+            <img
+              src="./assets/img/case-studies/pit-stop/worker.jpg"
+              alt="About Image"
+            />
+          </div>
+          <div
+            class="content__template-content__image"
+            data-animate="fadeInUp"
+            data-animate-delay="200"
+          >
+            <img
+              src="./assets/img/case-studies//pit-stop/pit-stop-2.png"
+              alt="About Image"
+            />
+          </div>
+        </div>
       </div>
       <div class="case-study-main__img">
         <img src="./assets/img/case-studies/pit-stop/website-layout.jpg" />
