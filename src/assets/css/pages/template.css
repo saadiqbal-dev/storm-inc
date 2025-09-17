@@ -283,7 +283,7 @@
   /* height: fit-content; */
   position: relative;
   padding-bottom: 100px;
-  z-index: 50;
+  z-index: 500;
   background: #fff;
   margin: 0 auto;
   align-items: center;
