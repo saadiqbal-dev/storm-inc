@@ -349,6 +349,7 @@
   flex-direction: column;
   justify-content: center;
   padding-left: 160px;
+  margin-left: auto;
   padding-right: 107px;
   height: 100%;
   gap: 24px;
