@@ -83,10 +83,21 @@ class HeroCarousel {
 
     this.setupInfiniteCarousel();
     this.setupCarousel();
+    this.applyKenBurnsSmoothing();
     this.setupAccessibility();
     this.setupEventListeners();
     this.startAutoSlide();
     this.setupParallax();
+  }
+
+  applyKenBurnsSmoothing() {
+    // Avoid background "snap" by making Ken Burns alternate smoothly
+    const backgrounds = document.querySelectorAll(".hero__slide-bg");
+    backgrounds.forEach((bg) => {
+      bg.style.animationDirection = "alternate";
+      bg.style.animationIterationCount = "infinite";
+      bg.style.animationFillMode = "both";
+    });
   }
 
   setupInfiniteCarousel() {
@@ -662,7 +673,7 @@ class HeroCarousel {
         });
 
         // Layer 2: Text content moves at different speed (apply to wrappers to avoid transition lag)
-        const textParallaxSpeed = -scrolled * 0.6;
+        const textParallaxSpeed = -scrolled * 0.3;
         const wrappers = document.querySelectorAll(".hero__content-wrapper");
         wrappers.forEach((wrap) => {
           this.transformManager.setTransform(
