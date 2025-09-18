@@ -338,7 +338,7 @@
 
   .testimonials__content-quote {
     font-size: 64px;
-    line-height: 30px;
+    line-height: 0px;
     color: #292929;
     font-family: var(--font-peachi);
     margin-bottom: 0px;
