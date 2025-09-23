@@ -88,6 +88,7 @@ class HeroCarousel {
     this.setupEventListeners();
     this.startAutoSlide();
     this.setupParallax();
+    this.setupTopOverscrollGuard();
   }
 
   applyKenBurnsSmoothing() {
@@ -98,6 +99,49 @@ class HeroCarousel {
       bg.style.animationIterationCount = "infinite";
       bg.style.animationFillMode = "both";
     });
+  }
+
+  setupTopOverscrollGuard() {
+    // Prevent upward scroll bounce when already at the very top of the page
+    // Wheel (trackpad/mouse)
+    const wheelHandler = (e) => {
+      if (window.scrollY <= 0) {
+        const dy = e.deltaY || 0;
+        const dx = e.deltaX || 0;
+        // Only block when vertical intent upwards (dy < 0) dominates
+        if (Math.abs(dy) >= Math.abs(dx) && dy < 0) {
+          e.preventDefault();
+        }
+      }
+    };
+
+    // Touch (mobile)
+    let guardTouchStartY = 0;
+    const onTouchStartGuard = (e) => {
+      if (e.touches && e.touches.length) {
+        guardTouchStartY = e.touches[0].clientY;
+      }
+    };
+    const onTouchMoveGuard = (e) => {
+      if (window.scrollY <= 0 && e.touches && e.touches.length) {
+        const currentY = e.touches[0].clientY;
+        const dy = currentY - guardTouchStartY; // > 0 means pulling down (attempting to scroll up)
+        if (dy > 0) {
+          e.preventDefault();
+        }
+      }
+    };
+
+    window.addEventListener("wheel", wheelHandler, { passive: false });
+    window.addEventListener("touchstart", onTouchStartGuard, { passive: true });
+    window.addEventListener("touchmove", onTouchMoveGuard, { passive: false });
+
+    // Save for cleanup
+    this.removeTopOverscrollGuard = () => {
+      window.removeEventListener("wheel", wheelHandler);
+      window.removeEventListener("touchstart", onTouchStartGuard);
+      window.removeEventListener("touchmove", onTouchMoveGuard);
+    };
   }
 
   setupInfiniteCarousel() {
@@ -773,6 +817,9 @@ class HeroCarousel {
     window.removeEventListener("scroll", this.scrollHandler);
     if (this.visibilityHandler) {
       document.removeEventListener("visibilitychange", this.visibilityHandler);
+    }
+    if (this.removeTopOverscrollGuard) {
+      this.removeTopOverscrollGuard();
     }
 
     // Cancel animation frames
