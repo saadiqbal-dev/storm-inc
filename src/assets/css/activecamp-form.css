@@ -10,8 +10,8 @@
   margin: 0;
   position: relative;
   text-align: left;
-  margin: 25px auto 0;
-  padding: 20px;
+  margin: 0px auto 0;
+  padding: 0px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -43,13 +43,21 @@
 
 /* Form positioning */
 #_form_3_._form-top,
-#_form_3_mobile._form-top { top: 0; }
+#_form_3_mobile._form-top {
+  top: 0;
+}
 #_form_3_._form-bottom,
-#_form_3_mobile._form-bottom { bottom: 0; }
+#_form_3_mobile._form-bottom {
+  bottom: 0;
+}
 #_form_3_._form-left,
-#_form_3_mobile._form-left { left: 0; }
+#_form_3_mobile._form-left {
+  left: 0;
+}
 #_form_3_._form-right,
-#_form_3_mobile._form-right { right: 0; }
+#_form_3_mobile._form-right {
+  right: 0;
+}
 
 /* Input styles */
 #_form_3_ input[type="text"],
@@ -58,7 +66,7 @@
 #_form_3_mobile input[type="text"],
 #_form_3_mobile input[type="tel"],
 #_form_3_mobile input[type="date"] {
-  padding: 12px 20px !important;
+  padding: 12px 38px !important;
   height: 60px !important;
   border: 2px solid #979797 !important;
   border-radius: 40px !important;
@@ -74,7 +82,7 @@
 
 #_form_3_ textarea,
 #_form_3_mobile textarea {
-  padding: 12px 20px !important;
+  padding: 12px 38px !important;
   height: 148px;
   border: 2px solid #979797 !important;
   border-radius: 40px !important;
@@ -85,6 +93,8 @@
   box-sizing: border-box;
   display: block;
   width: 100%;
+  height: 100%;
+  min-height: 200px;
   font-family: inherit;
   resize: none;
 }
@@ -99,7 +109,7 @@
 #_form_3_mobile input[type="date"]:focus,
 #_form_3_mobile textarea:focus {
   outline: none;
-  border-color: #FB460F !important;
+  border-color: #fb460f !important;
   box-shadow: 0 0 0 3px rgba(251, 70, 15, 0.1);
 }
 
@@ -111,12 +121,12 @@
   font-family: arial, sans-serif;
   font-size: 14px;
   text-align: center;
-  background: #FF5964 !important;
+  background: #ff5964 !important;
   border: 0 !important;
   -moz-border-radius: 40px !important;
   -webkit-border-radius: 40px !important;
   border-radius: 40px !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   padding: 15px 40px !important;
   width: fit-content !important;
   height: 60px !important;
@@ -144,7 +154,8 @@
   left: 50%;
   border: double 3px transparent;
   border-radius: 50%;
-  background-image: linear-gradient(#FF5964, #FF5964), conic-gradient(#FF5964, #FFFFFF);
+  background-image: linear-gradient(#ff5964, #ff5964),
+    conic-gradient(#ff5964, #ffffff);
   background-origin: border-box;
   background-clip: content-box, border-box;
   animation: 1200ms ease 0s infinite normal none running _spin;
@@ -158,24 +169,28 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: #FF5964 !important;
+  background: #ff5964 !important;
   border: 0 !important;
   -moz-border-radius: 40px !important;
   -webkit-border-radius: 40px !important;
   border-radius: 40px !important;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
   padding: 15px !important;
 }
 
 @keyframes _spin {
-  0% { transform: translate(-50%, -50%) rotate(90deg); }
-  100% { transform: translate(-50%, -50%) rotate(450deg); }
+  0% {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(450deg);
+  }
 }
 
 /* Form elements */
 #_form_3_ ._form_element {
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-size: 0;
   max-width: 100%;
 }
@@ -208,11 +223,11 @@
 /* Error handling styles */
 #_form_3_ input[type="text"]._has_error,
 #_form_3_ textarea._has_error {
-  border: #F37C7B 1px solid;
+  border: #f37c7b 1px solid;
 }
 
 #_form_3_ input[type="checkbox"]._has_error {
-  outline: #F37C7B 1px solid;
+  outline: #f37c7b 1px solid;
 }
 
 #_form_3_ ._show_be_error {
@@ -244,7 +259,7 @@
   right: 15px;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-top: 8px solid #FFDDDD;
+  border-top: 8px solid #ffdddd;
 }
 
 #_form_3_ ._error._below ._error-arrow {
@@ -252,12 +267,12 @@
   right: 15px;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
-  border-bottom: 8px solid #FFDDDD;
+  border-bottom: 8px solid #ffdddd;
 }
 
 #_form_3_ ._error-inner {
   padding: 12px 12px 12px 36px;
-  background-color: #FFDDDD;
+  background-color: #ffdddd;
   background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 8C16 12.4183 12.4183 16 8 16C3.58172 16 0 12.4183 0 8C0 3.58172 3.58172 0 8 0C12.4183 0 16 3.58172 16 8ZM9 3V9H7V3H9ZM9 13V11H7V13H9Z' fill='%23CA0000'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: 12px center;
@@ -342,7 +357,7 @@
 
 /* Required field indicator */
 #_form_3_ .field-required {
-  color: #FF0000;
+  color: #ff0000;
 }
 
 /* Form title */
@@ -423,7 +438,7 @@
 }
 
 #_form_3_ .iti--separate-dial-code .iti__selected-flag {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border-radius: 4px;
 }
 
@@ -446,11 +461,11 @@
 }
 
 #_form_3_ .phone-error {
-  color: #E40E49;
+  color: #e40e49;
 }
 
 #_form_3_ .phone-input-error {
-  border: 1px solid #E40E49 !important;
+  border: 1px solid #e40e49 !important;
 }
 
 /* SMS consent checkbox */
@@ -473,7 +488,7 @@
   text-align: left;
   margin-bottom: 10px;
   font-size: 14px;
-  color: #7D8799;
+  color: #7d8799;
 }
 
 #_form_3_ .sms_consent_checkbox .sms_consent_message.sms_consent_mini {
@@ -481,9 +496,16 @@
 }
 
 /* Mobile responsive styles */
-@media (min-width:320px) and (max-width:667px) {
+@media (min-width: 320px) and (max-width: 667px) {
   ::-webkit-scrollbar {
     display: none;
+  }
+
+  #field_8_mobile {
+    margin-top: 20px;
+  }
+  #field_7_mobile {
+    margin-top: 20px;
   }
 
   #_form_3_ {
@@ -495,7 +517,7 @@
   }
 
   #_form_3_ *,
-#_form_3_mobile * {
+  #_form_3_mobile * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -538,6 +560,7 @@
     float: none;
     display: block;
     width: 100%;
+    scale: 0.8;
   }
 
   #_form_3_ ._row._checkbox-radio label {
@@ -557,7 +580,7 @@
     vertical-align: middle !important;
   }
 
-  #_form_3_ ._row input[type="checkbox"]+span label {
+  #_form_3_ ._row input[type="checkbox"] + span label {
     display: inline;
   }
 
