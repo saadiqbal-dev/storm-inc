@@ -69,6 +69,11 @@ li {
   margin: 0;
 }
 
+a {
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: 1px !important;
+}
+
 /* =============================================================================
    Focus States for Accessibility
    ============================================================================= */
