@@ -126,6 +126,13 @@
   z-index: 2;
 }
 
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+}
+
 .hero__content {
   position: relative;
   display: flex;
@@ -261,7 +268,8 @@
   }
 
   @keyframes kenBurns {
-    0%, 100% {
+    0%,
+    100% {
       transform: scale(1);
     }
   }
@@ -367,5 +375,9 @@
     padding: 8px 20px;
     height: auto;
     width: auto;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
   }
 }
