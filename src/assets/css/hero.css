@@ -126,11 +126,12 @@
   z-index: 2;
 }
 
-.hero-buttons {
+.hero__text .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 25px;
+  margin-top: 30px;
 }
 
 .hero__content {
@@ -195,6 +196,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 
 .hero__cta-button:hover {
@@ -376,7 +378,7 @@
     height: auto;
     width: auto;
   }
-  .hero-buttons {
+  .hero__text .buttons {
     flex-direction: column;
     gap: 15px;
   }
