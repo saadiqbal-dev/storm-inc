@@ -666,47 +666,79 @@
       <!-- Dropdown Menus -->
       <div class="header__dropdown" id="compatibilities-dropdown">
         <div class="dropdown__header-styles">
-          <div class="header__dropdown-content">
-            <div class="dropdown-capabilities">
-              <!-- Left Section -->
-              <div class="dropdown-capabilities__left">
+          <!-- Links Section (top) -->
+          <div class="header__dropdown-links-section">
+            <div class="row gx-5">
+              <!-- Digital Marketing Category -->
+              <div class="col-auto">
                 <div class="dropdown-capabilities__category">
                   <p class="dropdown-capabilities__title">DIGITAL MARKETING</p>
-                  <div class="dropdown-capabilities__links">
-                    <div class="dropdown-capabilities__column">
-                      <a href="#" class="dropdown-capabilities__link"
-                        >Google Ads (SEM)</a
-                      >
-                      <a
-                        href="search-engine-optimization.html"
-                        class="dropdown-capabilities__link"
-                        >Search Engine Optimisation (SEO)</a
-                      >
-                      <a href="#" class="dropdown-capabilities__link"
-                        >Marketing Automation</a
-                      >
-                      <a href="#" class="dropdown-capabilities__link"
-                        >Google My Business</a
-                      >
-                    </div>
-                    <div class="dropdown-capabilities__column">
-                      <a href="#" class="dropdown-capabilities__link"
-                        >Digital Strategy & Planning</a
-                      >
-                      <a href="#" class="dropdown-capabilities__link"
-                        >Social Media</a
-                      >
-                      <a href="#" class="dropdown-capabilities__link"
-                        >Data & Analytics</a
-                      >
-                    </div>
+                  <div class="dropdown-capabilities__links-list">
+                    <!-- Backend can loop through links here -->
+                    <a href="#" class="dropdown-capabilities__link"
+                      >Google Ads (SEM)</a
+                    >
+                    <a
+                      href="search-engine-optimization.html"
+                      class="dropdown-capabilities__link"
+                      >Search Engine Optimisation (SEO)</a
+                    >
+                    <a href="#" class="dropdown-capabilities__link"
+                      >Marketing Automation</a
+                    >
+                    <a href="#" class="dropdown-capabilities__link"
+                      >Google My Business</a
+                    >
+                    <a href="#" class="dropdown-capabilities__link"
+                      >Digital Strategy & Planning</a
+                    >
+                    <a href="#" class="dropdown-capabilities__link"
+                      >Social Media</a
+                    >
+                    <a href="#" class="dropdown-capabilities__link"
+                      >Data & Analytics</a
+                    >
                   </div>
                 </div>
               </div>
 
-              <!-- Right Section -->
-              <div class="dropdown-capabilities__right">
-                <div class="dropdown-capabilities__cta">
+              <!-- Creative Content Production Category -->
+              <div class="col-auto">
+                <div class="dropdown-capabilities__category">
+                  <p class="dropdown-capabilities__title">
+                    CREATIVE CONTENT PRODUCTION
+                  </p>
+                  <div class="dropdown-capabilities__links-list">
+                    <!-- Backend can loop through links here -->
+                    <a href="#" class="dropdown-capabilities__link"
+                      >Website Development</a
+                    >
+                    <a href="#" class="dropdown-capabilities__link"
+                      >Content Marketing</a
+                    >
+                    <a href="#" class="dropdown-capabilities__link"
+                      >Email Marketing</a
+                    >
+                    <a href="#" class="dropdown-capabilities__link"
+                      >Video Production</a
+                    >
+                    <a href="#" class="dropdown-capabilities__link"
+                      >Landing Page Optimization</a
+                    >
+                    <a href="#" class="dropdown-capabilities__link"
+                      >Display Production</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Section (bottom) - Separate for Blade Partial -->
+          <div class="header__dropdown-cta-section">
+            <div class="row gx-4">
+              <div class="col">
+                <div class="dropdown-capabilities__cta dropdown-capabilities__cta--pink">
                   <div class="dropdown-capabilities__cta-text">
                     <p class="dropdown-capabilities__cta-title">
                       Digital Marketing Strategy
@@ -731,46 +763,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="header__dropdown-content">
-            <div class="dropdown-capabilities__creative">
-              <!-- Left Section -->
-              <div class="dropdown-capabilities__right-styles">
-                <div class="dropdown-capabilities__category">
-                  <p class="dropdown-capabilities__title">
-                    CREATIVE CONTENT PRODUCTION
-                  </p>
-                  <div class="dropdown-capabilities__links">
-                    <div class="dropdown-capabilities__column">
-                      <a href="#" class="dropdown-capabilities__link"
-                        >Website Development</a
-                      >
-                      <a href="#" class="dropdown-capabilities__link"
-                        >Content Marketing</a
-                      >
-                      <a href="#" class="dropdown-capabilities__link"
-                        >Email Marketing</a
-                      >
-                    </div>
-                    <div class="dropdown-capabilities__column">
-                      <a href="#" class="dropdown-capabilities__link"
-                        >Video Production</a
-                      >
-                      <a href="#" class="dropdown-capabilities__link"
-                        >Landing Page Optimization</a
-                      >
-                      <a href="#" class="dropdown-capabilities__link"
-                        >Display Production</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Right Section -->
-              <div class="dropdown-capabilities__right-black">
-                <div class="dropdown-capabilities__cta">
+              <div class="col">
+                <div class="dropdown-capabilities__cta dropdown-capabilities__cta--dark">
                   <div class="dropdown-capabilities__cta-text">
                     <p class="dropdown-capabilities__cta-title">
                       Design Studio
@@ -802,30 +796,50 @@
 
       <div class="header__dropdown" id="work-dropdown">
         <div class="dropdown__header-styles">
-          <div class="header__dropdown-content">
-            <div class="dropdown-capabilities">
-              <!-- Left Section -->
-              <div class="dropdown-capabilities__left">
+          <!-- Links Section (top) -->
+          <div class="header__dropdown-links-section">
+            <div class="row gx-5">
+              <!-- Work Category -->
+              <div class="col-auto">
                 <div class="dropdown-capabilities__category">
                   <p class="dropdown-capabilities__title">WORK</p>
-                  <div class="dropdown-capabilities__links">
-                    <div class="dropdown-capabilities__column">
-                      <a
-                        href="case-studies.html"
-                        class="dropdown-capabilities__link"
-                        >Case Studies</a
-                      >
-                      <a href="work.html" class="dropdown-capabilities__link"
-                        >Portfolio</a
-                      >
-                    </div>
+                  <div class="dropdown-capabilities__links-list">
+                    <!-- Backend can loop through links here -->
+                    <a href="case-studies.html" class="dropdown-capabilities__link"
+                      >Case Studies</a
+                    >
+                    <a
+                      href="work.html"
+                      class="dropdown-capabilities__link"
+                      >Portfolio</a
+                    >
                   </div>
                 </div>
               </div>
 
-              <!-- Right Section -->
-              <div class="dropdown-capabilities__right">
-                <div class="dropdown-capabilities__cta">
+              <!-- Resources Category -->
+              <div class="col-auto">
+                <div class="dropdown-capabilities__category">
+                  <p class="dropdown-capabilities__title">RESOURCES</p>
+                  <div class="dropdown-capabilities__links-list">
+                    <!-- Backend can loop through links here -->
+                    <a href="#" class="dropdown-capabilities__link"
+                      >GA4 UTM Link Builder
+                    </a>
+                    <a href="#" class="dropdown-capabilities__link"
+                      >SEO Audit Tools</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA Section (bottom) - Separate for Blade Partial -->
+          <div class="header__dropdown-cta-section">
+            <div class="row gx-4">
+              <div class="col">
+                <div class="dropdown-capabilities__cta dropdown-capabilities__cta--pink">
                   <div class="dropdown-capabilities__cta-text">
                     <p class="dropdown-capabilities__cta-title">
                       Digital Marketing Strategy
@@ -850,30 +864,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="header__dropdown-content">
-            <div class="dropdown-capabilities__creative-work">
-              <!-- Left Section -->
-              <div class="dropdown-capabilities__right-styles">
-                <div class="dropdown-capabilities__category">
-                  <p class="dropdown-capabilities__title">RESOURCES</p>
-                  <div class="dropdown-capabilities__links">
-                    <div class="dropdown-capabilities__column">
-                      <a href="#" class="dropdown-capabilities__link"
-                        >GA4 UTM Link Builder
-                      </a>
-                      <a href="#" class="dropdown-capabilities__link"
-                        >SEO Audit Tools</a
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Right Section -->
-              <div class="dropdown-capabilities__right-black">
-                <div class="dropdown-capabilities__cta">
+              <div class="col">
+                <div class="dropdown-capabilities__cta dropdown-capabilities__cta--dark">
                   <div class="dropdown-capabilities__cta-text">
                     <p class="dropdown-capabilities__cta-title">
                       Design Studio
@@ -905,34 +897,38 @@
 
       <div class="header__dropdown" id="about-dropdown">
         <div class="dropdown__header-styles__about">
-          <div class="header__dropdown-content">
-            <div class="dropdown-capabilities">
-              <!-- Left Section -->
-              <div class="dropdown-capabilities__left">
+          <!-- Links Section (top) -->
+          <div class="header__dropdown-links-section">
+            <div class="row gx-5">
+              <!-- About Category -->
+              <div class="col-auto">
                 <div class="dropdown-capabilities__category">
                   <p class="dropdown-capabilities__title">ABOUT</p>
-                  <div class="dropdown-capabilities__links">
-                    <div class="dropdown-capabilities__column">
-                      <a href="about.html" class="dropdown-capabilities__link"
-                        >About</a
-                      >
-                      <a href="blogs.html" class="dropdown-capabilities__link"
-                        >News</a
-                      >
-                      <a href="#" class="dropdown-capabilities__link">Team</a>
-                      <a
-                        href="capabilities.html"
-                        class="dropdown-capabilities__link"
-                        >Capabilities</a
-                      >
-                    </div>
+                  <div class="dropdown-capabilities__links-list">
+                    <!-- Backend can loop through links here -->
+                    <a href="about.html" class="dropdown-capabilities__link"
+                      >About</a
+                    >
+                    <a href="blogs.html" class="dropdown-capabilities__link"
+                      >News</a
+                    >
+                    <a href="#" class="dropdown-capabilities__link">Team</a>
+                    <a
+                      href="capabilities.html"
+                      class="dropdown-capabilities__link"
+                      >Capabilities</a
+                    >
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
 
-              <!-- Right Section -->
-              <div class="dropdown-capabilities__right">
-                <div class="dropdown-capabilities__cta">
+          <!-- CTA Section (bottom) - Separate for Blade Partial -->
+          <div class="header__dropdown-cta-section">
+            <div class="row gx-4">
+              <div class="col">
+                <div class="dropdown-capabilities__cta dropdown-capabilities__cta--pink">
                   <div class="dropdown-capabilities__cta-text">
                     <p class="dropdown-capabilities__cta-title">
                       Digital Marketing Strategy
@@ -957,13 +953,8 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="header__dropdown-content">
-            <div class="dropdown-capabilities__creative-about">
-              <!-- Right Section -->
-              <div class="dropdown-capabilities__right-black">
-                <div class="dropdown-capabilities__cta">
+              <div class="col">
+                <div class="dropdown-capabilities__cta dropdown-capabilities__cta--dark">
                   <div class="dropdown-capabilities__cta-text">
                     <p class="dropdown-capabilities__cta-title">
                       Design Studio
