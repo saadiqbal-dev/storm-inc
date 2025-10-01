@@ -549,19 +549,39 @@
         const $track = $(".partners__slide-track");
         if (!$track.length) return;
 
-        // Get original logos (supports both class names for compatibility)
-        const $logos = $track.find(
+        // Get original unique logos (supports both class names for compatibility)
+        const $originalLogos = $track.find(
           ".partners__images-img, .partners__images-img__template"
         );
-        const logoCount = $logos.length / 4; // We have 4 sets, get single set count
 
-        // Keep only 2 sets of logos for smooth infinite scroll
+        if (!$originalLogos.length) return;
+
+        // Store original logos before clearing
+        const originalLogosArray = $originalLogos.toArray().map(el => $(el).clone());
+        const uniqueLogoCount = originalLogosArray.length;
+
+        // Calculate how many clones we need based on viewport width
+        // We want enough logos to fill at least 2x the viewport width for seamless infinite scroll
+        const viewportWidth = $(window).width();
+
+        // Estimate average logo width (will be more accurate once rendered)
+        // Typical logo width is around 150-200px with margins
+        const estimatedLogoWidth = 180;
+        const estimatedTotalWidth = uniqueLogoCount * estimatedLogoWidth;
+
+        // Calculate minimum sets needed to fill 2x viewport (for seamless loop)
+        const minSetsNeeded = Math.ceil((viewportWidth * 2) / estimatedTotalWidth);
+
+        // Use at least 3 sets to ensure smooth animation even with few images
+        const setsToCreate = Math.max(3, minSetsNeeded);
+
+        // Clear the track and rebuild with calculated number of sets
         $track.empty();
 
-        // Add two full sets
-        for (let j = 0; j < 2; j++) {
-          for (let i = 0; i < logoCount; i++) {
-            $track.append($logos.eq(i).clone());
+        // Add the calculated number of sets
+        for (let j = 0; j < setsToCreate; j++) {
+          for (let i = 0; i < uniqueLogoCount; i++) {
+            $track.append(originalLogosArray[i].clone());
           }
         }
 
