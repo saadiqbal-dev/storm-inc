@@ -34,6 +34,7 @@
       this.setupDropdowns();
       this.setupScrollEffect();
       this.checkInitialScroll();
+      this.setupDropdownColumns();
     }
 
     /**
@@ -122,6 +123,24 @@
         this.header.classList.add('header--scrolled');
         this.isScrolled = true;
       }
+    }
+
+    /**
+     * Setup dropdown columns based on number of links
+     * If more than 3 links, use 2 columns. Otherwise, use 1 column.
+     */
+    setupDropdownColumns() {
+      const linkLists = document.querySelectorAll('.dropdown-capabilities__links-list');
+
+      linkLists.forEach(list => {
+        const links = list.querySelectorAll('.dropdown-capabilities__link');
+
+        if (links.length > 3) {
+          list.classList.add('dropdown-capabilities__links-list--two-columns');
+        } else {
+          list.classList.remove('dropdown-capabilities__links-list--two-columns');
+        }
+      });
     }
 
     /**

@@ -265,8 +265,12 @@
 .dropdown-capabilities__links-list {
   display: block;
   width: 100%;
-  column-count: 2;
+  column-count: 1;
   column-gap: 40px;
+}
+
+.dropdown-capabilities__links-list--two-columns {
+  column-count: 2;
 }
 
 .dropdown-capabilities__link {
