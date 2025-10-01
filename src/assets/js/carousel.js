@@ -862,19 +862,52 @@ class HeroCarousel {
 class TestimonialsCarousel {
   constructor() {
     this.track = document.querySelector(".testimonials__carousel-track");
-    this.indicators = document.querySelectorAll(
-      ".testimonials__indicators circle, .testimonials__indicators .testimonials__indicator"
-    );
+    this.slides = document.querySelectorAll(".testimonials__slide");
+    this.indicatorsContainer = document.querySelector(".testimonials__indicators");
     this.currentSlide = 0;
-    this.totalSlides = 2;
+    this.totalSlides = this.slides.length;
 
     this.init();
   }
 
   init() {
+    if (!this.track || !this.slides.length || !this.indicatorsContainer) return;
+
+    this.createIndicators();
     this.updateIndicators();
     this.setupIndicatorClicks();
     this.startCarousel();
+  }
+
+  createIndicators() {
+    // Calculate SVG width based on number of slides (spacing: 20px between circles)
+    const svgWidth = this.totalSlides * 10 + (this.totalSlides - 1) * 20;
+
+    // Create SVG element
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("width", svgWidth);
+    svg.setAttribute("height", "10");
+    svg.setAttribute("viewBox", `0 0 ${svgWidth} 10`);
+    svg.setAttribute("fill", "none");
+
+    // Create circles dynamically
+    for (let i = 0; i < this.totalSlides; i++) {
+      const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+      const cx = 5 + i * 30; // 5 (radius) + i * 30 (10 diameter + 20 spacing)
+      circle.setAttribute("cx", cx);
+      circle.setAttribute("cy", "5");
+      circle.setAttribute("r", "5");
+      circle.setAttribute("fill", "#292929");
+      circle.setAttribute("fill-opacity", "0.35");
+      svg.appendChild(circle);
+    }
+
+    // Clear existing content and append new SVG
+    this.indicatorsContainer.innerHTML = "";
+    this.indicatorsContainer.appendChild(svg);
+
+    // Update indicators reference
+    this.indicators = this.indicatorsContainer.querySelectorAll("circle");
   }
 
   setupIndicatorClicks() {
@@ -894,30 +927,18 @@ class TestimonialsCarousel {
   }
 
   updateIndicators() {
-    this.indicators.forEach((indicator, index) => {
+    this.indicators.forEach((indicator) => {
       indicator.classList.remove("testimonials__indicator--active");
-      // Handle both SVG circle elements and regular elements
-      if (indicator.tagName === "circle") {
-        indicator.setAttribute("fill", "#D9D9D9");
-        indicator.setAttribute("fill-opacity", "1");
-      } else {
-        indicator.style.fill = "#D9D9D9";
-        indicator.style.fillOpacity = "1";
-      }
+      indicator.setAttribute("fill", "#292929");
+      indicator.setAttribute("fill-opacity", "0.35");
     });
 
     if (this.indicators[this.currentSlide]) {
       this.indicators[this.currentSlide].classList.add(
         "testimonials__indicator--active"
       );
-      // Handle both SVG circle elements and regular elements
-      if (this.indicators[this.currentSlide].tagName === "circle") {
-        this.indicators[this.currentSlide].setAttribute("fill", "#999393");
-        this.indicators[this.currentSlide].setAttribute("fill-opacity", "1");
-      } else {
-        this.indicators[this.currentSlide].style.fill = "#999393";
-        this.indicators[this.currentSlide].style.fillOpacity = "1";
-      }
+      this.indicators[this.currentSlide].setAttribute("fill", "#292929");
+      this.indicators[this.currentSlide].setAttribute("fill-opacity", "1");
     }
   }
 
